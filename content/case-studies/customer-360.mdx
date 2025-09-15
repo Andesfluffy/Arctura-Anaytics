@@ -1,0 +1,35 @@
+---
+title: Customer 360 and churn reduction
+summary: Unified profiles and propensity modeling cut churn by 15%.
+date: 2024-06-10
+cover: https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&auto=format&fit=crop
+tags:
+  - Customer 360
+  - Marketing
+  - Segmentation
+---
+
+Achieving a true Customer 360 required reconciling identities across sources and driving action
+via high-quality audiences and journeys.
+
+## Highlights
+
+- Deterministic + probabilistic ID resolution
+- Reverse ETL to ad and messaging platforms
+- Uplift experimentation with causal ML
+
+```python title="features/churn.py"
+import pandas as pd
+from sklearn.ensemble import GradientBoostingClassifier
+
+model = GradientBoostingClassifier()
+model.fit(X_train, y_train)
+proba = model.predict_proba(X_test)[:, 1]
+```
+
+## Outcomes
+
+- 15% reduction in churn rate
+- +9% incremental revenue from improved retention
+- Faster audience build cycles (hours, not weeks)
+

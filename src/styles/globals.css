@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light mode (default) */
+:root {
+  --bg: #ffffff;
+  --fg: #0f172a; /* slate-900 */
+  --ink: var(--fg);
+  --surface: #f1f5f9; /* slate-100 */
+  --muted: #475569;   /* slate-600 */
+
+  /* Brand palette (from user) */
+  --bistre: #332a21;        /* hsla(30,21%,16%) */
+  --smoky-black: #171312;   /* hsla(12,12%,8%) */
+  --space-cadet: #2e3457;   /* hsla(231,31%,26%) */
+  --lion: #bc9a7f;          /* hsla(27,31%,62%) */
+  --raisin-black: #252634;  /* hsla(236,17%,17%) */
+
+  /* Map brand accents to palette for gradients */
+  --accent-teal: var(--lion);
+  --accent-emerald: var(--space-cadet);
+  --accent-cyan: var(--raisin-black);
+}
+
+/* Dark mode (class) */
+.dark {
+  --bg: var(--smoky-black);
+  --fg: #e5e7eb;        /* slate-200 */
+  --ink: var(--fg);
+  --surface: var(--raisin-black);
+  --muted: #94a3b8;     /* slate-400 */
+
+  /* Keep accents aligned to palette */
+  --accent-teal: var(--lion);
+  --accent-emerald: var(--space-cadet);
+  --accent-cyan: var(--bistre);
+}
+
+@layer base {
+  html, body { background: var(--bg); color: var(--fg); }
+  body { font-family: var(--font-body, ui-sans-serif), system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial; }
+  h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading, var(--font-headings, ui-sans-serif)), var(--font-body, ui-sans-serif); font-weight: 700; letter-spacing: -0.01em; }
+
+  h1 { @apply text-h1; }
+  h2 { @apply text-h2; }
+  h3 { @apply text-h3; }
+  h4 { @apply text-h4; }
+  h5 { @apply text-h5; }
+  h6 { @apply text-h6; }
+}
+
+@layer components {
+  .container { @apply mx-auto max-w-7xl px-4 sm:px-6 md:px-8; }
+  .section-y-sm { @apply py-12; }
+  .section-y { @apply py-16; }
+  .section-y-lg { @apply py-24; }
+  .glass { @apply backdrop-blur-md border border-white/10; background: rgba(255,255,255,.08); }
+  .dark .glass { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); }
+  .accent-bar { height: 2px; width: 100%; background-image: linear-gradient(90deg, var(--accent-teal), var(--accent-emerald), var(--accent-cyan)); background-size: 200% 100%; }
+}
+
+@layer utilities {
+  /* Custom muted text utility backed by CSS var */
+  .text-muted { color: var(--muted); }
+  .lead { @apply text-lead text-muted; }
+  .small { @apply text-small text-muted; }
+  .gradient { background-image: linear-gradient(90deg, var(--accent-teal), var(--accent-emerald), var(--accent-cyan)); }
+  .text-gradient { background-image: linear-gradient(90deg, var(--accent-teal), var(--accent-cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .text-balance { text-wrap: balance; }
+  .clip-diagonal { clip-path: polygon(32% 0, 100% 0, 100% 100%, 0 100%); }
+  .grain { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='60' height='60' filter='url(%23n)' opacity='0.35'/></svg>"); background-size: 200px 200px; }
+}
+
+/* Focus & accessibility */
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-cyan); outline-offset: 2px; }
+.sr-only { @apply absolute -m-px h-px w-px overflow-hidden whitespace-nowrap border-0 p-0; }
+.skip-link { @apply sr-only; left: 8px; top: 8px; z-index: 50; position: absolute; background: white; color: black; padding: 8px 12px; border-radius: 6px; }
+.skip-link:focus { @apply not-sr-only; }
+
+/* Subtle shimmer (respects reduced motion) */
+@keyframes shimmer { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
+.shimmer { background-size: 200% 200%; }
+@media (prefers-reduced-motion: no-preference) { .shimmer { animation: shimmer 1.6s ease-out infinite alternate; } }
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; } }
+
+/* Animated accent bar */
+@keyframes bar-slide { 0% { background-position: 0% 0; } 100% { background-position: 100% 0; } }
+@media (prefers-reduced-motion: no-preference) { .accent-bar { animation: bar-slide 3s linear infinite alternate; } }

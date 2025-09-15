@@ -1,0 +1,32 @@
+---
+title: Retail demand forecasting
+summary: Improved forecast accuracy by 22% with feature store + MLOps.
+date: 2024-09-01
+cover: https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop
+tags:
+  - Forecasting
+  - MLOps
+  - Retail
+---
+
+Building accurate forecasts at scale required a modern data platform and an MLOps approach that
+reduced iteration time from weeks to hours.
+
+## Highlights
+
+- Lakehouse with curated features and lineage
+- Automated training + evaluation with champion/challenger
+- Real-time inference and monitoring dashboards
+
+```sql title="features/demand_window.sql"
+select sku, store_id, sum(quantity) over (
+  partition by sku, store_id order by ts rows between 6 preceding and current row
+) as demand_7d
+from sales
+```
+
+## Outcomes
+
+- +22% sMAPE accuracy improvement
+- 8x faster model iterations
+- Unified KPIs between operations and analytics
