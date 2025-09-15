@@ -139,50 +139,6 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* Why choose us */}
-      <Section className="bg-[var(--bistre)] text-white py-16 md:py-24">
-        <Container>
-          <div className="mx-auto mb-10 max-w-2xl text-center">
-            <div className="mb-2 text-xs font-semibold tracking-[.2em] text-white/70 animate-fade-in">
-              WHY CHOOSE US
-            </div>
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-4 animate-fade-in">
-              Trusted by Industry Leaders
-            </h2>
-          </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {[
-              {
-                title: 'Senior attention',
-                desc: 'Work directly with senior engineers and designers for expert results.',
-                color: 'from-[var(--lion)] to-[var(--bistre)]',
-              },
-              {
-                title: 'Simple architectures',
-                desc: 'We remove moving parts, not add them. Simplicity is our strength.',
-                color: 'from-[var(--space-cadet)] to-[var(--lion)]',
-              },
-              {
-                title: 'Measure what matters',
-                desc: 'KPIs tie to decisions, not dashboards. We focus on what drives outcomes.',
-                color: 'from-[var(--bistre)] to-[var(--space-cadet)]',
-              },
-            ].map((reason, i) => (
-              <motion.div
-                key={reason.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.2 }}
-                viewport={{ once: true }}
-                className={`rounded-2xl p-8 shadow-xl bg-gradient-to-br ${reason.color} text-white flex flex-col items-start animate-fade-in`}
-              >
-                <div className="text-lg font-semibold mb-2">{reason.title}</div>
-                <p className="text-white/90">{reason.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </Container>
-      </Section>
 
       {/* CTA */}
       <Section className="bg-gradient-to-r from-[var(--space-cadet)] via-[var(--bistre)] to-[var(--lion)] py-12 md:py-20">

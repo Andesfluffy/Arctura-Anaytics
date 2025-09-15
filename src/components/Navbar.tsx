@@ -50,16 +50,16 @@ export function Navbar() {
         <nav className="flex items-center justify-center gap-6" aria-label="Primary">
           {mainNav.map((item) => {
             const active = pathname === item.href
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`group relative rounded-full px-3 py-2 text-sm font-medium transition-all ${active ? 'text-white' : 'text-white/90 hover:text-white'} hover:translate-y-[1px]`}
-              >
-                {item.label}
-                <span className="pointer-events-none absolute inset-x-3 -bottom-0.5 h-[2px] w-[calc(100%-1.5rem)] origin-center scale-x-0 bg-gradient-to-r from-accent-teal via-accent-emerald to-accent-cyan transition-transform duration-200 group-hover:scale-x-100" />
-              </Link>
-            )
+            return ( 
+              <Link 
+                key={item.href} 
+                href={item.href} 
+                className={`group relative rounded-full px-4 py-2 text-lg font-extrabold tracking-tight transition-all ${active ? 'text-white underline decoration-2 decoration-fluorescent_cyan/60 underline-offset-8' : 'text-white/90 hover:text-white'} hover:translate-y-[1px]`} 
+              > 
+                {item.label} 
+                <span className="pointer-events-none absolute inset-x-3 -bottom-0.5 h-[2px] w-[calc(100%-1.5rem)] origin-center scale-x-0 bg-gradient-to-r from-accent-teal via-accent-emerald to-accent-cyan transition-transform duration-200 group-hover:scale-x-100" /> 
+              </Link> 
+            ) 
           })}
           <Button asChild variant="coral" shape="pill" className="ml-2 shadow-soft-lg">
             <Link href="/contact">Get a demo</Link>
