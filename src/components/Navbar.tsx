@@ -26,13 +26,14 @@ export function Navbar() {
     document.documentElement.classList.toggle('overflow-hidden', open)
   }, [open])
 
-  const headerBase = 'sticky top-0 z-50 border-b backdrop-blur shadow-soft-lg'
+  const headerBase = 'sticky top-0 z-50 border-b backdrop-blur shadow-soft-lg transition-[background-color,height] duration-200 ease-out'
   const headerTone = `border-white/10 ${scrolled ? 'bg-[var(--raisin-black)]' : 'bg-[color:rgba(37,38,52,0.92)]'}`
+  const rowH = scrolled ? 'h-14' : 'h-16'
 
   return (
     <header className={`${headerBase} ${headerTone}`}>
       {/* Mobile top row */}
-      <Container className="flex h-16 items-center justify-between md:hidden">
+      <Container className={`flex ${rowH} items-center justify-between md:hidden`}>
         <motion.div initial={r ? undefined : { opacity: 0, y: -6 }} animate={r ? undefined : { opacity: 1, y: 0 }} transition={{ duration: 0.2, ease: 'easeOut' }}>
           <Logo usePng size={40} textClassName={`text-white font-extrabold text-lg tracking-tight`} />
         </motion.div>
@@ -42,7 +43,7 @@ export function Navbar() {
       </Container>
 
       {/* Desktop simple top bar */}
-      <Container className="hidden h-16 items-center justify-between md:flex">
+      <Container className={`hidden ${rowH} items-center justify-between md:flex`}>
         <motion.div initial={r ? undefined : { opacity: 0, y: -6 }} animate={r ? undefined : { opacity: 1, y: 0 }} transition={{ duration: 0.2, ease: 'easeOut' }}>
           <Logo usePng size={40} textClassName={`text-white font-extrabold text-xl tracking-tight`} />
         </motion.div>
@@ -53,7 +54,7 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`group relative rounded-full px-3 py-2 text-sm font-medium transition-colors ${active ? 'text-white' : 'text-white/90 hover:text-white'}`}
+                className={`group relative rounded-full px-3 py-2 text-sm font-medium transition-all ${active ? 'text-white' : 'text-white/90 hover:text-white'} hover:translate-y-[1px]`}
               >
                 {item.label}
                 <span className="pointer-events-none absolute inset-x-3 -bottom-0.5 h-[2px] w-[calc(100%-1.5rem)] origin-center scale-x-0 bg-gradient-to-r from-accent-teal via-accent-emerald to-accent-cyan transition-transform duration-200 group-hover:scale-x-100" />

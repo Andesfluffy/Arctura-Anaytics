@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className="border-t border-white/10 py-10">
       <Container className="flex flex-col items-center justify-between gap-6 md:flex-row">
-        <Link href="/" className="flex items-center gap-2 opacity-90 hover:opacity-100">
+        <Link href="/" className="flex items-center gap-2 opacity-90 transition-opacity hover:opacity-100">
           <Image src="/brand/logo-dark.svg" alt="Arctura" width={24} height={24} />
           <span className="text-sm">Arctura Analytics Limited</span>
         </Link>
@@ -26,8 +26,15 @@ export function Footer() {
             </li>
           </ul>
         </nav>
-        <p className="text-xs text-slate-500">© {new Date().getFullYear()} Arctura Analytics Limited</p>
+        <p className="text-xs text-slate-500">{"\u00A9"} {new Date().getFullYear()} Arctura Analytics Limited</p>
       </Container>
     </footer>
   )
 }
+
+
+
+
+
+
+

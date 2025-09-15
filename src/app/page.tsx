@@ -6,7 +6,8 @@ import { Card, CardContent } from '@/components/ui/card'
 import { HoverLift } from '@/components/hover-lift'
 import { Glow } from '@/components/glow'
 import { Button } from '@/components/ui/button'
-import { ScanText, GitBranch, BarChart3 } from 'lucide-react'
+import { StatsStrip } from '@/components/stats-strip'
+import { ServicesGallery } from '@/components/services-gallery'
 
 export const dynamic = 'force-static'
 
@@ -15,15 +16,16 @@ export default async function HomePage() {
     <main id="content">
       <PhotoHero />
 
-      {/* Capabilities: Digitize, Integrate, Analyze */}
-      <Section id="what" tone="light">
+      {/* What we do */}
+      <StatsStrip />
+      <Section id="what" className="bg-[var(--space-cadet)] text-white">
         <Container>
           <div className="mx-auto mb-10 max-w-2xl text-center">
-            <div className="mb-2 text-xs font-semibold tracking-[.2em] text-slate-500">
+            <div className="mb-2 text-xs font-semibold tracking-[.2em] text-white/70">
               WHAT WE DO
             </div>
             <h2 className="text-3xl font-semibold md:text-4xl">
-              We build the foundations for trusted data
+              We wrangle data into clean, connected datasets
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
@@ -32,10 +34,10 @@ export default async function HomePage() {
                 <CardContent className="p-6">
                   <div className="mb-3 h-1 w-12 rounded-full gradient" />
                   <h3 className="text-xl font-semibold">Digitize</h3>
-                  <p className="mt-3 text-space_cadet-700">
+                  <p className="mt-3 text-white/80">
                     Turn paper and siloed files into trustworthy datasets.
                   </p>
-                  <ul className="mt-3 space-y-1 text-space_cadet-700">
+                  <ul className="mt-3 space-y-1 text-white/80">
                     <li>- OCR + metadata tagging</li>
                     <li>- Versioning and audit trails</li>
                     <li>- Quality checks and lineage</li>
@@ -48,10 +50,10 @@ export default async function HomePage() {
                 <CardContent className="p-6">
                   <div className="mb-3 h-1 w-12 rounded-full gradient" />
                   <h3 className="text-xl font-semibold">Integrate</h3>
-                  <p className="mt-3 text-space_cadet-700">
+                  <p className="mt-3 text-white/80">
                     Connect apps and warehouses with reliable pipelines.
                   </p>
-                  <ul className="mt-3 space-y-1 text-space_cadet-700">
+                  <ul className="mt-3 space-y-1 text-white/80">
                     <li>- Event/CDC and batch ELT</li>
                     <li>- Tested CI/CD deployments</li>
                     <li>- Observability and alerts</li>
@@ -63,11 +65,11 @@ export default async function HomePage() {
               <Card tone="glass" interactive>
                 <CardContent className="p-6">
                   <div className="mb-3 h-1 w-12 rounded-full gradient" />
-                  <h3 className="text-xl font-semibold">Analyze</h3>
-                  <p className="mt-3 text-space_cadet-700">
+                  <h3 className="text-xl font-semibold">Model + Analyze</h3>
+                  <p className="mt-3 text-white/80">
                     Build a shared language for decisions that stick.
                   </p>
-                  <ul className="mt-3 space-y-1 text-space_cadet-700">
+                  <ul className="mt-3 space-y-1 text-white/80">
                     <li>- Semantic models and KPIs</li>
                     <li>- Dashboards people actually use</li>
                     <li>- Forecasts and optimization</li>
@@ -80,7 +82,7 @@ export default async function HomePage() {
       </Section>
 
       {/* How we work */}
-      <Section tone="light">
+      <Section className="bg-white text-[var(--bistre)]">
         <Container>
           <div className="mx-auto mb-10 max-w-2xl text-center">
             <div className="mb-2 text-xs font-semibold tracking-[.2em] text-slate-500">
@@ -111,10 +113,10 @@ export default async function HomePage() {
       </Section>
 
       {/* Why choose us */}
-      <Section tone="light">
+      <Section className="bg-[var(--bistre)] text-white">
         <Container>
           <div className="mx-auto mb-10 max-w-2xl text-center">
-            <div className="mb-2 text-xs font-semibold tracking-[.2em] text-slate-500">
+            <div className="mb-2 text-xs font-semibold tracking-[.2em] text-white/70">
               WHY CHOOSE US
             </div>
             <h2 className="text-3xl font-semibold md:text-4xl">
@@ -133,7 +135,7 @@ export default async function HomePage() {
               <Card key={w.title}>
                 <CardContent className="p-6">
                   <div className="text-lg font-semibold">{w.title}</div>
-                  <p className="mt-2 text-slate-700">{w.desc}</p>
+                  <p className="mt-2 text-white/80">{w.desc}</p>
                 </CardContent>
               </Card>
             ))}
@@ -142,21 +144,34 @@ export default async function HomePage() {
       </Section>
 
       {/* CTA */}
-      <Section tone="light">
+      <Section className="bg-gradient-to-r from-[var(--space-cadet)] via-[var(--bistre)] to-[var(--lion)] py-12 md:py-20">
         <Container>
-          <div className="rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-soft">
-            <h3 className="text-2xl font-semibold">Let’s build your data advantage</h3>
-            <p className="mt-2 text-slate-600">
-              Tell us where you’re headed. We’ll help you get there faster.
+          <div className="rounded-2xl border-2 border-[var(--lion)] bg-white/90 p-8 md:p-12 text-center shadow-2xl max-w-2xl mx-auto flex flex-col items-center">
+            <h3 className="text-3xl md:text-4xl font-extrabold text-[var(--space-cadet)] mb-4 tracking-tight">
+              Ready to Build Your Data Advantage?
+            </h3>
+            <p className="mt-2 text-lg md:text-xl text-[var(--bistre)] font-medium mb-6">
+              Partner with Arctura Analytics for seamless integration, advanced analytics, and
+              actionable intelligence. Let’s turn your data into your most valuable asset.
             </p>
-            <div className="mt-6 inline-flex gap-3">
+            <div className="mt-6 flex flex-col sm:flex-row gap-4 w-full justify-center">
               <Glow>
-                <Button asChild variant="coral" shape="pill">
-                  <Link href="/contact">Start the conversation</Link>
+                <Button
+                  asChild
+                  variant="gradient"
+                  shape="pill"
+                  className="w-full sm:w-auto text-lg px-8 py-3"
+                >
+                  <Link href="/contact">Start the Conversation</Link>
                 </Button>
               </Glow>
-              <Button asChild variant="outline" shape="pill">
-                <Link href="/about">About us</Link>
+              <Button
+                asChild
+                variant="outline"
+                shape="pill"
+                className="w-full sm:w-auto text-lg px-8 py-3 border-[var(--space-cadet)] text-[var(--space-cadet)] hover:bg-[var(--space-cadet)] hover:text-white"
+              >
+                <Link href="/about">Learn More</Link>
               </Button>
             </div>
           </div>
