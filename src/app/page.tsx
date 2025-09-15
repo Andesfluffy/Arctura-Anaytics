@@ -1,4 +1,6 @@
+"use client"
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { PhotoHero } from '@/components/photo-hero'
 import { Section } from '@/components/section'
 import { Container } from '@/components/container'
@@ -11,133 +13,172 @@ import { ServicesGallery } from '@/components/services-gallery'
 
 export const dynamic = 'force-static'
 
-export default async function HomePage() {
+export default function HomePage() {
   return (
     <main id="content">
       <PhotoHero />
 
-      {/* What we do */}
-      <StatsStrip />
-      <Section id="what" className="bg-[var(--space-cadet)] text-white">
+      {/* Animated transition divider */}
+      <div className="w-full h-8 bg-gradient-to-r from-[var(--bistre)] via-[var(--lion)] to-[var(--space-cadet)] animate-shimmer" />
+
+      {/* What we do - animated cards */}
+      <Section id="what" className="bg-[var(--space-cadet)] text-white py-16 md:py-24">
         <Container>
           <div className="mx-auto mb-10 max-w-2xl text-center">
-            <div className="mb-2 text-xs font-semibold tracking-[.2em] text-white/70">
+            <div className="mb-2 text-xs font-semibold tracking-[.2em] text-white/70 animate-fade-in">
               WHAT WE DO
             </div>
-            <h2 className="text-3xl font-semibold md:text-4xl">
-              We wrangle data into clean, connected datasets
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-4 animate-fade-in">
+              Enterprise Data, Simplified
             </h2>
+            <p className="text-lg md:text-xl text-white/80 animate-fade-in">
+              We turn complexity into clarity. Our solutions digitize, integrate, and model your
+              data for confident decision-making.
+            </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            <HoverLift>
-              <Card tone="glass" interactive>
-                <CardContent className="p-6">
-                  <div className="mb-3 h-1 w-12 rounded-full gradient" />
-                  <h3 className="text-xl font-semibold">Digitize</h3>
-                  <p className="mt-3 text-white/80">
-                    Turn paper and siloed files into trustworthy datasets.
-                  </p>
-                  <ul className="mt-3 space-y-1 text-white/80">
-                    <li>- OCR + metadata tagging</li>
-                    <li>- Versioning and audit trails</li>
-                    <li>- Quality checks and lineage</li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </HoverLift>
-            <HoverLift>
-              <Card tone="glass" interactive>
-                <CardContent className="p-6">
-                  <div className="mb-3 h-1 w-12 rounded-full gradient" />
-                  <h3 className="text-xl font-semibold">Integrate</h3>
-                  <p className="mt-3 text-white/80">
-                    Connect apps and warehouses with reliable pipelines.
-                  </p>
-                  <ul className="mt-3 space-y-1 text-white/80">
-                    <li>- Event/CDC and batch ELT</li>
-                    <li>- Tested CI/CD deployments</li>
-                    <li>- Observability and alerts</li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </HoverLift>
-            <HoverLift>
-              <Card tone="glass" interactive>
-                <CardContent className="p-6">
-                  <div className="mb-3 h-1 w-12 rounded-full gradient" />
-                  <h3 className="text-xl font-semibold">Model + Analyze</h3>
-                  <p className="mt-3 text-white/80">
-                    Build a shared language for decisions that stick.
-                  </p>
-                  <ul className="mt-3 space-y-1 text-white/80">
-                    <li>- Semantic models and KPIs</li>
-                    <li>- Dashboards people actually use</li>
-                    <li>- Forecasts and optimization</li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </HoverLift>
+          <div className="grid gap-8 md:grid-cols-3">
+            {[
+              {
+                title: 'Digitize',
+                desc: 'Transform paper, PDFs, and legacy files into secure, searchable datasets. Every record, every detail, always accessible.',
+                bullets: [
+                  'OCR + metadata tagging',
+                  'Versioning & audit trails',
+                  'Quality checks & lineage',
+                ],
+                color: 'from-[var(--lion)] to-[var(--bistre)]',
+              },
+              {
+                title: 'Integrate',
+                desc: 'Connect every source, automate every pipeline. We build reliable, observable data flows for seamless operations.',
+                bullets: ['Event/CDC & batch ELT', 'CI/CD deployments', 'Observability & alerts'],
+                color: 'from-[var(--space-cadet)] to-[var(--lion)]',
+              },
+              {
+                title: 'Model + Analyze',
+                desc: 'Build a shared language for your business. KPIs, dashboards, and forecasts that drive real results.',
+                bullets: [
+                  'Semantic models & KPIs',
+                  'Dashboards people use',
+                  'Forecasts & optimization',
+                ],
+                color: 'from-[var(--bistre)] to-[var(--space-cadet)]',
+              },
+            ].map((card, i) => (
+              <motion.div
+                key={card.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
+                viewport={{ once: true }}
+                className={`rounded-2xl p-8 shadow-xl bg-gradient-to-br ${card.color} text-white flex flex-col items-start animate-fade-in`}
+              >
+                <h3 className="text-2xl font-bold mb-2">{card.title}</h3>
+                <p className="mb-4 text-white/90">{card.desc}</p>
+                <ul className="space-y-2 text-white/80 text-base">
+                  {card.bullets.map((b) => (
+                    <li key={b}>• {b}</li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
           </div>
         </Container>
       </Section>
 
       {/* How we work */}
-      <Section className="bg-white text-[var(--bistre)]">
+      <Section className="bg-white text-[var(--bistre)] py-16 md:py-24">
         <Container>
           <div className="mx-auto mb-10 max-w-2xl text-center">
-            <div className="mb-2 text-xs font-semibold tracking-[.2em] text-slate-500">
+            <div className="mb-2 text-xs font-semibold tracking-[.2em] text-slate-500 animate-fade-in">
               HOW WE WORK
             </div>
-            <h2 className="text-3xl font-semibold md:text-4xl">Short cycles. Strong ownership.</h2>
-            <p className="mt-3 text-slate-600">Visible progress every week. No black boxes.</p>
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-4 animate-fade-in">
+              Agile, Transparent, Accountable
+            </h2>
+            <p className="text-lg md:text-xl text-slate-600 animate-fade-in">
+              We deliver visible progress every week. No black boxes, just results you can trust.
+            </p>
           </div>
           <div className="grid gap-6 md:grid-cols-4">
             {[
               {
                 title: 'Discover',
-                desc: 'Map sources and decisions. Define the smallest useful slice.',
+                desc: 'Map every source, define the smallest useful slice, and set clear goals.',
+                color: 'from-[var(--lion)] to-[var(--bistre)]',
               },
-              { title: 'Model', desc: 'Name things clearly. Build tested, documented layers.' },
-              { title: 'Automate', desc: 'Ship pipelines with CI/CD, alerts, and playbooks.' },
-              { title: 'Observe', desc: 'Track freshness, quality, and adoption. Improve weekly.' },
-            ].map((s) => (
-              <Card key={s.title}>
-                <CardContent className="p-6">
-                  <div className="text-lg font-semibold">{s.title}</div>
-                  <p className="mt-2 text-slate-600">{s.desc}</p>
-                </CardContent>
-              </Card>
+              {
+                title: 'Model',
+                desc: 'Name things clearly. Build tested, documented layers for reliability.',
+                color: 'from-[var(--space-cadet)] to-[var(--lion)]',
+              },
+              {
+                title: 'Automate',
+                desc: 'Ship pipelines with CI/CD, alerts, and playbooks for peace of mind.',
+                color: 'from-[var(--bistre)] to-[var(--space-cadet)]',
+              },
+              {
+                title: 'Observe',
+                desc: 'Track freshness, quality, and adoption. Improve every week.',
+                color: 'from-[var(--lion)] to-[var(--space-cadet)]',
+              },
+            ].map((step, i) => (
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
+                viewport={{ once: true }}
+                className={`rounded-2xl p-6 shadow-lg bg-gradient-to-br ${step.color} text-white flex flex-col items-start animate-fade-in`}
+              >
+                <div className="text-lg font-semibold mb-2">{step.title}</div>
+                <p className="text-white/90">{step.desc}</p>
+              </motion.div>
             ))}
           </div>
         </Container>
       </Section>
 
       {/* Why choose us */}
-      <Section className="bg-[var(--bistre)] text-white">
+      <Section className="bg-[var(--bistre)] text-white py-16 md:py-24">
         <Container>
           <div className="mx-auto mb-10 max-w-2xl text-center">
-            <div className="mb-2 text-xs font-semibold tracking-[.2em] text-white/70">
+            <div className="mb-2 text-xs font-semibold tracking-[.2em] text-white/70 animate-fade-in">
               WHY CHOOSE US
             </div>
-            <h2 className="text-3xl font-semibold md:text-4xl">
-              Pragmatic, dependable, outcome‑driven
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-4 animate-fade-in">
+              Trusted by Industry Leaders
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {[
               {
                 title: 'Senior attention',
-                desc: 'Work directly with senior engineers and designers.',
+                desc: 'Work directly with senior engineers and designers for expert results.',
+                color: 'from-[var(--lion)] to-[var(--bistre)]',
               },
-              { title: 'Simple architectures', desc: 'We remove moving parts, not add them.' },
-              { title: 'Measure what matters', desc: 'KPIs tie to decisions, not dashboards.' },
-            ].map((w) => (
-              <Card key={w.title}>
-                <CardContent className="p-6">
-                  <div className="text-lg font-semibold">{w.title}</div>
-                  <p className="mt-2 text-white/80">{w.desc}</p>
-                </CardContent>
-              </Card>
+              {
+                title: 'Simple architectures',
+                desc: 'We remove moving parts, not add them. Simplicity is our strength.',
+                color: 'from-[var(--space-cadet)] to-[var(--lion)]',
+              },
+              {
+                title: 'Measure what matters',
+                desc: 'KPIs tie to decisions, not dashboards. We focus on what drives outcomes.',
+                color: 'from-[var(--bistre)] to-[var(--space-cadet)]',
+              },
+            ].map((reason, i) => (
+              <motion.div
+                key={reason.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
+                viewport={{ once: true }}
+                className={`rounded-2xl p-8 shadow-xl bg-gradient-to-br ${reason.color} text-white flex flex-col items-start animate-fade-in`}
+              >
+                <div className="text-lg font-semibold mb-2">{reason.title}</div>
+                <p className="text-white/90">{reason.desc}</p>
+              </motion.div>
             ))}
           </div>
         </Container>
