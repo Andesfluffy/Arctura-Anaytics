@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import { Container } from '@/components/container'
 import { Section } from '@/components/section'
 import { MDXContent, getCaseStudySlugs, readMdx, getPrevNext } from '@/lib/mdx'
@@ -13,8 +14,8 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }))
 }
 
-export default async function CaseStudyPage({ params }: { params: { slug: string } }) {
-  const { slug } = params
+export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
   try {
     const { content, data } = await readMdx(slug)
     const { prev, next } = await getPrevNext(slug)
@@ -60,7 +61,6 @@ export default async function CaseStudyPage({ params }: { params: { slug: string
                     </div>
                   ) : null}
                 </header>
-                {/* @ts-expect-error Async Server Component */}
                 <MDXContent source={content} />
                 <nav className="mt-10 grid gap-4 border-t border-white/10 pt-6 md:grid-cols-2">
                   {prev ? (

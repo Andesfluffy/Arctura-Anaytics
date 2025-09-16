@@ -7,7 +7,7 @@ import { Footer } from '@/components/footer'
 import { Analytics } from '@/components/analytics'
 import { OrganizationJsonLd, defaultMetadata } from '@/lib/seo'
 
-const montserrat = Montserrat({ subsets: ['latin'], weight: ['700'], display: 'swap', preload: true, variable: '--font-headings' })
+const montserrat = Montserrat({ subsets: ['latin'], weight: ['700'], display: 'swap', preload: true, variable: '--font-heading' })
 const openSans = Open_Sans({ subsets: ['latin'], weight: ['400'], display: 'swap', preload: true, variable: '--font-body' })
 
 export const metadata: Metadata = defaultMetadata

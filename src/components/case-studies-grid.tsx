@@ -50,7 +50,7 @@ export function CaseStudiesGrid({ items }: { items: CaseStudy[] }) {
           <motion.div
             key={i.slug}
             whileHover={r ? undefined : { y: -4 }}
-            whileFocusWithin={r ? undefined : { y: -4 }}
+            whileFocus={r ? undefined : { y: -4 }}
             transition={{ duration: 0.18, ease: 'easeOut' }}
           >
             <Link

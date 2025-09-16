@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { getCaseStudies } from '@/lib/mdx'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base = 'https://www.arctura-analytics.example'
+  const base = process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || 'https://arctura-analytics.vercel.app'
   const now = new Date()
   const staticPages: MetadataRoute.Sitemap = [
     '',

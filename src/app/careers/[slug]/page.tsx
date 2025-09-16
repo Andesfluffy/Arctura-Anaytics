@@ -11,8 +11,9 @@ export async function generateStaticParams() {
   return roles.map((r) => ({ slug: r.slug }))
 }
 
-export default async function RolePage({ params }: { params: { slug: string } }) {
-  const role = await getRole(params.slug)
+export default async function RolePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const role = await getRole(slug)
   if (!role) notFound()
   return (
     <main id="content">

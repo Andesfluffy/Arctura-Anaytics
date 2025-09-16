@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || 'https://arctura-analytics.vercel.app'
+
 export const site = {
   name: 'Arctura Analytics Limited',
   shortName: 'Arctura Analytics',
-  url: 'https://www.arctura-analytics.example',
+  url: SITE_URL,
   description:
     'Arctura Analytics builds modern data platforms, analytics, and AI that turn data into decisions.',
   twitter: '@arctura_analytics'

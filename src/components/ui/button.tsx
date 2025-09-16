@@ -11,7 +11,7 @@ const buttonVariants = cva(
         default: 'rounded-md bg-white text-black hover:opacity-90',
         gradient: 'rounded-full text-[var(--glacier)] gradient hover:opacity-95',
         coral: 'rounded-full text-white bg-[linear-gradient(90deg,var(--accent-teal),var(--accent-emerald),var(--accent-cyan))] hover:opacity-95 shadow-brand',
-        outline: 'rounded-full border border-brandSlate/70 text-brandSlate hover:bg-white/5',
+        outline: 'rounded-full border border-white/30 text-white/90 hover:bg-white/5',
         ghost: 'rounded-md hover:bg-white/5'
       },
       size: {

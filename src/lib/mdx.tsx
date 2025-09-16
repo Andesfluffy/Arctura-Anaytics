@@ -62,15 +62,13 @@ export async function readMdx(slug: string) {
 
 export async function MDXContent({ source }: { source: string }) {
   // RSC-compatible MDX compiler with our plugins
-  // @ts-expect-error async component
   return (
     <MDXRemote
       source={source}
       options={{
         mdxOptions: {
-          // Lazy-load heavy MDX plugins to isolate vendor chunk
-          remarkPlugins: [(await import('remark-gfm')).default],
-          rehypePlugins: [[(await import('rehype-pretty-code')).default as any, { theme: 'github-dark' }]]
+          // Keep MDX simple to avoid React version mismatches during SSG
+          remarkPlugins: [(await import('remark-gfm')).default]
         }
       }}
       components={{ Callout }}

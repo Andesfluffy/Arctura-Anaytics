@@ -9,6 +9,12 @@
   --ink: #e5e7eb;
   --surface: #252634;
   --muted: #bc9a7f;
+  /* Accent hues used across components */
+  --accent-teal: #14b8a6; /* teal-500 */
+  --accent-emerald: #10b981; /* emerald-500 */
+  --accent-cyan: #06b6d4; /* cyan-500 */
+  /* Light on gradient text */
+  --glacier: #f5f9ff;
 
   /* Coolors palette */
   --bistre: #332a21;
@@ -33,6 +39,10 @@
   --ink: #e5e7eb;
   --surface: #252634;
   --muted: #bc9a7f;
+  --accent-teal: #14b8a6;
+  --accent-emerald: #10b981;
+  --accent-cyan: #06b6d4;
+  --glacier: #f5f9ff;
 
   --accent-1: #332a21;
   --accent-2: #171312;

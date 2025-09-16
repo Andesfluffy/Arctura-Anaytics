@@ -48,7 +48,7 @@ export function SigmaHero() {
         >
           <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft-lg">
             <Image
-              src="/brand/hero-laptop22.jpg"
+              src="/brand/hero-laptop.jpg"
               alt="Laptop showing a clean, modeled dataset"
               width={880}
               height={660}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>Arctura Analytics – Case Studies</title>
+    <link>https://www.arctura-analytics.example</link>
+    <description>Selected work and outcomes</description>
+    
+    <item>
+      <title>Customer 360 and churn reduction</title>
+      <link>https://www.arctura-analytics.example/case-studies/customer-360</link>
+      <pubDate>Mon, 10 Jun 2024 00:00:00 GMT</pubDate>
+      <guid>https://www.arctura-analytics.example/case-studies/customer-360</guid>
+    </item>
+    <item>
+      <title>Retail demand forecasting (12-week rollout)</title>
+      <link>https://www.arctura-analytics.example/case-studies/retail-forecasting-18</link>
+      <pubDate>Mon, 15 Jul 2024 00:00:00 GMT</pubDate>
+      <guid>https://www.arctura-analytics.example/case-studies/retail-forecasting-18</guid>
+    </item>
+    <item>
+      <title>Retail demand forecasting</title>
+      <link>https://www.arctura-analytics.example/case-studies/retail-forecasting</link>
+      <pubDate>Sun, 01 Sep 2024 00:00:00 GMT</pubDate>
+      <guid>https://www.arctura-analytics.example/case-studies/retail-forecasting</guid>
+    </item>
+  </channel>
+</rss>

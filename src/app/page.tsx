@@ -19,7 +19,7 @@ export default function HomePage() {
       <PhotoHero />
 
       {/* Animated transition divider */}
-      <div className="w-full h-8 bg-gradient-to-r from-[var(--bistre)] via-[var(--lion)] to-[var(--space-cadet)] animate-shimmer" />
+      <div className="w-full h-8 bg-gradient-to-r from-[var(--bistre)] via-[var(--lion)] to-[var(--space-cadet)] shimmer" />
 
       {/* What we do - animated cards */}
       <Section id="what" className="bg-[var(--space-cadet)] text-white py-16 md:py-24">
