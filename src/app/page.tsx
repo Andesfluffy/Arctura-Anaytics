@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { PhotoHero } from '@/components/photo-hero'
@@ -18,20 +18,23 @@ export default function HomePage() {
     <main id="content">
       <PhotoHero />
 
-      {/* Animated transition divider */}
-      <div className="w-full h-8 bg-gradient-to-r from-[var(--bistre)] via-[var(--lion)] to-[var(--space-cadet)] shimmer" />
+      {/* Simple divider for business flow */}
+      <div className="w-full h-4 bg-[var(--raisin-black)]/10" />
 
-      {/* What we do - animated cards */}
-      <Section id="what" className="bg-[var(--space-cadet)] text-white py-16 md:py-24">
+      {/* What we do - clean, official section */}
+      <Section
+        id="what"
+        className="bg-white py-20 md:py-32 border-b border-[var(--raisin-black)]/10"
+      >
         <Container>
-          <div className="mx-auto mb-10 max-w-2xl text-center">
-            <div className="mb-2 text-xs font-semibold tracking-[.2em] text-white/70 animate-fade-in">
+          <div className="mx-auto mb-12 max-w-2xl text-center">
+            <div className="mb-2 text-xs font-semibold tracking-[.2em] text-[var(--lion)]">
               WHAT WE DO
             </div>
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-4 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--space-cadet)]">
               Enterprise Data, Simplified
             </h2>
-            <p className="text-lg md:text-xl text-white/80 animate-fade-in">
+            <p className="text-lg md:text-xl text-[var(--bistre)]">
               We turn complexity into clarity. Our solutions digitize, integrate, and model your
               data for confident decision-making.
             </p>
@@ -46,13 +49,11 @@ export default function HomePage() {
                   'Versioning & audit trails',
                   'Quality checks & lineage',
                 ],
-                color: 'from-[var(--lion)] to-[var(--bistre)]',
               },
               {
                 title: 'Integrate',
                 desc: 'Connect every source, automate every pipeline. We build reliable, observable data flows for seamless operations.',
                 bullets: ['Event/CDC & batch ELT', 'CI/CD deployments', 'Observability & alerts'],
-                color: 'from-[var(--space-cadet)] to-[var(--lion)]',
               },
               {
                 title: 'Model + Analyze',
@@ -62,41 +63,38 @@ export default function HomePage() {
                   'Dashboards people use',
                   'Forecasts & optimization',
                 ],
-                color: 'from-[var(--bistre)] to-[var(--space-cadet)]',
               },
             ].map((card, i) => (
-              <motion.div
+              <div
                 key={card.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.2 }}
-                viewport={{ once: true }}
-                className={`rounded-2xl p-8 shadow-xl bg-gradient-to-br ${card.color} text-white flex flex-col items-start animate-fade-in`}
+                className="rounded-2xl p-8 shadow-md bg-white border border-[var(--raisin-black)]/10 flex flex-col items-start"
               >
-                <h3 className="text-2xl font-bold mb-2">{card.title}</h3>
-                <p className="mb-4 text-white/90">{card.desc}</p>
-                <ul className="space-y-2 text-white/80 text-base">
+                <h3 className="text-2xl font-bold mb-2 text-[var(--space-cadet)]">{card.title}</h3>
+                <p className="mb-4 text-[var(--bistre)]">{card.desc}</p>
+                <ul className="space-y-2 text-[var(--lion)] text-base">
                   {card.bullets.map((b) => (
                     <li key={b}>• {b}</li>
                   ))}
                 </ul>
-              </motion.div>
+              </div>
             ))}
           </div>
         </Container>
       </Section>
 
       {/* How we work */}
-      <Section className="bg-white text-[var(--bistre)] py-16 md:py-24">
+      <div className="w-full h-4 bg-[var(--raisin-black)]/10" />
+
+      <Section className="bg-white text-[var(--bistre)] py-20 md:py-32 border-b border-[var(--raisin-black)]/10">
         <Container>
-          <div className="mx-auto mb-10 max-w-2xl text-center">
-            <div className="mb-2 text-xs font-semibold tracking-[.2em] text-slate-500 animate-fade-in">
+          <div className="mx-auto mb-12 max-w-2xl text-center">
+            <div className="mb-2 text-xs font-semibold tracking-[.2em] text-[var(--bistre)]">
               HOW WE WORK
             </div>
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-4 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--space-cadet)]">
               Agile, Transparent, Accountable
             </h2>
-            <p className="text-lg md:text-xl text-slate-600 animate-fade-in">
+            <p className="text-lg md:text-xl text-[var(--bistre)]">
               We deliver visible progress every week. No black boxes, just results you can trust.
             </p>
           </div>
@@ -105,53 +103,46 @@ export default function HomePage() {
               {
                 title: 'Discover',
                 desc: 'Map every source, define the smallest useful slice, and set clear goals.',
-                color: 'from-[var(--lion)] to-[var(--bistre)]',
               },
               {
                 title: 'Model',
                 desc: 'Name things clearly. Build tested, documented layers for reliability.',
-                color: 'from-[var(--space-cadet)] to-[var(--lion)]',
               },
               {
                 title: 'Automate',
                 desc: 'Ship pipelines with CI/CD, alerts, and playbooks for peace of mind.',
-                color: 'from-[var(--bistre)] to-[var(--space-cadet)]',
               },
               {
                 title: 'Observe',
                 desc: 'Track freshness, quality, and adoption. Improve every week.',
-                color: 'from-[var(--lion)] to-[var(--space-cadet)]',
               },
             ].map((step, i) => (
-              <motion.div
+              <div
                 key={step.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.2 }}
-                viewport={{ once: true }}
-                className={`rounded-2xl p-6 shadow-lg bg-gradient-to-br ${step.color} text-white flex flex-col items-start animate-fade-in`}
+                className="rounded-2xl p-6 shadow-md bg-white border border-[var(--raisin-black)]/10 flex flex-col items-start"
               >
-                <div className="text-lg font-semibold mb-2">{step.title}</div>
-                <p className="text-white/90">{step.desc}</p>
-              </motion.div>
+                <div className="text-lg font-bold mb-2 text-[var(--space-cadet)]">{step.title}</div>
+                <p className="text-[var(--bistre)]">{step.desc}</p>
+              </div>
             ))}
           </div>
         </Container>
       </Section>
 
-
       {/* CTA */}
-      <Section className="bg-gradient-to-r from-[var(--space-cadet)] via-[var(--bistre)] to-[var(--lion)] py-12 md:py-20">
+      <div className="w-full h-4 bg-[var(--raisin-black)]/10" />
+
+      <Section className="bg-white py-20 md:py-32">
         <Container>
-          <div className="rounded-2xl border-2 border-[var(--lion)] bg-white/90 p-8 md:p-12 text-center shadow-2xl max-w-2xl mx-auto flex flex-col items-center">
-            <h3 className="text-3xl md:text-4xl font-extrabold text-[var(--space-cadet)] mb-4 tracking-tight">
+          <div className="rounded-2xl border border-[var(--lion)] p-10 md:p-14 text-center shadow-md max-w-2xl mx-auto flex flex-col items-center bg-white">
+            <h3 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight text-[var(--space-cadet)]">
               Ready to Build Your Data Advantage?
             </h3>
-            <p className="mt-2 text-lg md:text-xl text-[var(--bistre)] font-medium mb-6">
+            <p className="mt-2 text-lg md:text-xl font-medium mb-8 text-[var(--bistre)]">
               Partner with Arctura Analytics for seamless integration, advanced analytics, and
               actionable intelligence. Let’s turn your data into your most valuable asset.
             </p>
-            <div className="mt-6 flex flex-col sm:flex-row gap-4 w-full justify-center">
+            <div className="mt-8 flex flex-col sm:flex-row gap-6 w-full justify-center">
               <Glow>
                 <Button
                   asChild

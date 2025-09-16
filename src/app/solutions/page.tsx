@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import { Container } from '@/components/container'
 import { Button } from '@/components/ui/button'
 import { Section, SectionHeader } from '@/components/section'
@@ -9,9 +9,20 @@ export default function SolutionsPage() {
     <main id="content">
       <Section className="bg-gradient-to-br from-[var(--space-cadet)] via-[var(--lion)] to-[var(--bistre)] py-16 md:py-24 text-white">
         <Container>
-          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-12 text-center">
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight">Industry-Leading Data Solutions</h1>
-            <p className="text-lg md:text-2xl text-white/90 max-w-2xl mx-auto mb-6">Unlock the full potential of your data with Arctura Analytics. Our accelerators and expert services empower you to move faster, make smarter decisions, and stay ahead of the competition.</p>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="mb-12 text-center"
+          >
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight">
+              Industry-Leading Data Solutions
+            </h1>
+            <p className="text-lg md:text-2xl text-white/90 max-w-2xl mx-auto mb-6">
+              Unlock the full potential of your data with Arctura Analytics. Our accelerators and
+              expert services empower you to move faster, make smarter decisions, and stay ahead of
+              the competition.
+            </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-6 mt-8">
               <Testimonial
                 quote="Arctura transformed our analytics. We now make decisions in hours, not weeks."
@@ -88,7 +99,6 @@ export default function SolutionsPage() {
   )
 }
 
-
 function Testimonial({ quote, author }: { quote: string; author: string }) {
   return (
     <motion.blockquote
@@ -102,4 +112,3 @@ function Testimonial({ quote, author }: { quote: string; author: string }) {
     </motion.blockquote>
   )
 }
-

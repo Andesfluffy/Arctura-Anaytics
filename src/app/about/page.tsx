@@ -9,18 +9,21 @@ const stats = [
   {
     value: '120+',
     label: 'Modern data products',
-    description: 'Designed, engineered, and launched with measurable adoption across enterprise teams.'
+    description:
+      'Designed, engineered, and launched with measurable adoption across enterprise teams.',
   },
   {
     value: '18',
     label: 'Countries supported',
-    description: 'Follow-the-sun delivery with specialists embedded in financial, public sector, and growth-stage clients.'
+    description:
+      'Follow-the-sun delivery with specialists embedded in financial, public sector, and growth-stage clients.',
   },
   {
     value: '96%',
     label: 'Client retention',
-    description: 'Long-term partnerships built on transparency, accountable delivery, and provable ROI.'
-  }
+    description:
+      'Long-term partnerships built on transparency, accountable delivery, and provable ROI.',
+  },
 ]
 
 const pillars = [
@@ -31,21 +34,29 @@ const pillars = [
     bullets: [
       'Executive workshops & north-star metrics',
       'Modern data architecture patterns tailored to you',
-      'Financial modeling to prove and pace ROI'
-    ]
+      'Financial modeling to prove and pace ROI',
+    ],
   },
   {
     title: 'Technical rigor',
     description:
       'From ingestion to activation, our engineers build systems that withstand scale, regulation, and real-world chaos.',
-    bullets: ['Composable platform accelerators', 'Secure-by-design governance and controls', 'Production-grade observability & QA']
+    bullets: [
+      'Composable platform accelerators',
+      'Secure-by-design governance and controls',
+      'Production-grade observability & QA',
+    ],
   },
   {
     title: 'Human-centered adoption',
     description:
       'Analytics only matters when people use it. We pair enablement and design with automation so teams can act with confidence.',
-    bullets: ['Change management playbooks', 'Immersive enablement and training', 'On-call experts post go-live']
-  }
+    bullets: [
+      'Change management playbooks',
+      'Immersive enablement and training',
+      'On-call experts post go-live',
+    ],
+  },
 ]
 
 const milestones = [
@@ -53,44 +64,41 @@ const milestones = [
     year: '2018',
     title: 'Arctura Analytics founded',
     description:
-      'Launched by data leaders who had scaled analytics at Fortune 100 enterprises and high-growth startups, united by a belief that execution beats theory.'
+      'Launched by data leaders who had scaled analytics at Fortune 100 enterprises and high-growth startups, united by a belief that execution beats theory.',
   },
   {
     year: '2020',
     title: 'Platform accelerators released',
     description:
-      'Introduced our reusable ingestion, modeling, and governance accelerators to cut delivery time by 40% without sacrificing quality.'
+      'Introduced our reusable ingestion, modeling, and governance accelerators to cut delivery time by 40% without sacrificing quality.',
   },
   {
     year: '2022',
     title: 'Global guilds established',
     description:
-      'Opened delivery hubs in North America, Europe, and APAC to provide local expertise with round-the-clock coverage.'
+      'Opened delivery hubs in North America, Europe, and APAC to provide local expertise with round-the-clock coverage.',
   },
   {
     year: '2024',
     title: 'AI assurance practice launched',
     description:
-      'Expanded into responsible AI, model governance, and MLOps so clients can deploy advanced intelligence with confidence.'
-  }
+      'Expanded into responsible AI, model governance, and MLOps so clients can deploy advanced intelligence with confidence.',
+  },
 ]
 
 const commitments = [
   {
     title: 'Clarity at every checkpoint',
-    copy:
-      'Weekly demos, transparent dashboards, and co-authored backlogs mean you always know what was delivered, what is next, and how it ladders to value.'
+    copy: 'Weekly demos, transparent dashboards, and co-authored backlogs mean you always know what was delivered, what is next, and how it ladders to value.',
   },
   {
     title: 'Co-creation over handoffs',
-    copy:
-      'We embed beside your teams—pairing, upskilling, and documenting every decision—so the capability sticks long after launch.'
+    copy: 'We embed beside your teams—pairing, upskilling, and documenting every decision—so the capability sticks long after launch.',
   },
   {
     title: 'Sustainable innovation',
-    copy:
-      'Our playbooks favor maintainable automation, design systems, and living documentation so your data stack stays resilient as priorities shift.'
-  }
+    copy: 'Our playbooks favor maintainable automation, design systems, and living documentation so your data stack stays resilient as priorities shift.',
+  },
 ]
 
 export default function AboutPage() {
@@ -100,12 +108,12 @@ export default function AboutPage() {
     <main id="content">
       <section className="relative isolate min-h-[90vh] w-full overflow-hidden flex items-center">
         <Image
-          src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=2400&q=80"
-          alt="Architectural lighting installation suggesting connected data pathways"
+          src="/brand/christina-wocintechchat-com-faEfWCdOKIg-unsplash.jpg"
+          alt="Diverse team in a modern workspace"
           fill
           priority
           sizes="100vw"
-          className="object-cover brightness-90 contrast-110"
+          className="object-cover brightness-95 contrast-110"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-[#1d2238]/75 to-[#0d0f19]/95" />
         <div className="grain absolute inset-0 opacity-[0.12] mix-blend-overlay" aria-hidden />
@@ -139,7 +147,9 @@ export default function AboutPage() {
               transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
               className="mt-6 max-w-3xl text-lg text-white/85 md:text-xl"
             >
-              Arctura Analytics pairs strategy, engineering, and enablement to help visionary teams move faster with data. We combine boutique craftsmanship with enterprise-scale delivery so every initiative is bold, elegant, and measurable.
+              Arctura Analytics pairs strategy, engineering, and enablement to help visionary teams
+              move faster with data. We combine boutique craftsmanship with enterprise-scale
+              delivery so every initiative is bold, elegant, and measurable.
             </motion.p>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -162,8 +172,14 @@ export default function AboutPage() {
       </section>
 
       <Section className="relative overflow-hidden bg-[var(--space-cadet)] text-white">
-        <div className="absolute -top-32 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-[var(--lion)]/30 blur-3xl" aria-hidden />
-        <div className="absolute -bottom-24 right-10 h-72 w-72 rounded-full bg-[var(--bistre)]/40 blur-3xl" aria-hidden />
+        <div
+          className="absolute -top-32 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-[var(--lion)]/30 blur-3xl"
+          aria-hidden
+        />
+        <div
+          className="absolute -bottom-24 right-10 h-72 w-72 rounded-full bg-[var(--bistre)]/40 blur-3xl"
+          aria-hidden
+        />
         <Container className="relative">
           <motion.div
             initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
@@ -177,7 +193,9 @@ export default function AboutPage() {
               Boutique attention, enterprise discipline, and a bias toward elegant execution.
             </h2>
             <p className="mt-6 text-white/85">
-              Every Arctura engagement is led by senior practitioners who have owned outcomes in the industries we serve. We bring teams that think end-to-end—from discovery and architecture to change management and continuous optimization.
+              Every Arctura engagement is led by senior practitioners who have owned outcomes in the
+              industries we serve. We bring teams that think end-to-end—from discovery and
+              architecture to change management and continuous optimization.
             </p>
           </motion.div>
 
@@ -197,7 +215,10 @@ export default function AboutPage() {
                   <ul className="mt-4 space-y-2 text-sm text-white/75">
                     {pillar.bullets.map((point) => (
                       <li key={point} className="flex items-start gap-2">
-                        <span className="mt-[6px] h-2.5 w-2.5 rounded-full bg-[var(--lion)]" aria-hidden />
+                        <span
+                          className="mt-[6px] h-2.5 w-2.5 rounded-full bg-[var(--lion)]"
+                          aria-hidden
+                        />
                         <span>{point}</span>
                       </li>
                     ))}
@@ -213,8 +234,8 @@ export default function AboutPage() {
               className="relative h-[420px] overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-br from-white/15 via-white/5 to-transparent shadow-2xl"
             >
               <Image
-                src="/brand/hero-laptop.jpg"
-                alt="Analyst working across dashboards on a laptop"
+                src="/brand/christina-wocintechchat-com-UcZcsHSp8o4-unsplash.jpg"
+                alt="Friendly, approachable team for partnership and commitment"
                 fill
                 sizes="(min-width: 1024px) 480px, 100vw"
                 className="object-cover"
@@ -227,7 +248,10 @@ export default function AboutPage() {
       </Section>
 
       <Section tone="light" className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-[#f5f3f1]" aria-hidden />
+        <div
+          className="absolute inset-0 bg-gradient-to-br from-white via-white to-[#f5f3f1]"
+          aria-hidden
+        />
         <Container className="relative">
           <motion.div
             initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
@@ -236,18 +260,25 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="max-w-3xl text-[var(--bistre)]"
           >
-            <p className="text-sm uppercase tracking-[0.35em] text-[var(--space-cadet)]/70">Our Journey</p>
+            <p className="text-sm uppercase tracking-[0.35em] text-[var(--space-cadet)]/70">
+              Our Journey
+            </p>
             <h2 className="mt-4 text-3xl font-bold md:text-4xl text-[var(--space-cadet)]">
               A seasoned collective shaped by real transformation programs.
             </h2>
             <p className="mt-6 text-lg text-[var(--bistre)]/85">
-              We have led multi-year modernizations, launched new digital businesses, and stood up analytics capabilities inside highly regulated organizations. That experience informs how we plan, build, and evolve your data estate.
+              We have led multi-year modernizations, launched new digital businesses, and stood up
+              analytics capabilities inside highly regulated organizations. That experience informs
+              how we plan, build, and evolve your data estate.
             </p>
           </motion.div>
 
           <div className="mt-12 grid gap-12 lg:grid-cols-[1.4fr,1fr] lg:items-start">
             <div className="relative pl-8">
-              <span className="absolute left-2 top-0 bottom-0 w-px bg-gradient-to-b from-[var(--space-cadet)] to-[var(--lion)]" aria-hidden />
+              <span
+                className="absolute left-2 top-0 bottom-0 w-px bg-gradient-to-b from-[var(--space-cadet)] to-[var(--lion)]"
+                aria-hidden
+              />
               <div className="space-y-10">
                 {milestones.map((milestone, index) => (
                   <motion.div
@@ -258,11 +289,16 @@ export default function AboutPage() {
                     viewport={{ once: true }}
                     className="relative rounded-2xl bg-white/80 p-6 shadow-lg ring-1 ring-black/5"
                   >
-                    <span className="absolute -left-[30px] top-6 h-3.5 w-3.5 rounded-full border-2 border-white bg-[var(--space-cadet)]" aria-hidden />
+                    <span
+                      className="absolute -left-[30px] top-6 h-3.5 w-3.5 rounded-full border-2 border-white bg-[var(--space-cadet)]"
+                      aria-hidden
+                    />
                     <div className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--space-cadet)]/80">
                       {milestone.year}
                     </div>
-                    <h3 className="mt-2 text-xl font-semibold text-[var(--space-cadet)]">{milestone.title}</h3>
+                    <h3 className="mt-2 text-xl font-semibold text-[var(--space-cadet)]">
+                      {milestone.title}
+                    </h3>
                     <p className="mt-3 text-[var(--bistre)]/85">{milestone.description}</p>
                   </motion.div>
                 ))}
@@ -277,8 +313,8 @@ export default function AboutPage() {
                 className="relative h-72 overflow-hidden rounded-3xl shadow-2xl"
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1800&q=80"
-                  alt="Arctura team collaborating in a strategy session"
+                  src="/brand/jeffery-ho-oITfawv6t-8-unsplash.jpg"
+                  alt="Group collaboration, teamwork and transformation"
                   fill
                   sizes="(min-width: 1024px) 380px, 100vw"
                   className="object-cover"
@@ -326,7 +362,7 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      <Section className="relative bg-gradient-to-br from-[var(--space-cadet)] via-[var(--bistre)] to-black text-white overflow-hidden">
+  <Section className="relative bg-gradient-to-br from-[var(--space-cadet)] via-[var(--bistre)] to-black text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10" aria-hidden>
           <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'160\' height=\'160\' viewBox=\'0 0 160 160\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M0 160L160 0M-40 120L120 -40M40 200L200 40\' stroke=\'%23ffffff33\' stroke-width=\'1.2\'/%3E%3C/svg%3E')] bg-repeat opacity-60" />
         </div>
@@ -343,7 +379,10 @@ export default function AboutPage() {
               An elite team obsessed with outcomes, craft, and trust.
             </h2>
             <p className="mt-6 text-white/85">
-              We invest deeply in each relationship, bringing purpose-built squads who stay with you from idea to steady state. The result is a partnership that feels seamless—thoughtful storytelling, technical excellence, and empathetic change management working in concert.
+              We invest deeply in each relationship, bringing purpose-built squads who stay with you
+              from idea to steady state. The result is a partnership that feels seamless—thoughtful
+              storytelling, technical excellence, and empathetic change management working in
+              concert.
             </p>
           </motion.div>
 
@@ -374,7 +413,8 @@ export default function AboutPage() {
               Ready to architect your next data advantage?
             </h3>
             <p className="mt-3 text-white/80 md:text-lg">
-              Let’s design the roadmap, stand up the platform, and empower your teams together. Reach out—we would love to co-create what’s next.
+              Let’s design the roadmap, stand up the platform, and empower your teams together.
+              Reach out—we would love to co-create what’s next.
             </p>
             <div className="mt-6 inline-flex items-center rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm uppercase tracking-[0.3em] text-white/80">
               connect@arcturaanalytics.com
