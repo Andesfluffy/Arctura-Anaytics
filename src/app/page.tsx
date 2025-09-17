@@ -13,57 +13,57 @@ import { Button } from '@/components/ui/button'
 const stats = [
   {
     value: '6 weeks',
-    label: 'First release delivered',
-    description: 'Operational pipelines, models, and adoption assets live within the first program increment.'
+    label: 'First release in market',
+    description: 'Operational pipelines, dashboards, and enablement live within the first program increment.'
   },
   {
     value: '120+',
-    label: 'Data platforms launched',
-    description: 'Modern estates accelerated for regulated enterprises and high-growth innovators alike.'
+    label: 'Platforms modernised',
+    description: 'Regulated enterprises and high-growth innovators entrust us with mission-critical estates.'
   },
   {
     value: '4.8 / 5',
-    label: 'Sponsor satisfaction',
-    description: 'Leaders cite clarity, craftsmanship, and measurable outcomes at every checkpoint.'
+    label: 'Sponsor confidence rating',
+    description: 'Executives cite our composure, craftsmanship, and provable value at every checkpoint.'
   }
 ]
 
 const focusAreas = [
   {
-    title: 'Clarity before code',
+    title: 'Programme clarity',
     description:
-      'We align sponsorship, KPIs, and operating guardrails so every sprint is purposeful and funded.',
-    bullets: ['Executive co-planning sessions', 'Investment cases anchored in measurable value']
+      'Executive vision, financial guardrails, and a single roadmap so stakeholders stay perfectly aligned.',
+    bullets: ['Joint planning intensives', 'Board-ready value cases']
   },
   {
-    title: 'Composed for resilience',
+    title: 'Architected resilience',
     description:
-      'Modern data foundations pair modular patterns with thoughtful governance for scale and trust.',
-    bullets: ['Cloud-native architecture frameworks', 'Quality, lineage, and access designed-in']
+      'Composable data estates with governance designed-in, ready for scale, regulation, and global demand.',
+    bullets: ['Cloud-native reference patterns', 'Lineage, privacy, and access by default']
   },
   {
-    title: 'Adoption that lasts',
+    title: 'Adoption that endures',
     description:
-      'Human-centered experiences and enablement make new capabilities effortless to embrace.',
-    bullets: ['Story-led analytics experiences', 'Role-based coaching and playbooks']
+      'Design systems, coaching, and change orchestration to make advanced analytics effortless to embrace.',
+    bullets: ['Story-led product delivery', 'Role-based enablement programmes']
   }
 ]
 
 const capabilities = [
   {
-    title: 'Advisory & Leadership',
-    summary: 'Fractional CDO partnership to translate ambition into accountable momentum.',
-    points: ['Transformation mandate definition', 'Value tracking and governance cadence']
+    title: 'Executive Advisory',
+    summary: 'Fractional CDO leadership translating ambition into accountable momentum.',
+    points: ['Strategy & mandate definition', 'Investment pacing and governance cadence']
   },
   {
     title: 'Platform Delivery',
-    summary: 'Cloud-native pipelines, semantics, and controls delivered with elegant precision.',
-    points: ['Modern ingestion and modeling accelerators', 'Privacy-first data governance patterns']
+    summary: 'Cloud, data, and AI estates crafted with precision and measurable reliability.',
+    points: ['Ingestion, modelling & activation accelerators', 'Privacy-first control and assurance patterns']
   },
   {
-    title: 'AI & Analytics Products',
-    summary: 'Decision intelligence experiences designed for confident daily use.',
-    points: ['KPI frameworks and storytelling dashboards', 'Responsible AI assistants and automation']
+    title: 'Analytics Experiences',
+    summary: 'Decision intelligence products that feel intuitive, branded, and ready for executive rooms.',
+    points: ['Narrative dashboards & KPI frameworks', 'Responsible AI copilots and automation']
   }
 ]
 
@@ -71,25 +71,25 @@ const engagements = [
   {
     phase: '01',
     title: 'Frame the mission',
-    subtitle: 'Set intent and measures of success.',
-    description: 'Immersive working sessions turn strategy into a sequenced, investable roadmap.'
+    subtitle: 'Establish intent and value measures.',
+    description: 'Immersive working sessions convert strategy into a sequenced, investable portfolio.'
   },
   {
     phase: '02',
     title: 'Shape & ship',
-    subtitle: 'Build with pace and polish.',
-    description: 'Cross-functional squads deliver production increments with weekly showcases and rigor.'
+    subtitle: 'Deliver with pace and polish.',
+    description: 'Cross-disciplinary squads release production increments with weekly showcases and rigor.'
   },
   {
     phase: '03',
     title: 'Embed & elevate',
-    subtitle: 'Enable lasting adoption.',
+    subtitle: 'Ensure lasting adoption.',
     description: 'Coaching, playbooks, and operating rhythms transfer capability with confidence.'
   }
 ]
 
 const assurances = [
-  'A single engagement lead orchestrating strategy, delivery, and change.',
+  'A single engagement lead coordinating strategy, delivery, and change.',
   'Security, governance, and measurement specialists embedded from day one.'
 ]
 
@@ -100,30 +100,25 @@ export default function HomePage() {
     <main id="content">
       <PhotoHero />
 
-      <Section className="relative overflow-hidden bg-[#0b1220] text-white">
-        <div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_65%)]"
-          aria-hidden
-        />
-        <div
-          className="absolute -bottom-32 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[var(--lion)]/20 blur-3xl"
-          aria-hidden
-        />
+      <Section className="relative overflow-hidden bg-[#090f1f] text-white">
+        <div className="absolute inset-0" aria-hidden>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_65%)]" />
+          <div className="absolute -bottom-40 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-[var(--lion)]/20 blur-[120px]" />
+        </div>
         <Container className="relative">
           <motion.div
             initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
             whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
             viewport={{ once: true }}
-            className="mx-auto max-w-2xl text-center"
+            className="mx-auto max-w-3xl text-center"
           >
-            <p className="text-xs uppercase tracking-[0.4em] text-white/60">Proven outcomes</p>
+            <p className="text-xs uppercase tracking-[0.4em] text-white/60">Measured impact</p>
             <h2 className="mt-4 text-balance text-3xl font-semibold md:text-4xl">
-              Precision programs that deliver executive confidence.
+              Programmes that stay composed from strategy to scale.
             </h2>
-            <p className="mt-5 text-base text-white/75 md:text-lg">
-              The teams who call Arctura expect calm stewardship, transparent reporting, and releases that feel refined from day
-              one.
+            <p className="mt-5 text-base text-white/80 md:text-lg">
+              Every engagement is orchestrated with calm precision—transparent metrics, executive-ready storytelling, and delivery that always feels deliberate.
             </p>
           </motion.div>
 
@@ -135,7 +130,7 @@ export default function HomePage() {
                 whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.08 }}
                 viewport={{ once: true }}
-                className="rounded-3xl border border-white/15 bg-white/10 p-6 text-left shadow-lg backdrop-blur"
+                className="rounded-3xl border border-white/15 bg-white/10 p-6 text-left shadow-xl backdrop-blur"
               >
                 <div className="text-3xl font-semibold text-gradient">{stat.value}</div>
                 <div className="mt-2 text-base font-medium text-white/90">{stat.label}</div>
@@ -146,71 +141,95 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section tone="light" className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-white via-[#f8f8fb] to-white" aria-hidden />
+      <Section id="what" tone="light" className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f7f8fc] to-white" aria-hidden />
         <Container className="relative">
           <motion.div
             initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
             whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
             viewport={{ once: true }}
-            className="mx-auto max-w-2xl text-center text-[var(--space-cadet)]"
+            className="mx-auto max-w-3xl text-center text-[var(--space-cadet)]"
           >
-            <p className="text-xs uppercase tracking-[0.4em] text-[var(--space-cadet)]/60">Why Arctura</p>
+            <p className="text-xs uppercase tracking-[0.35em] text-[var(--space-cadet)]/60">Why Arctura</p>
             <h2 className="mt-4 text-balance text-3xl font-semibold md:text-4xl">
-              Disciplined partnership with boutique polish.
+              Boutique hospitality with institutional discipline.
             </h2>
-            <p className="mt-5 text-base text-[var(--bistre)]/80 md:text-lg">
-              We keep the storyline crisp, the delivery accountable, and every touchpoint curated for the leaders we serve.
+            <p className="mt-5 text-base text-[var(--bistre)]/85 md:text-lg">
+              We design every touchpoint to feel effortless—measured storytelling, intentional governance, and a leadership presence that inspires trust.
             </p>
           </motion.div>
 
-          <div className="mt-14 grid gap-8 md:grid-cols-3">
-            {focusAreas.map((area, index) => (
-              <motion.div
-                key={area.title}
-                initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
-                whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.08 }}
-                viewport={{ once: true }}
-                className="relative rounded-3xl border border-[var(--space-cadet)]/10 bg-white/80 p-7 text-left shadow-lg backdrop-blur"
-              >
-                <span className="mb-4 block h-0.5 w-12 bg-[var(--lion)]" aria-hidden />
-                <h3 className="text-lg font-semibold text-[var(--space-cadet)]">{area.title}</h3>
-                <p className="mt-3 text-sm text-[var(--bistre)]/80 md:text-base">{area.description}</p>
-                <ul className="mt-5 space-y-2 text-sm text-[var(--bistre)]/70">
-                  {area.bullets.map((point) => (
-                    <li key={point} className="flex items-start gap-2">
-                      <span className="mt-[6px] h-2 w-2 rounded-full bg-[var(--space-cadet)]/60" aria-hidden />
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
+          <div className="mt-14 grid gap-8 lg:grid-cols-[1.3fr,1fr] lg:items-start">
+            <div className="space-y-8">
+              {focusAreas.map((area, index) => (
+                <motion.div
+                  key={area.title}
+                  initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
+                  whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.08 }}
+                  viewport={{ once: true }}
+                  className="relative overflow-hidden rounded-3xl border border-[var(--space-cadet)]/10 bg-white/90 p-7 shadow-lg backdrop-blur"
+                >
+                  <div className="pointer-events-none absolute -top-16 right-0 h-32 w-32 rounded-full bg-[var(--lion)]/15 blur-3xl" aria-hidden />
+                  <div className="relative">
+                    <span className="mb-4 inline-flex items-center rounded-full border border-[var(--space-cadet)]/15 bg-[var(--space-cadet)]/5 px-4 py-1 text-[10px] font-semibold uppercase tracking-[0.35em] text-[var(--space-cadet)]/70">
+                      {area.title}
+                    </span>
+                    <p className="text-sm text-[var(--bistre)]/80 md:text-base">{area.description}</p>
+                    <ul className="mt-5 space-y-2 text-sm text-[var(--bistre)]/70">
+                      {area.bullets.map((point) => (
+                        <li key={point} className="flex items-start gap-2">
+                          <span className="mt-[6px] h-2 w-2 rounded-full bg-[var(--space-cadet)]/60" aria-hidden />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+              whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
+              viewport={{ once: true }}
+              className="rounded-3xl border border-[var(--space-cadet)]/10 bg-white p-8 shadow-xl"
+            >
+              <div className="space-y-4 text-left text-[var(--space-cadet)]">
+                <h3 className="text-xl font-semibold">Poised partnership from day one</h3>
+                <p className="text-sm text-[var(--bistre)]/80 md:text-base">
+                  Your sponsors, operators, and technologists get a calm, senior-led team that choreographs the programme with clarity and discretion.
+                </p>
+                <p className="text-sm text-[var(--bistre)]/80 md:text-base">
+                  Weekly stewardship sessions, articulate artefacts, and transparent dashboards ensure the story stays boardroom ready.
+                </p>
+              </div>
+            </motion.div>
           </div>
         </Container>
       </Section>
 
-      <Section className="relative overflow-hidden bg-[#090f1d] text-white">
-        <div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.07),_transparent_70%)]"
-          aria-hidden
-        />
+      <Section className="relative overflow-hidden bg-[#0b1220] text-white">
+        <div className="absolute inset-0" aria-hidden>
+          <div className="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[var(--lion)]/18 blur-3xl" />
+          <div className="absolute -bottom-24 right-12 h-80 w-80 rounded-full bg-[var(--space-cadet)]/25 blur-3xl" />
+        </div>
         <Container className="relative">
           <motion.div
             initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
             whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
             viewport={{ once: true }}
-            className="mx-auto max-w-2xl text-center"
+            className="mx-auto max-w-3xl text-center"
           >
-            <p className="text-xs uppercase tracking-[0.4em] text-white/60">Signature capabilities</p>
+            <p className="text-xs uppercase tracking-[0.35em] text-white/60">Signature capabilities</p>
             <h2 className="mt-4 text-balance text-3xl font-semibold md:text-4xl">
-              End-to-end expertise, delivered with restraint.
+              Full-spectrum expertise delivered with restraint.
             </h2>
-            <p className="mt-5 text-base text-white/75 md:text-lg">
-              Strategy, engineering, and enablement move in concert so your program feels composed and unmistakably premium.
+            <p className="mt-5 text-base text-white/80 md:text-lg">
+              Strategy, engineering, and change move as one choreography—every release polished, governed, and ready for executive scrutiny.
             </p>
           </motion.div>
 
@@ -226,7 +245,7 @@ export default function HomePage() {
                 <HoverLift>
                   <Card
                     tone="glass"
-                    className="relative h-full overflow-hidden border-white/15 bg-white/10 p-7 text-left shadow-xl backdrop-blur"
+                    className="relative h-full overflow-hidden border-white/15 bg-white/10 p-7 text-left shadow-2xl backdrop-blur"
                   >
                     <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-[var(--lion)]/18 blur-3xl" aria-hidden />
                     <div className="relative space-y-4">
@@ -250,39 +269,39 @@ export default function HomePage() {
       </Section>
 
       <Section tone="light" className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-white via-[#f5f6f9] to-white" aria-hidden />
+        <div className="absolute inset-0 bg-gradient-to-br from-white via-[#f3f4f8] to-white" aria-hidden />
         <Container className="relative">
           <motion.div
             initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
             whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
             viewport={{ once: true }}
-            className="mx-auto max-w-2xl text-center text-[var(--space-cadet)]"
+            className="mx-auto max-w-3xl text-center text-[var(--space-cadet)]"
           >
-            <p className="text-xs uppercase tracking-[0.4em] text-[var(--space-cadet)]/60">How we partner</p>
+            <p className="text-xs uppercase tracking-[0.35em] text-[var(--space-cadet)]/60">How engagements flow</p>
             <h2 className="mt-4 text-balance text-3xl font-semibold md:text-4xl">
               A composed rhythm from first framing to lasting adoption.
             </h2>
-            <p className="mt-5 text-base text-[var(--bistre)]/80 md:text-lg">
-              You gain a senior-led squad that embeds with your teams, keeps communication effortless, and leaves a program ready to scale.
+            <p className="mt-5 text-base text-[var(--bistre)]/85 md:text-lg">
+              Senior leads stay at your shoulder, choreographing the cadence, translating insight, and giving sponsors confidence every step.
             </p>
           </motion.div>
 
           <div className="mt-14 grid gap-12 lg:grid-cols-[1.6fr,1fr] lg:items-start">
             <div className="relative pl-10">
               <span
-                className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-[var(--space-cadet)]/80 via-[var(--space-cadet)]/40 to-[var(--lion)]/40"
+                className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-[var(--space-cadet)]/70 via-[var(--space-cadet)]/30 to-[var(--lion)]/30"
                 aria-hidden
               />
               <div className="space-y-10">
                 {engagements.map((engagement, index) => (
                   <motion.div
                     key={engagement.phase}
-                    initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+                    initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
                     whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.06 }}
                     viewport={{ once: true }}
-                    className="relative rounded-3xl bg-white/90 p-6 shadow-lg ring-1 ring-black/5"
+                    className="relative rounded-3xl bg-white/95 p-6 shadow-lg ring-1 ring-black/5"
                   >
                     <span
                       className="absolute -left-[34px] top-6 flex h-8 w-8 items-center justify-center rounded-full border border-white bg-[var(--space-cadet)] text-sm font-semibold text-white"
@@ -305,17 +324,14 @@ export default function HomePage() {
               whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
               viewport={{ once: true }}
-              className="rounded-3xl border border-[var(--space-cadet)]/10 bg-gradient-to-br from-[var(--space-cadet)] via-[var(--bistre)] to-[var(--lion)] p-[1px] shadow-xl"
+              className="rounded-3xl border border-[var(--space-cadet)]/10 bg-white p-8 shadow-xl"
             >
-              <div className="h-full w-full rounded-[calc(theme(borderRadius.3xl)-4px)] bg-white/95 p-8 text-[var(--space-cadet)]">
-                <h3 className="text-xl font-semibold text-[var(--space-cadet)]">Leadership you can count on</h3>
-                <p className="mt-3 text-sm text-[var(--bistre)]/80 md:text-base">
-                  Seasoned practitioners coordinate strategy, delivery, and change so executive sponsors have a single calm point of contact.
-                </p>
-                <ul className="mt-5 space-y-2 text-sm text-[var(--bistre)]/75">
+              <div className="space-y-4 text-left text-[var(--space-cadet)]">
+                <h3 className="text-xl font-semibold">Assurance you can rely on</h3>
+                <ul className="space-y-2 text-sm text-[var(--bistre)]/80">
                   {assurances.map((item) => (
                     <li key={item} className="flex items-start gap-2">
-                      <span className="mt-[6px] h-2 w-2 rounded-full bg-[var(--space-cadet)]/70" aria-hidden />
+                      <span className="mt-[6px] h-2 w-2 rounded-full bg-[var(--space-cadet)]/60" aria-hidden />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -328,12 +344,12 @@ export default function HomePage() {
 
       <Section className="relative overflow-hidden bg-[#080d1b] text-white">
         <div className="absolute inset-0" aria-hidden>
-          <div className="absolute -top-24 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-[var(--lion)]/20 blur-[120px]" />
+          <div className="absolute -top-24 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-[var(--lion)]/22 blur-[120px]" />
           <div className="absolute -bottom-24 right-10 h-72 w-72 rounded-full bg-[var(--space-cadet)]/30 blur-3xl" />
         </div>
         <Container className="relative">
           <Glow className="mx-auto max-w-4xl">
-            <div className="rounded-3xl border border-white/15 bg-white/10 p-10 text-center backdrop-blur-lg shadow-2xl">
+            <div className="rounded-3xl border border-white/12 bg-white/10 p-10 text-center backdrop-blur-xl shadow-2xl">
               <motion.h3
                 initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
                 whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
@@ -341,7 +357,7 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 className="text-3xl font-semibold md:text-4xl"
               >
-                Let’s craft your next data advantage together.
+                Let’s choreograph your next data advantage.
               </motion.h3>
               <motion.p
                 initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
@@ -350,8 +366,7 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 className="mt-4 text-base text-white/85 md:text-lg"
               >
-                We’ll co-design the roadmap, stand up the platform, and guide adoption with composure. Reach out and our leaders
-                will personally map the next step.
+                We co-design the strategy, engineer the platform, and guide adoption with composure. Reach out and our leaders will personally map the next step.
               </motion.p>
               <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Glow className="w-full sm:w-auto">
