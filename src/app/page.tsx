@@ -1,15 +1,46 @@
-'use client'
+﻿'use client'
+
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { PhotoHero } from '@/components/photo-hero'
 import { Section } from '@/components/section'
 import { Container } from '@/components/container'
-import { Card, CardContent } from '@/components/ui/card'
 import { HoverLift } from '@/components/hover-lift'
-import { Glow } from '@/components/glow'
-import { Button } from '@/components/ui/button'
-import { StatsStrip } from '@/components/stats-strip'
 import { ServicesGallery } from '@/components/services-gallery'
+
+const capabilityCards = [
+  {
+    id: '01',
+    title: 'Architecture and roadmaps',
+    summary: 'Target-state designs, investment cases, and operating models that align leadership and delivery.',
+    detail: 'Blueprints, governance frameworks, and sequencing plans built for enterprise adoption.'
+  },
+  {
+    id: '02',
+    title: 'Build, migrate, optimise',
+    summary: 'Cloud data platforms, pipelines, and models engineered with resilience, lineage, and observability.',
+    detail: 'Automation accelerators, SRE playbooks, and platform stewardship to keep trust high.'
+  },
+  {
+    id: '03',
+    title: 'Adoption and enablement',
+    summary: 'Analytics products, change management, and training programmes that embed insights into daily decisions.',
+    detail: 'Design systems, communications, and capability lifts that ensure teams stay confident.'
+  }
+]
+
+const differentiators = [
+  {
+    metric: '140+',
+    label: 'Enterprise data initiatives delivered',
+    copy: 'Cross-functional squads covering strategy, engineering, design, and operations.'
+  },
+  {
+    metric: '12',
+    label: 'Industry playbooks',
+    copy: 'Regulated, financial, public sector, and high-growth SaaS accelerators ready for execution.'
+  }
+]
 
 export const dynamic = 'force-static'
 
@@ -17,154 +48,67 @@ export default function HomePage() {
   return (
     <main id="content">
       <PhotoHero />
-
-      {/* Simple divider for business flow */}
-      <div className="w-full h-4 bg-[var(--raisin-black)]/10" />
-
-      {/* What we do - clean, official section */}
-      <Section
-        id="what"
-        className="bg-white py-20 md:py-32 border-b border-[var(--raisin-black)]/10"
-      >
-        <Container>
-          <div className="mx-auto mb-12 max-w-2xl text-center">
-            <div className="mb-2 text-xs font-semibold tracking-[.2em] text-[var(--lion)]">
-              WHAT WE DO
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--space-cadet)]">
-              Enterprise Data, Simplified
-            </h2>
-            <p className="text-lg md:text-xl text-[var(--bistre)]">
-              We turn complexity into clarity. Our solutions digitize, integrate, and model your
-              data for confident decision-making.
-            </p>
-          </div>
-          <div className="grid gap-8 md:grid-cols-3">
-            {[
-              {
-                title: 'Digitize',
-                desc: 'Transform paper, PDFs, and legacy files into secure, searchable datasets. Every record, every detail, always accessible.',
-                bullets: [
-                  'OCR + metadata tagging',
-                  'Versioning & audit trails',
-                  'Quality checks & lineage',
-                ],
-              },
-              {
-                title: 'Integrate',
-                desc: 'Connect every source, automate every pipeline. We build reliable, observable data flows for seamless operations.',
-                bullets: ['Event/CDC & batch ELT', 'CI/CD deployments', 'Observability & alerts'],
-              },
-              {
-                title: 'Model + Analyze',
-                desc: 'Build a shared language for your business. KPIs, dashboards, and forecasts that drive real results.',
-                bullets: [
-                  'Semantic models & KPIs',
-                  'Dashboards people use',
-                  'Forecasts & optimization',
-                ],
-              },
-            ].map((card, i) => (
-              <div
-                key={card.title}
-                className="rounded-2xl p-8 shadow-md bg-white border border-[var(--raisin-black)]/10 flex flex-col items-start"
-              >
-                <h3 className="text-2xl font-bold mb-2 text-[var(--space-cadet)]">{card.title}</h3>
-                <p className="mb-4 text-[var(--bistre)]">{card.desc}</p>
-                <ul className="space-y-2 text-[var(--lion)] text-base">
-                  {card.bullets.map((b) => (
-                    <li key={b}>• {b}</li>
-                  ))}
-                </ul>
+      <Section id="what" className="relative overflow-hidden py-20 md:py-28">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute left-1/2 top-0 h-64 w-[80%] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,63,46,0.16),transparent_70%)] blur-[150px]" aria-hidden />
+        </div>
+        <Container className="relative">
+          <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr]">
+            <div className="max-w-xl space-y-8 text-white">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/10 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.38em] text-white/70">
+                What we deliver
+              </span>
+              <h2 className="text-3xl font-black sm:text-4xl md:text-5xl">
+                Enterprise-ready data programmes from first principles to full adoption
+              </h2>
+              <p className="text-base text-white/75 sm:text-lg">
+                We help leadership teams design confident strategies, modernise data platforms, and embed analytics into mission-critical decisions. Every engagement is measured, governed, and delivered with experienced practitioners on the ground.
+              </p>
+              <div className="grid gap-5 sm:grid-cols-2">
+                {differentiators.map((item) => (
+                  <div key={item.metric} className="rounded-2xl border border-white/12 bg-white/10 px-5 py-6">
+                    <h3 className="text-2xl font-semibold text-white">{item.metric}</h3>
+                    <p className="mt-2 text-xs uppercase tracking-[0.28em] text-white/60">{item.label}</p>
+                    <p className="mt-3 text-sm text-white/70">{item.copy}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* How we work */}
-      <div className="w-full h-4 bg-[var(--raisin-black)]/10" />
-
-      <Section className="bg-white text-[var(--bistre)] py-20 md:py-32 border-b border-[var(--raisin-black)]/10">
-        <Container>
-          <div className="mx-auto mb-12 max-w-2xl text-center">
-            <div className="mb-2 text-xs font-semibold tracking-[.2em] text-[var(--bistre)]">
-              HOW WE WORK
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.45, ease: 'easeOut', delay: 0.1 }}
+                className="inline-flex items-center gap-3 text-sm uppercase tracking-[0.34em] text-white/60"
+              >
+                <span className="inline-flex h-2 w-2 rounded-full bg-[var(--accent-amber)]" />
+                Programme governance built on ISO and SOC-ready practices
+              </motion.div>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--space-cadet)]">
-              Agile, Transparent, Accountable
-            </h2>
-            <p className="text-lg md:text-xl text-[var(--bistre)]">
-              We deliver visible progress every week. No black boxes, just results you can trust.
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-4">
-            {[
-              {
-                title: 'Discover',
-                desc: 'Map every source, define the smallest useful slice, and set clear goals.',
-              },
-              {
-                title: 'Model',
-                desc: 'Name things clearly. Build tested, documented layers for reliability.',
-              },
-              {
-                title: 'Automate',
-                desc: 'Ship pipelines with CI/CD, alerts, and playbooks for peace of mind.',
-              },
-              {
-                title: 'Observe',
-                desc: 'Track freshness, quality, and adoption. Improve every week.',
-              },
-            ].map((step, i) => (
-              <div
-                key={step.title}
-                className="rounded-2xl p-6 shadow-md bg-white border border-[var(--raisin-black)]/10 flex flex-col items-start"
-              >
-                <div className="text-lg font-bold mb-2 text-[var(--space-cadet)]">{step.title}</div>
-                <p className="text-[var(--bistre)]">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* CTA */}
-      <div className="w-full h-4 bg-[var(--raisin-black)]/10" />
-
-      <Section className="bg-white py-20 md:py-32">
-        <Container>
-          <div className="rounded-2xl border border-[var(--lion)] p-10 md:p-14 text-center shadow-md max-w-2xl mx-auto flex flex-col items-center bg-white">
-            <h3 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight text-[var(--space-cadet)]">
-              Ready to Build Your Data Advantage?
-            </h3>
-            <p className="mt-2 text-lg md:text-xl font-medium mb-8 text-[var(--bistre)]">
-              Partner with Arctura Analytics for seamless integration, advanced analytics, and
-              actionable intelligence. Let’s turn your data into your most valuable asset.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-6 w-full justify-center">
-              <Glow>
-                <Button
-                  asChild
-                  variant="gradient"
-                  shape="pill"
-                  className="w-full sm:w-auto text-lg px-8 py-3"
-                >
-                  <Link href="/contact">Start the Conversation</Link>
-                </Button>
-              </Glow>
-              <Button
-                asChild
-                variant="outline"
-                shape="pill"
-                className="w-full sm:w-auto text-lg px-8 py-3 border-[var(--space-cadet)] text-[var(--space-cadet)] hover:bg-[var(--space-cadet)] hover:text-white"
-              >
-                <Link href="/about">Learn More</Link>
-              </Button>
+            <div className="grid gap-6 sm:grid-cols-2">
+              {capabilityCards.map((capability, i) => (
+                <HoverLift key={capability.id}>
+                  <motion.article
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.45, ease: 'easeOut', delay: i * 0.08 }}
+                    className="relative flex h-full flex-col rounded-[26px] border border-white/12 bg-[color:rgba(13,16,24,0.92)] p-8 shadow-[0_36px_110px_rgba(3,4,9,0.6)]"
+                  >
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/12 text-xs font-semibold uppercase tracking-[0.3em] text-white/65">
+                      {capability.id}
+                    </span>
+                    <h3 className="mt-6 text-xl font-semibold text-white">{capability.title}</h3>
+                    <p className="mt-3 text-sm text-white/75">{capability.summary}</p>
+                    <p className="mt-4 text-xs uppercase tracking-[0.3em] text-white/55">{capability.detail}</p>
+                    <span className="pointer-events-none absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-[var(--accent-amber)] via-[var(--accent-crimson)] to-[var(--accent-ember)]" aria-hidden />
+                  </motion.article>
+                </HoverLift>
+              ))}
             </div>
           </div>
         </Container>
       </Section>
+      <ServicesGallery />
     </main>
   )
 }
