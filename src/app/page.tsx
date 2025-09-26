@@ -1,24 +1,36 @@
-﻿'use client'
+'use client'
 
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { CheckCircle2 } from 'lucide-react'
+
 import { Container } from '@/components/container'
 import { Section } from '@/components/section'
 import { HoverLift } from '@/components/hover-lift'
 import { ServicesGallery } from '@/components/services-gallery'
 import { ParticleField } from '@/components/particles'
-import { AnimatedStats } from '@/components/animated-stats'
-import { FloatingImages } from '@/components/floating-images'
-import { IconGrid } from '@/components/icon-grid'
-import { TrustedBy } from '@/components/trusted-by'
-import { CaseStudiesGrid } from '@/components/case-studies-grid'
 import { EmailCapture } from '@/components/email-capture'
 
 const stats = [
   { value: '15B+', label: 'Data Points Processed' },
   { value: '99.9%', label: 'Platform Uptime' },
   { value: '250+', label: 'Enterprise Clients' },
+]
+
+const heroHighlights = [
+  {
+    title: 'Unified data fabric',
+    description: 'Connect siloed systems with governed, real-time pipelines.',
+  },
+  {
+    title: 'Predictive intelligence',
+    description: 'Surface forward-looking signals powered by trusted AI models.',
+  },
+  {
+    title: 'Enterprise-grade security',
+    description: 'Operate with compliance-ready controls and automated auditing.',
+  },
 ]
 
 const capabilityCards = [
@@ -53,103 +65,109 @@ export const dynamic = 'force-static'
 export default function HomePage() {
   return (
     <main className="bg-black">
-      {/* Professional Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Professional Hero Background */}
+      {/* Hero Section */}
+      <section className="relative flex min-h-screen items-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/brand/georgie-cobbs-muOHbrFGEQY-unsplash.jpg"
-            alt="Enterprise Analytics"
+            alt="Enterprise analytics dashboard"
             fill
             className="object-cover"
             priority
             quality={95}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/60" />
           <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
         </div>
 
-        {/* Elegant Grid Pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
-                             linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)`,
-            backgroundSize: '48px 48px',
-          }}
-        />
+        <div className="absolute inset-0 pointer-events-none">
+          <ParticleField />
+        </div>
 
-        <Container className="relative pt-32 pb-20">
-          <div className="max-w-4xl mx-auto text-center">
+        <Container className="relative z-10 pt-28 pb-20">
+          <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               className="space-y-8"
             >
-                <span className="inline-flex px-4 py-2 rounded-lg bg-white/[0.03] border border-white/10 text-sm text-white/90 tracking-wide backdrop-blur-sm">
-                  Enterprise Analytics Platform
-                </span>
-                <h1 className="text-5xl lg:text-8xl font-semibold text-white tracking-tight leading-[1.1]">
-                  Transform Data Into{' '}
-                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-[#ff6b00] to-[#ff4d4d]">
-                    Business Impact
-                  </span>
-                </h1>
-                <p className="text-lg lg:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                  Harness the power of advanced analytics and AI to unlock insights from your data. 
-                  Our enterprise platform turns complex data into clear, actionable strategies that 
-                  drive growth and innovation.
-                </p>              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="flex flex-wrap gap-4 justify-center pt-4"
-              >
-                <Link
-                  href="/contact"
-                  className="group px-8 py-4 bg-gradient-to-r from-[#ff4d4d] to-[#ff6b00] text-white font-medium rounded-lg inline-flex items-center gap-2 hover:opacity-90 transition-all duration-300"
-                >
-                  Get Started Free
-                  <svg
-                    className="w-5 h-5 transition-transform group-hover:translate-x-0.5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
-                  </svg>
-                </Link>
-              </motion.div>
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/70 backdrop-blur">
+                Enterprise Analytics Platform
+              </span>
 
-              {/* Key Metrics */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="grid grid-cols-3 gap-8 max-w-3xl mx-auto pt-16"
-              >
-                {stats.map((stat, index) => (
-                  <div key={stat.label} className="space-y-2">
-                    <div className="text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
-                      {stat.value}
-                    </div>
-                    <div className="text-sm lg:text-base text-slate-400">{stat.label}</div>
-                  </div>
-                ))}
-              </motion.div>
+              <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
+                Turn Complex Data Into
+                <span className="block bg-gradient-to-r from-white via-[#ff6b00] to-[#ff4d4d] bg-clip-text text-transparent">
+                  Measurable Outcomes
+                </span>
+              </h1>
+
+              <p className="mx-auto max-w-2xl text-base text-slate-300 sm:text-lg">
+                Activate a unified analytics ecosystem that aligns leadership, operations, and citizens around reliable insight.
+                Arctura streamlines your pipelines, enriches your data quality, and delivers intelligence the moment it matters.
+              </p>
             </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="mt-10 flex flex-wrap items-center justify-center gap-4"
+            >
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#ff4d4d] to-[#ff6b00] px-8 py-4 text-sm font-semibold text-white shadow-[0_18px_45px_rgba(255,77,77,0.35)] transition-transform hover:-translate-y-0.5"
+              >
+                Schedule a Strategy Call
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-7-7l7 7-7 7" />
+                </svg>
+              </Link>
+              <Link
+                href="/case-studies"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 text-sm font-semibold text-white/80 transition-colors hover:text-white hover:border-white/40"
+              >
+                Explore Case Studies
+              </Link>
+            </motion.div>
+
+            <motion.ul
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.35 }}
+              className="mt-10 grid w-full gap-4 text-left sm:grid-cols-2 lg:grid-cols-3"
+            >
+              {heroHighlights.map((item) => (
+                <li key={item.title} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 text-[#ff6b00]" aria-hidden="true" />
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-wide text-white/80">{item.title}</p>
+                    <p className="mt-1 text-sm text-slate-300">{item.description}</p>
+                  </div>
+                </li>
+              ))}
+            </motion.ul>
+
+            <motion.dl
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="mt-14 grid w-full gap-6 sm:grid-cols-3"
+            >
+              {stats.map((stat) => (
+                <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+                  <dd className="text-4xl font-semibold text-white sm:text-5xl">{stat.value}</dd>
+                  <dt className="mt-2 text-sm uppercase tracking-wide text-slate-300">{stat.label}</dt>
+                </div>
+              ))}
+            </motion.dl>
           </div>
         </Container>
       </section>
 
       {/* Services Gallery */}
-      <Section className="py-24 relative">
+      <Section className="relative py-24">
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black" />
         <Container className="relative z-10">
           <motion.div
@@ -157,20 +175,20 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="max-w-xl mx-auto text-center mb-16"
+            className="mx-auto mb-16 max-w-xl text-center"
           >
-            <span className="inline-flex px-4 py-2 rounded-lg bg-white/[0.03] border border-white/10 text-sm text-white/90 tracking-wide mb-6">
+            <span className="mb-6 inline-flex rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm uppercase tracking-[0.3em] text-white/70">
               Our Solutions
             </span>
-            <h2 className="text-3xl lg:text-4xl font-semibold text-white mb-6">
+            <h2 className="mb-6 text-3xl font-semibold text-white lg:text-4xl">
               Enterprise-Grade{' '}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-[#ff6b00] to-[#ff4d4d]">
+              <span className="bg-gradient-to-r from-white via-[#ff6b00] to-[#ff4d4d] bg-clip-text text-transparent">
                 Analytics Platform
               </span>
             </h2>
-            <p className="text-slate-300 text-lg">
-              Powerful analytics tools and AI-driven insights that help businesses make smarter decisions
-              and stay ahead of the competition.
+            <p className="text-lg text-slate-300">
+              Powerful analytics tools and AI-driven insights that help businesses make smarter decisions and stay ahead of the
+              competition.
             </p>
           </motion.div>
           <ServicesGallery />
@@ -178,7 +196,7 @@ export default function HomePage() {
       </Section>
 
       {/* Capabilities Cards */}
-      <Section className="py-24 relative">
+      <Section className="relative py-24">
         <div className="absolute inset-0 bg-gradient-to-b from-black to-[#080808]" />
         <Container className="relative z-10">
           <motion.div
@@ -186,24 +204,23 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="max-w-xl mx-auto text-center mb-16"
+            className="mx-auto mb-16 max-w-xl text-center"
           >
-            <span className="inline-flex px-4 py-2 rounded-lg bg-white/[0.03] border border-white/10 text-sm text-white/90 tracking-wide mb-6">
+            <span className="mb-6 inline-flex rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm uppercase tracking-[0.3em] text-white/70">
               Our Approach
             </span>
-            <h2 className="text-3xl lg:text-4xl font-semibold text-white mb-6">
+            <h2 className="mb-6 text-3xl font-semibold text-white lg:text-4xl">
               End-to-End{' '}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-[#ff6b00] to-[#ff4d4d]">
+              <span className="bg-gradient-to-r from-white via-[#ff6b00] to-[#ff4d4d] bg-clip-text text-transparent">
                 Capabilities
               </span>
             </h2>
-            <p className="text-slate-300 text-lg">
-              We bring together strategy, technology, and expertise to deliver complete analytics
-              solutions.
+            <p className="text-lg text-slate-300">
+              We bring together strategy, technology, and expertise to deliver complete analytics solutions.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {capabilityCards.map((card) => (
               <motion.div
                 key={card.id}
@@ -213,10 +230,10 @@ export default function HomePage() {
                 transition={{ duration: 0.5 }}
               >
                 <HoverLift>
-                  <div className="h-full p-8 rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm hover:bg-white/[0.04] transition-colors duration-300">
-                    <div className="text-lg font-medium text-[#ff4d4d] mb-4">{card.id}</div>
-                    <h3 className="text-xl font-semibold text-white mb-4">{card.title}</h3>
-                    <p className="text-slate-300 mb-6">{card.summary}</p>
+                  <div className="h-full rounded-2xl border border-white/10 bg-white/[0.02] p-8 backdrop-blur-sm transition-colors duration-300 hover:bg-white/[0.04]">
+                    <div className="mb-4 text-lg font-medium text-[#ff4d4d]">{card.id}</div>
+                    <h3 className="mb-4 text-xl font-semibold text-white">{card.title}</h3>
+                    <p className="mb-6 text-slate-300">{card.summary}</p>
                     <p className="text-sm text-slate-400">{card.detail}</p>
                   </div>
                 </HoverLift>
@@ -227,7 +244,7 @@ export default function HomePage() {
       </Section>
 
       {/* CTA Section */}
-      <Section className="py-24 relative">
+      <Section className="relative py-24">
         <div className="absolute inset-0 bg-[#080808]" />
         <Container className="relative z-10">
           <EmailCapture />
