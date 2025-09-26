@@ -2,10 +2,10 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Globe, Clock, Mail, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { Container } from './container'
 import { Logo } from './logo'
-import { Button } from './ui/button'
+import { motion, AnimatePresence } from 'framer-motion'
 import { mainNav } from '@/lib/links'
 
 export function Header() {
@@ -26,87 +26,150 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b border-white/10 ${scrolled ? 'bg-oxford_blue/95' : 'bg-oxford_blue/90'} backdrop-blur supports-[backdrop-filter]:bg-oxford_blue/85`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? 'bg-black/95 backdrop-blur-sm border-b border-white/[0.02]' : 'bg-transparent'
+      }`}
     >
-      {/* Utility bar */}
-      <div className="hidden border-b border-white/10 bg-black/40 text-xs text-slate-300 md:block">
-        <Container className="flex h-8 items-center justify-between">
-          <div className="flex items-center gap-6">
-            <span className="flex items-center gap-2">
-              <Globe className="h-3.5 w-3.5" /> Remote‑first
-            </span>
-            <span className="flex items-center gap-2">
-              <Clock className="h-3.5 w-3.5" /> Mon–Fri 9–5
-            </span>
-            <a
-              className="flex items-center gap-2 hover:text-white"
-              href="mailto:hello@arctura-analytics.com"
-            >
-              <Mail className="h-3.5 w-3.5" /> hello@arctura-analytics.com
-            </a>
-          </div>
-          <div className="opacity-80">Arctura Analytics</div>
-        </Container>
-      </div>
+      <Container className="flex h-20 items-center justify-between px-6">
+        <div className="flex items-center gap-12">
+          <Link href="/" className="flex items-center gap-2">
+            <Logo usePng size={32} />
+            <div className="flex items-baseline gap-1">
+              <span className="text-white font-medium">ARCTURA</span>
+              <span className="text-white/80 text-sm">ANALYTICS</span>
+            </div>
+          </Link>
 
-      <Container className="flex h-20 items-center justify-between">
-        <Logo usePng size={48} />
-        <nav className="hidden items-center gap-2 md:flex" aria-label="Primary">
-          {mainNav.map((item) => {
-            const active = pathname === item.href
-            return (
+          <nav className="hidden lg:flex items-center gap-8" aria-label="Primary">
+            <div className="flex items-center gap-8">
               <Link
-                key={item.href}
-                href={item.href}
-                className={`rounded-full px-4 py-2 text-lg font-extrabold tracking-tight transition-colors ${
-                  active
-                    ? 'bg-white/10 text-white underline decoration-2 decoration-fluorescent_cyan/60 underline-offset-8'
-                    : 'text-white/90 hover:text-white'
-                }`}
+                href="/platform"
+                className="text-[13px] font-medium text-white/80 hover:text-white transition-colors uppercase tracking-wide"
               >
-                {item.label}
+                Solutions
               </Link>
-            )
-          })}
-          <Button asChild variant="gradient" shape="pill" className="ml-3 shimmer">
-            <Link href="/contact">Start now</Link>
-          </Button>
-        </nav>
-        <button
-          className="md:hidden rounded-md border border-white/10 bg-white/5 p-2"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+              <Link
+                href="/services"
+                className="text-[13px] font-medium text-white/80 hover:text-white transition-colors uppercase tracking-wide"
+              >
+                Services
+              </Link>
+              <Link
+                href="/case-studies"
+                className="text-[13px] font-medium text-white/80 hover:text-white transition-colors uppercase tracking-wide"
+              >
+                Case Studies
+              </Link>
+              <Link
+                href="/about"
+                className="text-[13px] font-medium text-white/80 hover:text-white transition-colors uppercase tracking-wide"
+              >
+                About
+              </Link>
+              <Link
+                href="/contact"
+                className="text-[13px] font-medium text-white/80 hover:text-white transition-colors uppercase tracking-wide"
+              >
+                Contact
+              </Link>
+            </div>
+          </nav>
+        </div>
       </Container>
 
-      {open && (
-        <div className="md:hidden">
-          <Container className="pb-6">
-            <div className="grid gap-2 rounded-xl border border-white/10 bg-white/5 p-3">
-              {mainNav.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="rounded-md px-3 py-2 text-slate-100 hover:bg-white/5"
-                  onClick={() => setOpen(false)}
+      <AnimatePresence>
+        {open && (
+          <motion.div 
+            className="md:hidden fixed inset-0 top-20 bg-gradient-to-b from-black/95 to-black/90 backdrop-blur-xl"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Container className="py-12">
+              <nav className="flex flex-col">
+                <Link href="/platform" className="py-4 text-lg text-white/80 hover:text-white">Solutions</Link>
+                <Link href="/services" className="py-4 text-lg text-white/80 hover:text-white">Services</Link>
+                <Link href="/case-studies" className="py-4 text-lg text-white/80 hover:text-white">Case Studies</Link>
+                <Link href="/about" className="py-4 text-lg text-white/80 hover:text-white">About</Link>
+                <Link href="/contact" className="py-4 text-lg text-white/80 hover:text-white">Contact</Link>
+              </nav>
+            </Container>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
+  )
+
+        <motion.button
+          className="md:hidden relative rounded-lg border border-white/10 bg-white/5 p-2.5 hover:bg-white/10 transition-colors"
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          onClick={() => setOpen((v) => !v)}
+          whileTap={{ scale: 0.95 }}
+        >
+          <motion.div
+            animate={open ? { rotate: 45, y: 2 } : { rotate: 0, y: 0 }}
+            transition={{ duration: 0.2 }}
+            className="h-0.5 w-4 bg-white absolute"
+          />
+          <motion.div
+            animate={open ? { opacity: 0 } : { opacity: 1 }}
+            transition={{ duration: 0.2 }}
+            className="h-0.5 w-4 bg-white"
+          />
+          <motion.div
+            animate={open ? { rotate: -45, y: -2 } : { rotate: 0, y: 0 }}
+            transition={{ duration: 0.2 }}
+            className="h-0.5 w-4 bg-white absolute"
+          />
+        </motion.button>
+      </Container>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div 
+            className="md:hidden fixed inset-0 top-20 bg-gradient-to-b from-black/95 to-black/90 backdrop-blur-xl"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Container className="py-12">
+              <nav className="flex flex-col">
+                {mainNav.map((item, i) => (
+                  <motion.div
+                    key={item.href}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1 + 0.1 }}
+                  >
+                    <Link
+                      href={item.href}
+                      className="block py-4 text-lg font-medium text-white/80 hover:text-white transition-colors"
+                      onClick={() => setOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                ))}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: (mainNav.length * 0.1) + 0.2 }}
                 >
-                  {item.label}
-                </Link>
-              ))}
-              <div className="mt-2 grid grid-cols-2 gap-2">
-                <Button asChild variant="gradient" shape="pill">
-                  <Link href="/contact">Start now</Link>
-                </Button>
-                <Button asChild variant="outline" shape="pill">
-                  <Link href="/about">About</Link>
-                </Button>
-              </div>
-            </div>
-          </Container>
-        </div>
-      )}
+                  <Link 
+                    href="/contact"
+                    className="mt-8 block rounded-lg bg-white/5 border border-white/10 px-6 py-3 text-center font-medium text-white hover:bg-white/10 transition-all"
+                    onClick={() => setOpen(false)}
+                  >
+                    Let's Talk
+                  </Link>
+                </motion.div>
+              </nav>
+            </Container>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   )
 }
