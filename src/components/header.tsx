@@ -87,12 +87,6 @@ export function Header() {
         {/* CTA + Mobile toggle */}
         <div className="flex items-center gap-2">
           <Link
-            href="/case-studies"
-            className="hidden rounded-full border border-white/15 px-4 py-2 text-sm font-medium text-white/70 transition-colors hover:border-white/40 hover:text-white md:inline-flex"
-          >
-            Our work
-          </Link>
-          <Link
             href="/contact"
             className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-400 via-brand-400 to-orange-500 px-4 py-2 text-sm font-semibold text-[#050508] shadow-[0_14px_32px_rgba(255,110,64,0.35)] transition-transform hover:-translate-y-0.5"
           >
@@ -131,12 +125,6 @@ export function Header() {
               ))}
             </nav>
             <div className="flex flex-col gap-2">
-              <Link
-                href="/case-studies"
-                className="block rounded-xl border border-white/15 px-4 py-3 text-center text-base font-semibold text-white/80 transition hover:border-white/40 hover:text-white"
-              >
-                Our work
-              </Link>
               <Link
                 href="/contact"
                 className="block rounded-xl bg-gradient-to-r from-orange-400 via-brand-400 to-orange-500 px-4 py-3 text-center text-base font-semibold text-[#050508] transition hover:brightness-110"

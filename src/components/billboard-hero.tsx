@@ -36,7 +36,7 @@ export function BillboardHero() {
               </Button>
             </Glow>
             <Button asChild variant="outline" shape="pill">
-              <Link href="/case-studies">See the work</Link>
+              <Link href="/about">Explore our programmes</Link>
             </Button>
           </div>
         </motion.div>

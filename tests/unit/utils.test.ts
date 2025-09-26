@@ -10,9 +10,9 @@ describe('cn()', () => {
 
 describe('buildPageMetadata()', () => {
   it('builds canonical URL when path provided', () => {
-    const meta = buildPageMetadata({ title: 'Test', path: '/case-studies' })
+    const meta = buildPageMetadata({ title: 'Test', path: '/about' })
     // @ts-expect-error canonical isn't strongly typed
-    expect(meta.alternates?.canonical).toContain('/case-studies')
+    expect(meta.alternates?.canonical).toContain('/about')
   })
 })
 
