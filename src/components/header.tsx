@@ -4,33 +4,40 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
-import { Menu, PhoneCall, Sparkles, X } from 'lucide-react'
+import { Menu, PhoneCall, X } from 'lucide-react'
 
 import { Container } from './container'
 import { Logo } from './logo'
 import { mainNav } from '@/lib/links'
 
 export function Header() {
-  const [mobileOpen, setMobileOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
+  const [isMounted, setIsMounted] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileOpen, setIsMobileOpen] = useState(false)
 
   useEffect(() => {
-    const updateScrolled = () => {
-      setScrolled(window.scrollY > 16)
-    }
-
-    updateScrolled()
-    window.addEventListener('scroll', updateScrolled)
-    return () => window.removeEventListener('scroll', updateScrolled)
+    setIsMounted(true)
   }, [])
 
   useEffect(() => {
-    document.documentElement.classList.toggle('overflow-hidden', mobileOpen)
-  }, [mobileOpen])
+    if (!isMounted) return
+
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 8)
+    }
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [isMounted])
 
   useEffect(() => {
-    setMobileOpen(false)
+    document.documentElement.classList.toggle('overflow-hidden', isMobileOpen)
+  }, [isMobileOpen])
+
+  useEffect(() => {
+    setIsMobileOpen(false)
   }, [pathname])
 
   const isActive = (href: string) => {
@@ -42,73 +49,70 @@ export function Header() {
   return (
     <header
       className={clsx(
-        'sticky top-0 z-50 w-full border-b border-white/10 transition-[background-color,backdrop-filter,border-color] duration-200',
-        scrolled ? 'bg-[rgba(5,6,10,0.9)] backdrop-blur-xl' : 'bg-[rgba(5,6,10,0.6)] backdrop-blur'
+        'sticky top-0 z-50 w-full border-b border-transparent transition-all duration-200 ease-out',
+        isScrolled ? 'border-white/10 bg-[#050508]/90 shadow-[0_8px_24px_rgba(2,6,23,0.35)] backdrop-blur-lg' : 'bg-transparent'
       )}
     >
-      <Container className="flex h-20 items-center justify-between gap-8">
+      <Container className="flex h-16 items-center justify-between gap-4 md:h-20">
         <Link href="/" className="flex items-center gap-3 text-white" aria-label="Arctura Analytics home">
-          <Logo usePng size={30} />
-          <div className="flex flex-col leading-none">
-            <span className="font-heading text-xs uppercase tracking-[0.55em]">Arctura</span>
+          <Logo usePng size={28} />
+          <div className="flex flex-col leading-tight">
+            <span className="font-heading text-xs uppercase tracking-[0.6em]">Arctura</span>
             <span className="text-[0.65rem] uppercase tracking-[0.38em] text-white/60">Analytics</span>
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-1 rounded-full bg-white/5 p-1 text-sm text-white/70 md:flex" aria-label="Primary">
           {mainNav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={clsx(
-                'group relative inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium text-white/70 transition-colors hover:text-white',
-                isActive(item.href) &&
-                  'text-white after:absolute after:inset-x-3 after:-bottom-1 after:h-0.5 after:rounded-full after:bg-gradient-to-r after:from-brand-400 after:to-orange-400'
+                'relative inline-flex items-center gap-2 rounded-full px-4 py-2 font-medium transition-colors duration-150 hover:text-white',
+                isActive(item.href) && 'text-white'
               )}
+              aria-current={isActive(item.href) ? 'page' : undefined}
             >
               <span
+                aria-hidden="true"
                 className={clsx(
-                  'hidden h-1.5 w-1.5 rounded-full bg-white/30 transition-transform duration-200 group-hover:scale-110 lg:block',
-                  isActive(item.href) && 'bg-gradient-to-r from-brand-400 to-orange-400'
+                  'absolute inset-y-1 left-1 right-1 rounded-full bg-gradient-to-r from-brand-400/0 via-orange-400/10 to-brand-400/0 opacity-0 transition-opacity duration-150',
+                  isActive(item.href) && 'opacity-100'
                 )}
               />
-              {item.label}
+              <span className="relative z-10">{item.label}</span>
             </Link>
           ))}
         </nav>
 
-        <div className="flex items-center gap-4">
-          <div className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[0.7rem] font-medium uppercase tracking-[0.32em] text-white/60 md:flex">
-            <Sparkles className="h-3.5 w-3.5 text-orange-300" aria-hidden="true" />
-            Civic Data Specialists
-          </div>
+        <div className="flex items-center gap-2">
           <Link
             href="/case-studies"
-            className="hidden md:inline-flex items-center text-sm font-medium text-white/70 transition-colors hover:text-white"
+            className="hidden rounded-full border border-white/15 px-4 py-2 text-sm font-medium text-white/70 transition-colors hover:border-white/40 hover:text-white md:inline-flex"
           >
-            View work
+            Our work
           </Link>
           <Link
             href="/contact"
-            className="hidden md:inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-400 via-brand-400 to-orange-500 px-5 py-2 text-sm font-semibold text-[#05060a] shadow-[0_18px_40px_rgba(255,123,61,0.35)] transition-transform hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-400 via-brand-400 to-orange-500 px-4 py-2 text-sm font-semibold text-[#050508] shadow-[0_14px_32px_rgba(255,110,64,0.35)] transition-transform hover:-translate-y-0.5"
           >
             <PhoneCall className="h-4 w-4" aria-hidden="true" />
-            Contact team
+            Talk to us
           </Link>
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white transition hover:border-white/40 hover:text-white md:hidden"
-            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={mobileOpen}
-            onClick={() => setMobileOpen((value) => !value)}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white transition hover:border-white/40 hover:text-white md:hidden"
+            aria-label={isMobileOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMobileOpen}
+            onClick={() => setIsMobileOpen((value) => !value)}
           >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {isMobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </Container>
 
-      {mobileOpen && (
-        <div className="border-t border-white/10 bg-[rgba(7,8,12,0.96)] backdrop-blur md:hidden">
+      {isMobileOpen && (
+        <div className="border-t border-white/10 bg-[#050508]/98 backdrop-blur md:hidden">
           <Container className="flex flex-col gap-6 py-6">
             <nav className="flex flex-col gap-2" aria-label="Mobile">
               {mainNav.map((item) => (
@@ -116,7 +120,7 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   className={clsx(
-                    'block rounded-lg px-4 py-3 text-base font-medium text-white/80 transition-colors hover:bg-white/5 hover:text-white',
+                    'block rounded-xl px-4 py-3 text-base font-medium text-white/80 transition-colors hover:bg-white/5 hover:text-white',
                     isActive(item.href) && 'bg-white/5 text-white'
                   )}
                 >
@@ -127,15 +131,15 @@ export function Header() {
             <div className="flex flex-col gap-2">
               <Link
                 href="/case-studies"
-                className="block rounded-lg border border-white/10 px-4 py-3 text-center text-base font-semibold text-white/80 transition hover:border-white/30 hover:text-white"
+                className="block rounded-xl border border-white/15 px-4 py-3 text-center text-base font-semibold text-white/80 transition hover:border-white/40 hover:text-white"
               >
-                View work
+                Our work
               </Link>
               <Link
                 href="/contact"
-                className="block rounded-lg bg-gradient-to-r from-orange-400 via-brand-400 to-orange-500 px-4 py-3 text-center text-base font-semibold text-[#05060a] transition hover:brightness-110"
+                className="block rounded-xl bg-gradient-to-r from-orange-400 via-brand-400 to-orange-500 px-4 py-3 text-center text-base font-semibold text-[#050508] transition hover:brightness-110"
               >
-                Contact team
+                Talk to us
               </Link>
             </div>
           </Container>
