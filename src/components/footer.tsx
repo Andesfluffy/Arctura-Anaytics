@@ -13,9 +13,6 @@ export function Footer() {
         <nav className="text-sm text-slate-400">
           <ul className="flex items-center gap-4">
             <li>
-              <Link href="/solutions">Solutions</Link>
-            </li>
-            <li>
               <Link href="/about">About</Link>
             </li>
             <li>

@@ -1,4 +1,4 @@
-# Arctura Analytics ñ arctura-site
+# Arctura Analytics ‚Äì arctura-site
 
 Modern, fast marketing site built with Next.js 15 (App Router, TypeScript), Tailwind CSS, shadcn/ui, Framer Motion, MDX, and Playwright/Vitest tests. Source lives under `src/`.
 
@@ -9,7 +9,7 @@ Modern, fast marketing site built with Next.js 15 (App Router, TypeScript), Tail
 - Tailwind CSS with CSS variables and typography plugin
 - shadcn/ui primitives: Button, Card, Badge
 - Framer Motion (reduced-motion aware)
-- MDX for case studies via `next-mdx-remote` + pretty code
+- Long-form storytelling layouts with Framer Motion and Tailwind gradients
 - Forms: Zod + React Hook Form + API routes
 - Analytics: Plausible/Umami/Vercel Analytics (opt-in via env)
 - SEO: metadata, robots, sitemap, dynamic OG image API
@@ -33,13 +33,13 @@ Copy `.env.example` to `.env.local` and set:
 
 ## Structure
 
-- `src/app/` ñ routes, layouts, API handlers
-- `src/components/` ñ UI primitives and layout
-- `src/lib/` ñ utilities, SEO/theme helpers, MDX and validation
-- `src/styles/` ñ global styles
-- `content/case-studies/` ñ MDX case studies
-- `public/` ñ static assets, generated sitemap/rss
-- `scripts/` ñ sitemap/RSS generators
+- `src/app/` ‚Äì routes, layouts, API handlers
+- `src/components/` ‚Äì UI primitives and layout
+- `src/lib/` ‚Äì utilities, SEO/theme helpers, and validation
+- `src/styles/` ‚Äì global styles
+- `content/` ‚Äì structured data for hiring and programme highlights
+- `public/` ‚Äì static assets, generated sitemap/rss
+- `scripts/` ‚Äì sitemap/RSS generators
 
 ## Theming
 
@@ -51,7 +51,7 @@ Copy `.env.example` to `.env.local` and set:
 - Install the Vercel GitHub App and import the repo. Preview deployments will be created for every PR.
 - `vercel.json` sets the preferred region and runs `/api/og` on the Edge runtime.
 - Set `SITE_URL` in Project Settings ? Environment Variables. Used by sitemap/RSS and SEO helpers.
-- To enable preview comments on PRs, ensure ìDeploy Hooks & Commentsî are enabled for the GitHub integration.
+- To enable preview comments on PRs, ensure ‚ÄúDeploy Hooks & Comments‚Äù are enabled for the GitHub integration.
 
 ### Custom domain
 
