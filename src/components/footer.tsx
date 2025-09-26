@@ -1,14 +1,16 @@
 import Link from 'next/link'
 import { Container } from './container'
-import Image from 'next/image'
+import { Logo } from './logo'
 
 export function Footer() {
   return (
     <footer className="border-t border-white/10 py-10">
       <Container className="flex flex-col items-center justify-between gap-6 md:flex-row">
-        <Link href="/" className="flex items-center gap-2 opacity-90 transition-opacity hover:opacity-100">
-          <Image src="/brand/logo-dark.svg" alt="Arctura" width={24} height={24} />
-          <span className="text-sm">Arctura Analytics Limited</span>
+        <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-90">
+          <Logo size={24} showText={false} variant="light" withLink={false} />
+          <span className="text-sm bg-gradient-to-r from-[#ff7b39] via-[#ff8a47] to-[#ffb347] bg-clip-text text-transparent font-medium">
+            Arctura Analytics Limited
+          </span>
         </Link>
         <nav className="text-sm text-slate-400">
           <ul className="flex items-center gap-4">
@@ -23,15 +25,10 @@ export function Footer() {
             </li>
           </ul>
         </nav>
-        <p className="text-xs text-slate-500">{"\u00A9"} {new Date().getFullYear()} Arctura Analytics Limited</p>
+        <p className="text-xs text-slate-500">
+          {'\u00A9'} {new Date().getFullYear()} Arctura Analytics Limited
+        </p>
       </Container>
     </footer>
   )
 }
-
-
-
-
-
-
-

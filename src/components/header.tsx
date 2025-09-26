@@ -52,16 +52,19 @@ export function Header() {
       )}
     >
       <Container className="flex h-16 items-center justify-between gap-4 md:h-20">
-        <Link href="/" className="flex items-center gap-3 text-white" aria-label="Arctura Analytics home">
-          <Logo usePng size={28} withLink={false} showText={false} />
-          <div className="flex flex-col leading-tight">
-            <span className="font-heading text-xs uppercase tracking-[0.6em]">Arctura</span>
-            <span className="text-[0.65rem] uppercase tracking-[0.38em] text-white/60">Analytics</span>
-          </div>
+        <Link
+          href="/"
+          className="flex items-center gap-3 text-white"
+          aria-label="Arctura Analytics home"
+        >
+          <Logo size={36} withLink={false} showText={true} textClassName="text-lg font-bold tracking-wider" />
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 rounded-full bg-white/5 p-1 text-sm text-white/70 md:flex" aria-label="Primary">
+        <nav
+          className="hidden items-center gap-1 rounded-full bg-white/5 p-1 text-sm text-white/70 md:flex"
+          aria-label="Primary"
+        >
           {mainNav.map((item) => (
             <Link
               key={item.href}
@@ -88,7 +91,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-400 via-brand-400 to-orange-500 px-4 py-2 text-sm font-semibold text-[#050508] shadow-[0_14px_32px_rgba(255,110,64,0.35)] transition-transform hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-400 via-brand-400 to-orange-500 px-4 py-2 text-sm font-semibold text-[#d5d5f7] shadow-[0_14px_32px_rgba(255,110,64,0.35)] transition-transform hover:-translate-y-0.5"
           >
             <PhoneCall className="h-4 w-4" aria-hidden="true" />
             Talk to us

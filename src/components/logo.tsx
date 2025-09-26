@@ -28,14 +28,26 @@ export function Logo({
   href = '/',
   ariaLabel = 'Arctura Analytics home',
 }: Props) {
-  const svgSrc = variant === 'light' ? '/brand/logo-light.svg' : '/brand/logo-dark.svg'
-  const src = usePng ? '/brand/Arctura_Logo.png' : svgSrc
-  const containerClass = ['flex items-center gap-2', className].filter(Boolean).join(' ')
+  const src = '/brand/Arctura_Logo.png'
+  const containerClass = ['flex items-center gap-3', className].filter(Boolean).join(' ')
   const content = (
     <>
-      <Image src={src} alt="Arctura Analytics" width={size} height={size} priority={priority} />
+      <div className="relative">
+        <Image 
+          src={src} 
+          alt="Arctura Analytics" 
+          width={size} 
+          height={size} 
+          priority={priority}
+          className="drop-shadow-[0_0_12px_rgba(255,111,60,0.4)]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#ff7b39]/10 to-[#ffb347]/10 mix-blend-overlay rounded-full" />
+      </div>
       {showText ? (
-        <span className={textClassName ?? 'text-base font-semibold tracking-wide'}>Arctura Analytics</span>
+        <span className={textClassName ?? 'text-base font-bold tracking-wider'}>
+          <span className="bg-gradient-to-r from-[#ff7b39] via-[#ff8a47] to-[#ffb347] bg-clip-text text-transparent">Arctura</span>
+          <span className="text-white/80"> Analytics</span>
+        </span>
       ) : null}
     </>
   )

@@ -11,18 +11,18 @@ const heroMetrics = [
   {
     value: '120M+',
     label: 'Citizen records harmonised',
-    copy: 'Registries for residents, businesses, and land brought into a single sovereign fabric.'
+    copy: 'Registries for residents, businesses, and land brought into a single sovereign fabric.',
   },
   {
     value: '6 weeks',
     label: 'Average mobilisation',
-    copy: 'From charter to production pilots with co-created policy, service, and engineering playbooks.'
+    copy: 'From charter to production pilots with co-created policy, service, and engineering playbooks.',
   },
   {
     value: '24/7',
     label: 'Assurance coverage',
-    copy: 'Operations centres spanning Lagos, London, and Toronto for uninterrupted continuity.'
-  }
+    copy: 'Operations centres spanning Lagos, London, and Toronto for uninterrupted continuity.',
+  },
 ]
 
 const serviceTracks = [
@@ -34,8 +34,8 @@ const serviceTracks = [
     highlights: [
       'National encryption, lineage, and dispute workflows',
       'API gateways for banks, justice, and social services',
-      'Offline-first enrolment for rural communities'
-    ]
+      'Offline-first enrolment for rural communities',
+    ],
   },
   {
     kicker: 'Digital platform',
@@ -45,8 +45,8 @@ const serviceTracks = [
     highlights: [
       'Pattern libraries for permits, licenses, and relief',
       'Intake to fulfilment orchestrated across agencies',
-      'Performance telemetry that boards and residents trust'
-    ]
+      'Performance telemetry that boards and residents trust',
+    ],
   },
   {
     kicker: 'Public intelligence',
@@ -56,48 +56,45 @@ const serviceTracks = [
     highlights: [
       'Executive command centres with situation rooms',
       'Explainable AI scorecards and policy simulations',
-      'Continuous feedback rituals with the public'
-    ]
-  }
+      'Continuous feedback rituals with the public',
+    ],
+  },
 ]
 
 const programmeLayers = [
   {
     id: 'registry',
     title: 'Registry backbone',
-    copy:
-      'A lattice of secure registries that unifies identity, assets, and entitlements. We marry document digitisation with biometric capture, consent logging, and tamper-evident ledgers so every record can be trusted in court or across borders.'
+    copy: 'A lattice of secure registries that unifies identity, assets, and entitlements. We marry document digitisation with biometric capture, consent logging, and tamper-evident ledgers so every record can be trusted in court or across borders.',
   },
   {
     id: 'service-fabric',
     title: 'Service delivery fabric',
-    copy:
-      'Composable micro frontends, workflow engines, and communications pipes stitched into one operator console. Residents glide from online to in-person support, while ministries gain real-time visibility into queues, payments, and resolution pacing.'
+    copy: 'Composable micro frontends, workflow engines, and communications pipes stitched into one operator console. Residents glide from online to in-person support, while ministries gain real-time visibility into queues, payments, and resolution pacing.',
   },
   {
     id: 'trust-labs',
     title: 'Trust & verification labs',
-    copy:
-      'Joint lab environments where we run red-team drills, simulate outage scenarios, and audit algorithmic decisions. Every release leaves with compliance artefacts, multilingual playbooks, and continuity rehearsals for frontline teams.'
-  }
+    copy: 'Joint lab environments where we run red-team drills, simulate outage scenarios, and audit algorithmic decisions. Every release leaves with compliance artefacts, multilingual playbooks, and continuity rehearsals for frontline teams.',
+  },
 ]
 
 const operatingPrinciples = [
   {
     title: 'Public-first rituals',
     detail:
-      'Neighbourhood clinics, youth councils, and commerce forums feed insight into every sprint, ensuring products reflect lived realities and not just policy text.'
+      'Neighbourhood clinics, youth councils, and commerce forums feed insight into every sprint, ensuring products reflect lived realities and not just policy text.',
   },
   {
     title: 'Policy-aware engineering',
     detail:
-      'Architectures are co-signed by legal, procurement, and cyber teams. We document decision logs so oversight bodies can trace every change.'
+      'Architectures are co-signed by legal, procurement, and cyber teams. We document decision logs so oversight bodies can trace every change.',
   },
   {
     title: 'Measured adoption',
     detail:
-      'Success is defined by citizens served, hours returned to civil servants, and the integrity of the data flowing through the platform.'
-  }
+      'Success is defined by citizens served, hours returned to civil servants, and the integrity of the data flowing through the platform.',
+  },
 ]
 
 const timeline = [
@@ -105,26 +102,26 @@ const timeline = [
     year: '2017',
     title: 'Arctura founded',
     description:
-      'Delivery leads from African, European, and North American governments formed Arctura to industrialise civic digital programmes.'
+      'Delivery leads from African, European, and North American governments formed Arctura to industrialise civic digital programmes.',
   },
   {
     year: '2019',
     title: 'Registry accelerators launched',
     description:
-      'Introduced ingestion pipelines, deduplication heuristics, and QR verification stacks tailored to ministries of interior and trade.'
+      'Introduced ingestion pipelines, deduplication heuristics, and QR verification stacks tailored to ministries of interior and trade.',
   },
   {
     year: '2021',
     title: 'Digital platform studio',
     description:
-      'Opened service design labs in Abuja and London to co-create permitting, licensing, and benefits experiences with the public.'
+      'Opened service design labs in Abuja and London to co-create permitting, licensing, and benefits experiences with the public.',
   },
   {
     year: '2023',
     title: 'Trust labs network',
     description:
-      'Established joint verification centres with partners in Lagos, Toronto, and Dubai to stress-test AI, biometrics, and continuity drills.'
-  }
+      'Established joint verification centres with partners in Lagos, Toronto, and Dubai to stress-test AI, biometrics, and continuity drills.',
+  },
 ]
 
 const teamScenes = [
@@ -132,20 +129,20 @@ const teamScenes = [
     image: '/brand/christina-wocintechchat-com-UcZcsHSp8o4-unsplash.jpg',
     label: 'Public experience studio',
     caption:
-      'Service designers and civic researchers co-creating language, visuals, and accessibility journeys with residents and field officers.'
+      'Service designers and civic researchers co-creating language, visuals, and accessibility journeys with residents and field officers.',
   },
   {
     image: '/brand/jeffery-ho-oITfawv6t-8-unsplash.jpg',
     label: 'Platform engineering guild',
     caption:
-      'Cloud, security, and data engineers choreographing registry pipelines, resilience tests, and rollout dashboards in tandem.'
+      'Cloud, security, and data engineers choreographing registry pipelines, resilience tests, and rollout dashboards in tandem.',
   },
   {
     image: '/brand/brooke-cagle-g1Kr4Ozfoac-unsplash.jpg',
     label: 'Partner enablement',
     caption:
-      'Change coaches and programme directors preparing ministries for launch day with training arcs and executive storytelling.'
-  }
+      'Change coaches and programme directors preparing ministries for launch day with training arcs and executive storytelling.',
+  },
 ]
 
 export default function AboutPage() {
@@ -161,8 +158,14 @@ export default function AboutPage() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-[#080509]" aria-hidden />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-[#1f0d0b]/60 to-black/50" aria-hidden />
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-[#080509]"
+          aria-hidden
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-black/20 via-[#1f0d0b]/60 to-black/50"
+          aria-hidden
+        />
         <Container className="relative z-[1] space-y-12 py-28 sm:py-32">
           <motion.div
             initial={reduceMotion ? undefined : { opacity: 0, y: 32 }}
@@ -174,10 +177,14 @@ export default function AboutPage() {
               About Arctura
             </span>
             <h1 className="text-balance text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
-              We choreograph national registries and digital platforms so the public experiences confident, human government.
+              We choreograph national registries and digital platforms so the public experiences
+              confident, human government.
             </h1>
             <p className="max-w-2xl text-balance text-base text-white/75 sm:text-lg">
-              From the eGovRegistry backbone in Nigeria to modular civic platforms across emerging cities, Arctura blends policy, engineering, and service design into one disciplined squad. We help ministries deliver certainty to citizens, businesses, and partners at scale.
+              From the eGovRegistry backbone in Nigeria to modular civic platforms across emerging
+              cities, Arctura blends policy, engineering, and service design into one disciplined
+              squad. We help ministries deliver certainty to citizens, businesses, and partners at
+              scale.
             </p>
           </motion.div>
           <div className="grid gap-4 sm:grid-cols-3">
@@ -190,7 +197,9 @@ export default function AboutPage() {
                 className="rounded-3xl border border-white/15 bg-white/10 p-6 backdrop-blur"
               >
                 <div className="text-2xl font-semibold text-white sm:text-3xl">{metric.value}</div>
-                <div className="mt-2 text-xs uppercase tracking-[0.3em] text-white/60">{metric.label}</div>
+                <div className="mt-2 text-xs uppercase tracking-[0.3em] text-white/60">
+                  {metric.label}
+                </div>
                 <p className="mt-3 text-sm text-white/70">{metric.copy}</p>
               </motion.article>
             ))}
@@ -200,7 +209,10 @@ export default function AboutPage() {
 
       <Section className="relative overflow-hidden py-24">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-x-0 top-0 h-48 bg-[radial-gradient(75%_120%_at_50%_0%,rgba(255,111,60,0.18),transparent_70%)]" aria-hidden />
+          <div
+            className="absolute inset-x-0 top-0 h-48 bg-[radial-gradient(75%_120%_at_50%_0%,rgba(255,111,60,0.18),transparent_70%)]"
+            aria-hidden
+          />
         </div>
         <Container className="space-y-12">
           <div className="max-w-3xl space-y-5 text-white">
@@ -211,7 +223,9 @@ export default function AboutPage() {
               Programmes that connect ministries, markets, and everyday people.
             </h2>
             <p className="text-base text-white/75 sm:text-lg">
-              Our cross-functional squads translate policy mandates into real products. Each track merges lessons from the digital platform and registry initiatives into one coherent journey.
+              Our cross-functional squads translate policy mandates into real products. Each track
+              merges lessons from the digital platform and registry initiatives into one coherent
+              journey.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
@@ -232,7 +246,10 @@ export default function AboutPage() {
                 <ul className="space-y-2 text-sm text-white/70">
                   {track.highlights.map((highlight) => (
                     <li key={highlight} className="flex items-start gap-2">
-                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--accent-amber)]" aria-hidden />
+                      <span
+                        className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--accent-amber)]"
+                        aria-hidden
+                      />
                       <span>{highlight}</span>
                     </li>
                   ))}
@@ -254,7 +271,9 @@ export default function AboutPage() {
               One backbone, three pillars of delivery.
             </h2>
             <p className="text-base text-[#4c1f18] sm:text-lg">
-              Each layer is anchored in the commitments we made across the eGovRegistry and digital platform programmes. Together they guarantee continuity, accountability, and care for the public.
+              Each layer is anchored in the commitments we made across the eGovRegistry and digital
+              platform programmes. Together they guarantee continuity, accountability, and care for
+              the public.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
@@ -278,8 +297,14 @@ export default function AboutPage() {
 
       <Section className="relative overflow-hidden py-24">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute left-[-20%] top-20 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(255,110,64,0.18),transparent_70%)] blur-[120px]" aria-hidden />
-          <div className="absolute right-[-10%] bottom-10 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(255,210,160,0.16),transparent_70%)] blur-[120px]" aria-hidden />
+          <div
+            className="absolute left-[-20%] top-20 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(255,110,64,0.18),transparent_70%)] blur-[120px]"
+            aria-hidden
+          />
+          <div
+            className="absolute right-[-10%] bottom-10 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(255,210,160,0.16),transparent_70%)] blur-[120px]"
+            aria-hidden
+          />
         </div>
         <Container className="space-y-12">
           <div className="max-w-3xl space-y-5 text-white">
@@ -290,7 +315,9 @@ export default function AboutPage() {
               Guardrails that keep programmes human, secure, and measurable.
             </h2>
             <p className="text-base text-white/75 sm:text-lg">
-              Beyond software delivery, we nurture the operating culture needed for change to stick. These principles guide every stand-up, every deployment, and every town-hall we facilitate.
+              Beyond software delivery, we nurture the operating culture needed for change to stick.
+              These principles guide every stand-up, every deployment, and every town-hall we
+              facilitate.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
@@ -321,7 +348,8 @@ export default function AboutPage() {
               Years of public digital work in one timeline.
             </h2>
             <p className="text-base text-[#445369] sm:text-lg">
-              Every milestone is tied to a partnership where citizens felt the difference. We keep those lessons alive across new mandates.
+              Every milestone is tied to a partnership where citizens felt the difference. We keep
+              those lessons alive across new mandates.
             </p>
           </div>
           <ol className="grid gap-6 md:grid-cols-2">
@@ -334,7 +362,9 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, ease: 'easeOut', delay: index * 0.05 }}
                 className="flex h-full flex-col gap-3 rounded-[24px] border border-[#d8e2ef] bg-white p-6 shadow-[0_24px_80px_rgba(15,29,49,0.08)]"
               >
-                <span className="text-xs font-semibold uppercase tracking-[0.32em] text-[#60728e]">{item.year}</span>
+                <span className="text-xs font-semibold uppercase tracking-[0.32em] text-[#60728e]">
+                  {item.year}
+                </span>
                 <h3 className="text-lg font-semibold text-[#0f1d31]">{item.title}</h3>
                 <p className="text-sm text-[#445369]">{item.description}</p>
               </motion.li>
@@ -345,7 +375,10 @@ export default function AboutPage() {
 
       <Section className="relative overflow-hidden py-24">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-x-0 top-[20%] h-48 bg-[radial-gradient(65%_140%_at_50%_0%,rgba(255,111,60,0.16),transparent_70%)]" aria-hidden />
+          <div
+            className="absolute inset-x-0 top-[20%] h-48 bg-[radial-gradient(65%_140%_at_50%_0%,rgba(255,111,60,0.16),transparent_70%)]"
+            aria-hidden
+          />
         </div>
         <Container className="space-y-12 text-white">
           <div className="mx-auto max-w-4xl text-center">
@@ -356,7 +389,9 @@ export default function AboutPage() {
               Multidisciplinary teams that stay in the arena with you.
             </h2>
             <p className="mt-4 text-base text-white/75 sm:text-lg">
-              The same people who design resident journeys also review policy drafts, rehearse continuity drills, and brief cabinet members. We remain embedded until your teams can run independently.
+              The same people who design resident journeys also review policy drafts, rehearse
+              continuity drills, and brief cabinet members. We remain embedded until your teams can
+              run independently.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
@@ -377,7 +412,10 @@ export default function AboutPage() {
                     sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 100vw"
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/30 to-transparent" aria-hidden />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/30 to-transparent"
+                    aria-hidden
+                  />
                   <figcaption className="absolute bottom-4 left-4 text-sm font-semibold uppercase tracking-[0.32em] text-white/80">
                     {scene.label}
                   </figcaption>
@@ -397,7 +435,8 @@ export default function AboutPage() {
               Ready to design the next chapter of your public digital infrastructure?
             </h3>
             <p className="mt-4 text-sm text-white/75 sm:text-base">
-              Share your mission and constraints. We will assemble an Arctura squad that blends registry, platform, and change expertise tailored to your mandate.
+              Share your mission and constraints. We will assemble an Arctura squad that blends
+              registry, platform, and change expertise tailored to your mandate.
             </p>
             <Button
               asChild
