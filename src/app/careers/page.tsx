@@ -8,7 +8,7 @@ import { HoverLift } from '@/components/hover-lift'
 export default async function CareersPage() {
   const roles = await getRoles()
   return (
-    <main id="content">
+    <main id="content" className="bg-[color:var(--bg)] text-[color:var(--fg)]">
       <Section>
         <Container>
           <SectionHeader
@@ -20,17 +20,20 @@ export default async function CareersPage() {
               <HoverLift key={r.slug}>
                 <Link
                   href={`/careers/${r.slug}`}
-                  className="rounded-xl border border-white/10 bg-white/5 p-6 hover:bg-white/[0.08]"
+                  className="surface-card rounded-3xl border border-[color:var(--border)] p-6 transition hover:-translate-y-0.5"
                 >
-                  <h3 className="text-lg font-semibold">{r.title}</h3>
-                  <p className="text-sm text-slate-400">{r.location} • {r.type}</p>
-                  <p className="mt-2 text-slate-300">{r.summary}</p>
+                  <h3 className="text-lg font-semibold text-[color:var(--ink)]">{r.title}</h3>
+                  <p className="text-sm text-muted">{r.location} • {r.type}</p>
+                  <p className="mt-2 text-muted">{r.summary}</p>
                 </Link>
               </HoverLift>
             ))}
           </div>
-          <p className="mt-8 text-slate-300">
-            Don’t see a perfect fit? <a className="underline" href="#apply">Send us your CV</a>
+          <p className="mt-8 text-muted">
+            Don’t see a perfect fit?{' '}
+            <a className="underline" href="#apply">
+              Send us your CV
+            </a>
           </p>
         </Container>
       </Section>

@@ -16,7 +16,7 @@ export default async function RolePage({ params }: { params: Promise<{ slug: str
   const role = await getRole(slug)
   if (!role) notFound()
   return (
-    <main id="content">
+    <main id="content" className="bg-[color:var(--bg)] text-[color:var(--fg)]">
       <Section>
         <Container>
           <BreadcrumbJsonLd

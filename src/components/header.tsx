@@ -47,14 +47,14 @@ export function Header() {
       className={clsx(
         'sticky top-0 z-50 w-full border-b border-transparent transition-all duration-200 ease-out',
         isScrolled
-          ? 'border-white/10 bg-[#050508]/90 shadow-[0_8px_24px_rgba(2,6,23,0.35)] backdrop-blur-lg'
+          ? 'border-[color:var(--border)] bg-[color:rgba(10,5,7,0.9)] shadow-[0_8px_24px_rgba(6,3,5,0.55)] backdrop-blur-lg'
           : 'bg-transparent'
       )}
     >
       <Container className="flex h-16 items-center justify-between gap-4 md:h-20">
         <Link
           href="/"
-          className="flex items-center gap-3 text-white"
+          className="flex items-center gap-3 text-[color:var(--ink)]"
           aria-label="Arctura Analytics home"
         >
           <Logo size={36} withLink={false} showText={true} textClassName="text-lg font-bold tracking-wider" />
@@ -62,7 +62,7 @@ export function Header() {
 
         {/* Desktop nav */}
         <nav
-          className="hidden items-center gap-1 rounded-full bg-white/5 p-1 text-sm text-white/70 md:flex"
+          className="hidden items-center gap-1 rounded-full border border-[color:var(--border)] bg-[color:var(--surface-muted)]/80 p-1 text-sm text-muted md:flex"
           aria-label="Primary"
         >
           {mainNav.map((item) => (
@@ -70,15 +70,15 @@ export function Header() {
               key={item.href}
               href={item.href}
               className={clsx(
-                'relative inline-flex items-center gap-2 rounded-full px-4 py-2 font-medium transition-colors duration-150 hover:text-white',
-                isActive(item.href) && 'text-white'
+                'relative inline-flex items-center gap-2 rounded-full px-4 py-2 font-medium transition-colors duration-150 hover:text-[color:var(--ink)]',
+                isActive(item.href) && 'text-[color:var(--ink)]'
               )}
               aria-current={isActive(item.href) ? 'page' : undefined}
             >
               <span
                 aria-hidden="true"
                 className={clsx(
-                  'absolute inset-y-1 left-1 right-1 rounded-full bg-gradient-to-r from-brand-400/0 via-orange-400/10 to-brand-400/0 opacity-0 transition-opacity duration-150',
+                  'absolute inset-y-1 left-1 right-1 rounded-full bg-[linear-gradient(120deg,var(--accent-start),var(--accent-mid),var(--accent-end))] opacity-0 transition-opacity duration-150',
                   isActive(item.href) && 'opacity-100'
                 )}
               />
@@ -91,7 +91,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-400 via-brand-400 to-orange-500 px-4 py-2 text-sm font-semibold text-[#d5d5f7] shadow-[0_14px_32px_rgba(255,110,64,0.35)] transition-transform hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(120deg,var(--accent-start),var(--accent-mid),var(--accent-end))] px-4 py-2 text-sm font-semibold text-[#1a0505] shadow-[0_18px_48px_rgba(255,100,60,0.32)] transition-transform hover:-translate-y-0.5 hover:shadow-[0_22px_60px_rgba(255,100,60,0.4)]"
           >
             <PhoneCall className="h-4 w-4" aria-hidden="true" />
             Talk to us
@@ -99,7 +99,7 @@ export function Header() {
 
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white transition hover:border-white/40 hover:text-white md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--border)] text-[color:var(--fg)] transition hover:border-[color:var(--border-strong)] hover:text-[color:var(--ink)] md:hidden"
             aria-label={isMobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMobileOpen}
             onClick={() => setIsMobileOpen((v) => !v)}
@@ -111,7 +111,7 @@ export function Header() {
 
       {/* Mobile drawer */}
       {isMobileOpen && (
-        <div className="border-t border-white/10 bg-[#050508]/98 backdrop-blur md:hidden">
+        <div className="border-t border-[color:var(--border)] bg-[color:rgba(6,3,5,0.98)] backdrop-blur md:hidden">
           <Container className="flex flex-col gap-6 py-6">
             <nav className="flex flex-col gap-2" aria-label="Mobile">
               {mainNav.map((item) => (
@@ -119,8 +119,8 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   className={clsx(
-                    'block rounded-xl px-4 py-3 text-base font-medium text-white/80 transition-colors hover:bg-white/5 hover:text-white',
-                    isActive(item.href) && 'bg-white/5 text-white'
+                    'block rounded-xl px-4 py-3 text-base font-medium text-muted transition-colors hover:bg-[color:var(--surface-muted)] hover:text-[color:var(--ink)]',
+                    isActive(item.href) && 'bg-[color:var(--surface-muted)] text-[color:var(--ink)]'
                   )}
                 >
                   {item.label}
@@ -130,7 +130,7 @@ export function Header() {
             <div className="flex flex-col gap-2">
               <Link
                 href="/contact"
-                className="block rounded-xl bg-gradient-to-r from-orange-400 via-brand-400 to-orange-500 px-4 py-3 text-center text-base font-semibold text-[#050508] transition hover:brightness-110"
+                className="block rounded-xl bg-[linear-gradient(120deg,var(--accent-start),var(--accent-mid),var(--accent-end))] px-4 py-3 text-center text-base font-semibold text-[#1a0505] transition hover:brightness-110"
               >
                 Talk to us
               </Link>
