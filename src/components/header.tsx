@@ -1,11 +1,13 @@
 'use client'
+
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X } from 'lucide-react'
+import clsx from 'clsx'
+import { motion, AnimatePresence } from 'framer-motion'
+
 import { Container } from './container'
 import { Logo } from './logo'
-import { motion, AnimatePresence } from 'framer-motion'
 import { mainNav } from '@/lib/links'
 
 export function Header() {
@@ -24,145 +26,121 @@ export function Header() {
     document.documentElement.classList.toggle('overflow-hidden', open)
   }, [open])
 
+  useEffect(() => {
+    setOpen(false)
+  }, [pathname])
+
+  const isActive = (href: string) => {
+    if (!pathname) return false
+    if (href === '/') return pathname === '/'
+    return pathname === href || pathname.startsWith(`${href}/`)
+  }
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-black/95 backdrop-blur-sm border-b border-white/[0.02]' : 'bg-transparent'
-      }`}
+      className={clsx(
+        'fixed inset-x-0 top-0 z-50 transition-all duration-300',
+        scrolled ? 'bg-black/90 backdrop-blur-xl border-b border-white/10' : 'bg-transparent'
+      )}
     >
       <Container className="flex h-20 items-center justify-between px-6">
-        <div className="flex items-center gap-12">
-          <Link href="/" className="flex items-center gap-2">
+        <div className="flex items-center gap-10">
+          <Link href="/" className="flex items-center gap-2" aria-label="Arctura Analytics home">
             <Logo usePng size={32} />
             <div className="flex items-baseline gap-1">
-              <span className="text-white font-medium">ARCTURA</span>
-              <span className="text-white/80 text-sm">ANALYTICS</span>
+              <span className="text-white font-semibold tracking-wide">ARCTURA</span>
+              <span className="text-white/70 text-xs uppercase">Analytics</span>
             </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-8" aria-label="Primary">
-            <div className="flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6" aria-label="Main navigation">
+            {mainNav.map((item) => (
               <Link
-                href="/platform"
-                className="text-[13px] font-medium text-white/80 hover:text-white transition-colors uppercase tracking-wide"
+                key={item.href}
+                href={item.href}
+                className={clsx(
+                  'text-sm font-medium uppercase tracking-wide transition-colors',
+                  isActive(item.href) ? 'text-white' : 'text-white/70 hover:text-white'
+                )}
               >
-                Solutions
+                {item.label}
               </Link>
-              <Link
-                href="/services"
-                className="text-[13px] font-medium text-white/80 hover:text-white transition-colors uppercase tracking-wide"
-              >
-                Services
-              </Link>
-              <Link
-                href="/case-studies"
-                className="text-[13px] font-medium text-white/80 hover:text-white transition-colors uppercase tracking-wide"
-              >
-                Case Studies
-              </Link>
-              <Link
-                href="/about"
-                className="text-[13px] font-medium text-white/80 hover:text-white transition-colors uppercase tracking-wide"
-              >
-                About
-              </Link>
-              <Link
-                href="/contact"
-                className="text-[13px] font-medium text-white/80 hover:text-white transition-colors uppercase tracking-wide"
-              >
-                Contact
-              </Link>
-            </div>
+            ))}
           </nav>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <Link
+            href="/case-studies"
+            className="hidden lg:inline-flex items-center rounded-full border border-white/10 px-4 py-2 text-sm font-medium text-white/80 transition-colors hover:text-white hover:border-white/30"
+          >
+            View Proof
+          </Link>
+          <Link
+            href="/contact"
+            className="hidden lg:inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#ff4d4d] to-[#ff6b00] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(255,77,77,0.35)] transition-transform hover:-translate-y-0.5"
+          >
+            Let’s Talk
+          </Link>
+
+          <motion.button
+            className="lg:hidden relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-colors hover:bg-white/10"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            onClick={() => setOpen((value) => !value)}
+            whileTap={{ scale: 0.95 }}
+          >
+            <motion.span
+              className="absolute h-0.5 w-5 bg-white"
+              animate={open ? { rotate: 45, y: 0 } : { rotate: 0, y: -6 }}
+              transition={{ duration: 0.2 }}
+            />
+            <motion.span
+              className="h-0.5 w-5 bg-white"
+              animate={open ? { opacity: 0 } : { opacity: 1 }}
+              transition={{ duration: 0.2 }}
+            />
+            <motion.span
+              className="absolute h-0.5 w-5 bg-white"
+              animate={open ? { rotate: -45, y: 0 } : { rotate: 0, y: 6 }}
+              transition={{ duration: 0.2 }}
+            />
+          </motion.button>
         </div>
       </Container>
 
       <AnimatePresence>
         {open && (
-          <motion.div 
-            className="md:hidden fixed inset-0 top-20 bg-gradient-to-b from-black/95 to-black/90 backdrop-blur-xl"
-            initial={{ opacity: 0, y: -8 }}
+          <motion.div
+            className="lg:hidden fixed inset-x-0 top-20 z-40 bg-gradient-to-b from-black/95 to-black/90 backdrop-blur-xl"
+            initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.3 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.25 }}
           >
-            <Container className="py-12">
-              <nav className="flex flex-col">
-                <Link href="/platform" className="py-4 text-lg text-white/80 hover:text-white">Solutions</Link>
-                <Link href="/services" className="py-4 text-lg text-white/80 hover:text-white">Services</Link>
-                <Link href="/case-studies" className="py-4 text-lg text-white/80 hover:text-white">Case Studies</Link>
-                <Link href="/about" className="py-4 text-lg text-white/80 hover:text-white">About</Link>
-                <Link href="/contact" className="py-4 text-lg text-white/80 hover:text-white">Contact</Link>
-              </nav>
-            </Container>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
-  )
-
-        <motion.button
-          className="md:hidden relative rounded-lg border border-white/10 bg-white/5 p-2.5 hover:bg-white/10 transition-colors"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          onClick={() => setOpen((v) => !v)}
-          whileTap={{ scale: 0.95 }}
-        >
-          <motion.div
-            animate={open ? { rotate: 45, y: 2 } : { rotate: 0, y: 0 }}
-            transition={{ duration: 0.2 }}
-            className="h-0.5 w-4 bg-white absolute"
-          />
-          <motion.div
-            animate={open ? { opacity: 0 } : { opacity: 1 }}
-            transition={{ duration: 0.2 }}
-            className="h-0.5 w-4 bg-white"
-          />
-          <motion.div
-            animate={open ? { rotate: -45, y: -2 } : { rotate: 0, y: 0 }}
-            transition={{ duration: 0.2 }}
-            className="h-0.5 w-4 bg-white absolute"
-          />
-        </motion.button>
-      </Container>
-
-      <AnimatePresence>
-        {open && (
-          <motion.div 
-            className="md:hidden fixed inset-0 top-20 bg-gradient-to-b from-black/95 to-black/90 backdrop-blur-xl"
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Container className="py-12">
-              <nav className="flex flex-col">
-                {mainNav.map((item, i) => (
+            <Container className="px-6 py-8">
+              <nav className="flex flex-col gap-2" aria-label="Mobile navigation">
+                {mainNav.map((item, index) => (
                   <motion.div
                     key={item.href}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 + 0.1 }}
+                    transition={{ delay: index * 0.05 }}
                   >
                     <Link
                       href={item.href}
-                      className="block py-4 text-lg font-medium text-white/80 hover:text-white transition-colors"
-                      onClick={() => setOpen(false)}
+                      className="block rounded-lg px-4 py-3 text-base font-medium text-white/80 transition-colors hover:bg-white/5 hover:text-white"
                     >
                       {item.label}
                     </Link>
                   </motion.div>
                 ))}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: (mainNav.length * 0.1) + 0.2 }}
-                >
-                  <Link 
+
+                <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: mainNav.length * 0.05 }}>
+                  <Link
                     href="/contact"
-                    className="mt-8 block rounded-lg bg-white/5 border border-white/10 px-6 py-3 text-center font-medium text-white hover:bg-white/10 transition-all"
-                    onClick={() => setOpen(false)}
+                    className="mt-4 block rounded-lg bg-gradient-to-r from-[#ff4d4d] to-[#ff6b00] px-4 py-3 text-center text-base font-semibold text-white shadow-[0_10px_30px_rgba(255,77,77,0.35)]"
                   >
-                    Let's Talk
+                    Let’s Talk
                   </Link>
                 </motion.div>
               </nav>
