@@ -53,7 +53,7 @@ export function Header() {
     >
       <Container className="flex h-16 items-center justify-between gap-4 md:h-20">
         <Link href="/" className="flex items-center gap-3 text-white" aria-label="Arctura Analytics home">
-          <Logo usePng size={28} />
+          <Logo usePng size={28} withLink={false} showText={false} />
           <div className="flex flex-col leading-tight">
             <span className="font-heading text-xs uppercase tracking-[0.6em]">Arctura</span>
             <span className="text-[0.65rem] uppercase tracking-[0.38em] text-white/60">Analytics</span>
