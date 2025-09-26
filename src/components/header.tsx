@@ -22,11 +22,7 @@ export function Header() {
 
   useEffect(() => {
     if (!isMounted) return
-
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 8)
-    }
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 8)
     handleScroll()
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
@@ -50,7 +46,9 @@ export function Header() {
     <header
       className={clsx(
         'sticky top-0 z-50 w-full border-b border-transparent transition-all duration-200 ease-out',
-        isScrolled ? 'border-white/10 bg-[#050508]/90 shadow-[0_8px_24px_rgba(2,6,23,0.35)] backdrop-blur-lg' : 'bg-transparent'
+        isScrolled
+          ? 'border-white/10 bg-[#050508]/90 shadow-[0_8px_24px_rgba(2,6,23,0.35)] backdrop-blur-lg'
+          : 'bg-transparent'
       )}
     >
       <Container className="flex h-16 items-center justify-between gap-4 md:h-20">
@@ -62,6 +60,7 @@ export function Header() {
           </div>
         </Link>
 
+        {/* Desktop nav */}
         <nav className="hidden items-center gap-1 rounded-full bg-white/5 p-1 text-sm text-white/70 md:flex" aria-label="Primary">
           {mainNav.map((item) => (
             <Link
@@ -85,6 +84,7 @@ export function Header() {
           ))}
         </nav>
 
+        {/* CTA + Mobile toggle */}
         <div className="flex items-center gap-2">
           <Link
             href="/case-studies"
@@ -99,18 +99,20 @@ export function Header() {
             <PhoneCall className="h-4 w-4" aria-hidden="true" />
             Talk to us
           </Link>
+
           <button
             type="button"
             className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white transition hover:border-white/40 hover:text-white md:hidden"
             aria-label={isMobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMobileOpen}
-            onClick={() => setIsMobileOpen((value) => !value)}
+            onClick={() => setIsMobileOpen((v) => !v)}
           >
             {isMobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </Container>
 
+      {/* Mobile drawer */}
       {isMobileOpen && (
         <div className="border-t border-white/10 bg-[#050508]/98 backdrop-blur md:hidden">
           <Container className="flex flex-col gap-6 py-6">
