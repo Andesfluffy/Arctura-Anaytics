@@ -1,12 +1,25 @@
 import type { Metadata, Viewport } from 'next'
 import { Montserrat, Open_Sans } from 'next/font/google'
 import '@/styles/globals.css'
+import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { Analytics } from '@/components/analytics'
 import { OrganizationJsonLd, defaultMetadata } from '@/lib/seo'
 
-const montserrat = Montserrat({ subsets: ['latin'], weight: ['700'], display: 'swap', preload: true, variable: '--font-heading' })
-const openSans = Open_Sans({ subsets: ['latin'], weight: ['400'], display: 'swap', preload: true, variable: '--font-body' })
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['700'],
+  display: 'swap',
+  preload: true,
+  variable: '--font-heading'
+})
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  weight: ['400'],
+  display: 'swap',
+  preload: true,
+  variable: '--font-body'
+})
 
 export const metadata: Metadata = defaultMetadata
 
@@ -21,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${openSans.variable} ${montserrat.variable} bg-bg text-ink antialiased`}>
         <a href="#content" className="skip-link">Skip to content</a>
         <OrganizationJsonLd />
+        <Header />
         {children}
         <Footer />
         <Analytics />
