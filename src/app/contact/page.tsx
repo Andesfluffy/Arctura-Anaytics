@@ -33,7 +33,7 @@ export default function ContactPage() {
   }
 
   return (
-    <main id="content">
+    <main id="content" className="bg-[color:var(--bg)] text-[color:var(--fg)]">
       <Section>
         <Container>
           <SectionHeader title="Contact us" subtitle="We typically respond within one business day." />
@@ -41,24 +41,24 @@ export default function ContactPage() {
             onSubmit={handleSubmit(onSubmit)}
             action="/api/contact"
             method="post"
-            className="grid gap-4 rounded-xl border border-white/10 bg-white/5 p-6 md:grid-cols-2"
+            className="grid gap-4 rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface)] p-6 shadow-soft md:grid-cols-2"
           >
             <label className="grid gap-1">
-              <span className="text-sm">Name</span>
+              <span className="text-sm text-muted-strong">Name</span>
               <Input placeholder="Ada Lovelace" aria-invalid={!!errors.name} aria-describedby={errors.name ? 'name-error' : undefined} {...register('name')} />
               {errors.name && <span id="name-error" className="text-sm text-red-400">{errors.name.message}</span>}
             </label>
             <label className="grid gap-1">
-              <span className="text-sm">Email</span>
+              <span className="text-sm text-muted-strong">Email</span>
               <Input type="email" placeholder="you@company.com" aria-invalid={!!errors.email} aria-describedby={errors.email ? 'email-error' : undefined} {...register('email')} />
               {errors.email && <span id="email-error" className="text-sm text-red-400">{errors.email.message}</span>}
             </label>
             <label className="grid gap-1 md:col-span-2">
-              <span className="text-sm">Company</span>
+              <span className="text-sm text-muted-strong">Company</span>
               <Input placeholder="Acme Inc." {...register('company')} />
             </label>
             <label className="grid gap-1 md:col-span-2">
-              <span className="text-sm">How can we help?</span>
+              <span className="text-sm text-muted-strong">How can we help?</span>
               <Textarea rows={5} placeholder="Tell us about your goals" aria-invalid={!!errors.message} aria-describedby={errors.message ? 'message-error' : undefined} {...register('message')} />
               {errors.message && (
                 <span id="message-error" className="text-sm text-red-400">{errors.message.message as string}</span>
@@ -73,12 +73,12 @@ export default function ContactPage() {
                 {isSubmitting ? 'Sending…' : 'Send message'}
               </Button>
               {isSubmitSuccessful && (
-                <span className="ml-3 text-sm text-green-400">Thanks — we’ll be in touch.</span>
+                <span className="ml-3 text-sm text-muted">Thanks — we’ll be in touch.</span>
               )}
               {serverError && <span className="ml-3 text-sm text-red-400">{serverError}</span>}
             </div>
           </form>
-          <p className="mt-6 text-sm text-slate-400">
+          <p className="mt-6 text-sm text-muted">
             Prefer email? hello@arctura-analytics.com • We keep your data private and only use it to
             respond to your inquiry.
           </p>

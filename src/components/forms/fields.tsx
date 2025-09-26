@@ -7,7 +7,7 @@ export const Input = forwardRef<HTMLInputElement, React.InputHTMLAttributes<HTML
     <input
       ref={ref}
       className={cn(
-        'w-full rounded-md border border-white/10 bg-black/20 px-3 py-2 outline-none placeholder:text-slate-400 focus:border-white/30',
+        'w-full rounded-xl border border-[color:var(--border)] bg-[color:var(--surface-muted)] px-3 py-2 text-[color:var(--fg)] outline-none placeholder:text-muted focus:border-[color:var(--border-strong)] focus:ring-0 focus-visible:ring-2 focus-visible:ring-[color:var(--border-strong)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--bg)]',
         className
       )}
       {...props}
@@ -21,7 +21,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, React.TextareaHTMLAttrib
     <textarea
       ref={ref}
       className={cn(
-        'w-full rounded-md border border-white/10 bg-black/20 px-3 py-2 outline-none placeholder:text-slate-400 focus:border-white/30',
+        'w-full rounded-xl border border-[color:var(--border)] bg-[color:var(--surface-muted)] px-3 py-2 text-[color:var(--fg)] outline-none placeholder:text-muted focus:border-[color:var(--border-strong)] focus:ring-0 focus-visible:ring-2 focus-visible:ring-[color:var(--border-strong)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--bg)]',
         className
       )}
       {...props}

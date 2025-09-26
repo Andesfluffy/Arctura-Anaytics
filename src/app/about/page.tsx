@@ -149,7 +149,7 @@ export default function AboutPage() {
   const reduceMotion = useReducedMotion()
 
   return (
-    <main id="content" className="bg-black text-white">
+    <main id="content" className="bg-[color:var(--bg)] text-[color:var(--fg)]">
       <section className="relative isolate overflow-hidden">
         <Image
           src="/brand/georgie-cobbs-muOHbrFGEQY-unsplash.jpg"
@@ -159,11 +159,11 @@ export default function AboutPage() {
           className="object-cover"
         />
         <div
-          className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-[#080509]"
+          className="absolute inset-0 bg-[radial-gradient(110%_160%_at_50%_-20%,rgba(255,104,64,0.28),transparent_55%),linear-gradient(to_bottom,#050203,rgba(6,3,4,0.92),#050203)]"
           aria-hidden
         />
         <div
-          className="absolute inset-0 bg-gradient-to-r from-black/20 via-[#1f0d0b]/60 to-black/50"
+          className="absolute inset-0 bg-gradient-to-r from-[rgba(20,6,8,0.55)] via-[rgba(10,4,6,0.8)] to-[rgba(6,2,4,0.65)]"
           aria-hidden
         />
         <Container className="relative z-[1] space-y-12 py-28 sm:py-32">
@@ -173,14 +173,14 @@ export default function AboutPage() {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="max-w-3xl space-y-6"
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.38em] text-white/70">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:var(--surface-muted)] px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.38em] text-muted">
               About Arctura
             </span>
             <h1 className="text-balance text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
               We choreograph national registries and digital platforms so the public experiences
               confident, human government.
             </h1>
-            <p className="max-w-2xl text-balance text-base text-white/75 sm:text-lg">
+            <p className="max-w-2xl text-balance text-base text-muted sm:text-lg">
               From the eGovRegistry backbone in Nigeria to modular civic platforms across emerging
               cities, Arctura blends policy, engineering, and service design into one disciplined
               squad. We help ministries deliver certainty to citizens, businesses, and partners at
@@ -194,13 +194,13 @@ export default function AboutPage() {
                 initial={reduceMotion ? undefined : { opacity: 0, y: 24 }}
                 animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: 'easeOut', delay: index * 0.08 + 0.2 }}
-                className="rounded-3xl border border-white/15 bg-white/10 p-6 backdrop-blur"
+                className="surface-card rounded-3xl border border-[color:var(--border)] p-6"
               >
-                <div className="text-2xl font-semibold text-white sm:text-3xl">{metric.value}</div>
-                <div className="mt-2 text-xs uppercase tracking-[0.3em] text-white/60">
+                <div className="text-2xl font-semibold text-[color:var(--ink)] sm:text-3xl">{metric.value}</div>
+                <div className="mt-2 text-xs uppercase tracking-[0.3em] text-muted">
                   {metric.label}
                 </div>
-                <p className="mt-3 text-sm text-white/70">{metric.copy}</p>
+                <p className="mt-3 text-sm text-muted">{metric.copy}</p>
               </motion.article>
             ))}
           </div>
@@ -210,19 +210,19 @@ export default function AboutPage() {
       <Section className="relative overflow-hidden py-24">
         <div className="absolute inset-0 -z-10">
           <div
-            className="absolute inset-x-0 top-0 h-48 bg-[radial-gradient(75%_120%_at_50%_0%,rgba(255,111,60,0.18),transparent_70%)]"
+            className="absolute inset-x-0 top-0 h-48 bg-[radial-gradient(75%_120%_at_50%_0%,rgba(255,112,68,0.2),transparent_70%)]"
             aria-hidden
           />
         </div>
         <Container className="space-y-12">
-          <div className="max-w-3xl space-y-5 text-white">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/10 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.38em] text-white/70">
+          <div className="max-w-3xl space-y-5">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:var(--surface-muted)] px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.38em] text-muted">
               What we deliver
             </span>
             <h2 className="text-3xl font-black sm:text-4xl">
               Programmes that connect ministries, markets, and everyday people.
             </h2>
-            <p className="text-base text-white/75 sm:text-lg">
+            <p className="text-base text-muted sm:text-lg">
               Our cross-functional squads translate policy mandates into real products. Each track
               merges lessons from the digital platform and registry initiatives into one coherent
               journey.
@@ -236,18 +236,18 @@ export default function AboutPage() {
                 whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.55, ease: 'easeOut', delay: index * 0.08 }}
-                className="flex h-full flex-col gap-4 rounded-[28px] border border-white/12 bg-[color:rgba(12,15,23,0.92)] p-8 shadow-[0_32px_120px_rgba(4,6,15,0.55)]"
+                className="surface-card flex h-full flex-col gap-4 rounded-[28px] border border-[color:var(--border)] p-8"
               >
-                <span className="inline-flex w-max items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[0.62rem] uppercase tracking-[0.32em] text-white/70">
+                <span className="inline-flex w-max items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:var(--surface-muted)] px-3 py-1 text-[0.62rem] uppercase tracking-[0.32em] text-muted">
                   {track.kicker}
                 </span>
-                <h3 className="text-xl font-semibold text-white">{track.title}</h3>
-                <p className="text-sm text-white/75">{track.description}</p>
-                <ul className="space-y-2 text-sm text-white/70">
+                <h3 className="text-xl font-semibold text-[color:var(--ink)]">{track.title}</h3>
+                <p className="text-sm text-muted">{track.description}</p>
+                <ul className="space-y-2 text-sm text-muted">
                   {track.highlights.map((highlight) => (
                     <li key={highlight} className="flex items-start gap-2">
                       <span
-                        className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--accent-amber)]"
+                        className="mt-1 h-1.5 w-1.5 rounded-full bg-[color:var(--accent-amber)]"
                         aria-hidden
                       />
                       <span>{highlight}</span>
@@ -260,17 +260,20 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      <Section tone="light" className="relative overflow-hidden py-24 text-[#1b0b0a]">
-        <div className="absolute inset-0 -z-10 bg-[#fdf1e4]" aria-hidden />
+      <Section className="relative overflow-hidden py-24">
+        <div
+          className="absolute inset-0 -z-10 bg-[radial-gradient(120%_160%_at_50%_0%,rgba(255,112,68,0.18),transparent_70%),linear-gradient(180deg,rgba(20,8,10,0.96),rgba(8,4,6,0.92))]"
+          aria-hidden
+        />
         <Container className="space-y-12">
           <div className="max-w-3xl space-y-5">
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#ffb26b]/50 bg-[#ffb26b]/10 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.38em] text-[#7a2f16]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:var(--surface-muted)] px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.38em] text-muted">
               Programme layers
             </span>
-            <h2 className="text-3xl font-black sm:text-4xl text-[#220d0c]">
+            <h2 className="text-3xl font-black sm:text-4xl">
               One backbone, three pillars of delivery.
             </h2>
-            <p className="text-base text-[#4c1f18] sm:text-lg">
+            <p className="text-base text-muted sm:text-lg">
               Each layer is anchored in the commitments we made across the eGovRegistry and digital
               platform programmes. Together they guarantee continuity, accountability, and care for
               the public.
@@ -285,10 +288,10 @@ export default function AboutPage() {
                 whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, ease: 'easeOut', delay: index * 0.06 }}
-                className="flex h-full flex-col gap-4 rounded-[24px] border border-[#ffb26b]/40 bg-white/80 p-6 shadow-[0_24px_80px_rgba(125,63,34,0.18)] backdrop-blur"
+                className="surface-panel flex h-full flex-col gap-4 rounded-[24px] border border-[color:var(--border)] p-6"
               >
-                <h3 className="text-lg font-semibold text-[#2b0f0d]">{layer.title}</h3>
-                <p className="text-sm text-[#4f1f1a]">{layer.copy}</p>
+                <h3 className="text-lg font-semibold text-[color:var(--ink)]">{layer.title}</h3>
+                <p className="text-sm text-muted">{layer.copy}</p>
               </motion.article>
             ))}
           </div>
@@ -298,23 +301,23 @@ export default function AboutPage() {
       <Section className="relative overflow-hidden py-24">
         <div className="absolute inset-0 -z-10">
           <div
-            className="absolute left-[-20%] top-20 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(255,110,64,0.18),transparent_70%)] blur-[120px]"
+            className="absolute left-[-20%] top-20 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(255,108,68,0.18),transparent_70%)] blur-[120px]"
             aria-hidden
           />
           <div
-            className="absolute right-[-10%] bottom-10 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(255,210,160,0.16),transparent_70%)] blur-[120px]"
+            className="absolute right-[-10%] bottom-10 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(140,46,42,0.18),transparent_70%)] blur-[120px]"
             aria-hidden
           />
         </div>
         <Container className="space-y-12">
-          <div className="max-w-3xl space-y-5 text-white">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/10 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.38em] text-white/70">
+          <div className="max-w-3xl space-y-5">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:var(--surface-muted)] px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.38em] text-muted">
               How we operate
             </span>
             <h2 className="text-3xl font-black sm:text-4xl">
               Guardrails that keep programmes human, secure, and measurable.
             </h2>
-            <p className="text-base text-white/75 sm:text-lg">
+            <p className="text-base text-muted sm:text-lg">
               Beyond software delivery, we nurture the operating culture needed for change to stick.
               These principles guide every stand-up, every deployment, and every town-hall we
               facilitate.
@@ -328,26 +331,30 @@ export default function AboutPage() {
                 whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.55, ease: 'easeOut', delay: index * 0.08 }}
-                className="flex h-full flex-col gap-4 rounded-[28px] border border-white/12 bg-[color:rgba(12,15,23,0.92)] p-8 shadow-[0_36px_110px_rgba(4,6,15,0.5)]"
+                className="surface-card flex h-full flex-col gap-4 rounded-[28px] border border-[color:var(--border)] p-8"
               >
-                <h3 className="text-xl font-semibold text-white">{principle.title}</h3>
-                <p className="text-sm text-white/75">{principle.detail}</p>
+                <h3 className="text-xl font-semibold text-[color:var(--ink)]">{principle.title}</h3>
+                <p className="text-sm text-muted">{principle.detail}</p>
               </motion.article>
             ))}
           </div>
         </Container>
       </Section>
 
-      <Section tone="light" className="bg-white py-24 text-[#0d1b2a]">
+      <Section className="relative overflow-hidden py-24">
+        <div
+          className="absolute inset-0 -z-10 bg-[radial-gradient(120%_160%_at_50%_0%,rgba(90,32,40,0.22),transparent_70%),linear-gradient(180deg,rgba(12,6,8,0.95),rgba(5,3,4,0.92))]"
+          aria-hidden
+        />
         <Container className="space-y-12">
           <div className="max-w-3xl space-y-5">
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#cdd7e4] bg-[#e9eef6] px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.38em] text-[#3c526c]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:var(--surface-muted)] px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.38em] text-muted">
               Our journey
             </span>
-            <h2 className="text-3xl font-black sm:text-4xl text-[#0f1d31]">
+            <h2 className="text-3xl font-black sm:text-4xl">
               Years of public digital work in one timeline.
             </h2>
-            <p className="text-base text-[#445369] sm:text-lg">
+            <p className="text-base text-muted sm:text-lg">
               Every milestone is tied to a partnership where citizens felt the difference. We keep
               those lessons alive across new mandates.
             </p>
@@ -360,13 +367,13 @@ export default function AboutPage() {
                 whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, ease: 'easeOut', delay: index * 0.05 }}
-                className="flex h-full flex-col gap-3 rounded-[24px] border border-[#d8e2ef] bg-white p-6 shadow-[0_24px_80px_rgba(15,29,49,0.08)]"
+                className="surface-card flex h-full flex-col gap-3 rounded-[24px] border border-[color:var(--border)] p-6"
               >
-                <span className="text-xs font-semibold uppercase tracking-[0.32em] text-[#60728e]">
+                <span className="text-xs font-semibold uppercase tracking-[0.32em] text-muted">
                   {item.year}
                 </span>
-                <h3 className="text-lg font-semibold text-[#0f1d31]">{item.title}</h3>
-                <p className="text-sm text-[#445369]">{item.description}</p>
+                <h3 className="text-lg font-semibold text-[color:var(--ink)]">{item.title}</h3>
+                <p className="text-sm text-muted">{item.description}</p>
               </motion.li>
             ))}
           </ol>
@@ -376,19 +383,19 @@ export default function AboutPage() {
       <Section className="relative overflow-hidden py-24">
         <div className="absolute inset-0 -z-10">
           <div
-            className="absolute inset-x-0 top-[20%] h-48 bg-[radial-gradient(65%_140%_at_50%_0%,rgba(255,111,60,0.16),transparent_70%)]"
+            className="absolute inset-x-0 top-[20%] h-48 bg-[radial-gradient(65%_140%_at_50%_0%,rgba(255,112,68,0.18),transparent_70%)]"
             aria-hidden
           />
         </div>
-        <Container className="space-y-12 text-white">
+        <Container className="space-y-12">
           <div className="mx-auto max-w-4xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/10 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.38em] text-white/70">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:var(--surface-muted)] px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.38em] text-muted">
               Inside Arctura
             </span>
             <h2 className="mt-6 text-3xl font-black sm:text-4xl">
               Multidisciplinary teams that stay in the arena with you.
             </h2>
-            <p className="mt-4 text-base text-white/75 sm:text-lg">
+            <p className="mt-4 text-base text-muted sm:text-lg">
               The same people who design resident journeys also review policy drafts, rehearse
               continuity drills, and brief cabinet members. We remain embedded until your teams can
               run independently.
@@ -402,7 +409,7 @@ export default function AboutPage() {
                 whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.55, ease: 'easeOut', delay: index * 0.08 }}
-                className="flex h-full flex-col overflow-hidden rounded-[28px] border border-white/12 bg-white/5"
+                className="surface-panel flex h-full flex-col overflow-hidden rounded-[28px] border border-[color:var(--border)]"
               >
                 <div className="relative h-60">
                   <Image
@@ -416,11 +423,11 @@ export default function AboutPage() {
                     className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/30 to-transparent"
                     aria-hidden
                   />
-                  <figcaption className="absolute bottom-4 left-4 text-sm font-semibold uppercase tracking-[0.32em] text-white/80">
+                  <figcaption className="absolute bottom-4 left-4 text-sm font-semibold uppercase tracking-[0.32em] text-[color:var(--glacier)]/80">
                     {scene.label}
                   </figcaption>
                 </div>
-                <p className="p-6 text-sm text-white/75">{scene.caption}</p>
+                <p className="p-6 text-sm text-muted">{scene.caption}</p>
               </motion.figure>
             ))}
           </div>
@@ -429,12 +436,12 @@ export default function AboutPage() {
             whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
-            className="mx-auto flex max-w-3xl flex-col items-center rounded-[32px] border border-white/12 bg-[linear-gradient(120deg,rgba(12,15,23,0.95),rgba(255,111,60,0.2))] p-10 text-center shadow-[0_40px_120px_rgba(4,6,15,0.55)]"
+            className="mx-auto flex max-w-3xl flex-col items-center rounded-[32px] border border-[color:var(--border)] bg-[linear-gradient(125deg,rgba(24,12,16,0.95),rgba(10,5,8,0.9))] p-10 text-center shadow-[0_40px_120px_rgba(6,3,5,0.6)]"
           >
-            <h3 className="text-2xl font-semibold text-white md:text-3xl">
+            <h3 className="text-2xl font-semibold text-[color:var(--ink)] md:text-3xl">
               Ready to design the next chapter of your public digital infrastructure?
             </h3>
-            <p className="mt-4 text-sm text-white/75 sm:text-base">
+            <p className="mt-4 text-sm text-muted sm:text-base">
               Share your mission and constraints. We will assemble an Arctura squad that blends
               registry, platform, and change expertise tailored to your mandate.
             </p>
@@ -442,7 +449,7 @@ export default function AboutPage() {
               asChild
               variant="gradient"
               shape="pill"
-              className="mt-6 h-12 items-center gap-3 rounded-full px-7 text-sm font-semibold uppercase tracking-[0.3em] text-black"
+              className="mt-6 h-12 items-center gap-3 rounded-full px-7 text-sm font-semibold uppercase tracking-[0.3em]"
             >
               <a href="/contact">Start a conversation</a>
             </Button>

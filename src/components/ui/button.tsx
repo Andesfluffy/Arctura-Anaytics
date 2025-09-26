@@ -9,10 +9,12 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: 'rounded-md bg-white text-black hover:opacity-90',
-        gradient: 'rounded-full text-[var(--glacier)] gradient hover:opacity-95',
-        coral: 'rounded-full text-white bg-[linear-gradient(90deg,var(--accent-teal),var(--accent-emerald),var(--accent-cyan))] hover:opacity-95 shadow-brand',
-        outline: 'rounded-full border border-white/30 text-white/90 hover:bg-white/5',
-        ghost: 'rounded-md hover:bg-white/5'
+        gradient:
+          'rounded-full text-[var(--glacier)] bg-[linear-gradient(120deg,var(--accent-start),var(--accent-mid),var(--accent-end))] shadow-[0_18px_48px_rgba(255,100,60,0.32)] transition-transform hover:-translate-y-0.5 hover:shadow-[0_22px_60px_rgba(255,100,60,0.36)]',
+        coral:
+          'rounded-full text-[var(--glacier)] bg-[linear-gradient(120deg,var(--accent-start),var(--accent-mid),var(--accent-end))] shadow-[0_16px_40px_rgba(255,100,60,0.28)] hover:-translate-y-0.5 hover:shadow-[0_20px_54px_rgba(255,100,60,0.34)]',
+        outline: 'rounded-full border border-[color:var(--border)] text-[color:var(--fg)] hover:bg-[color:rgba(26,13,18,0.35)]',
+        ghost: 'rounded-md hover:bg-[color:rgba(26,13,18,0.32)]'
       },
       size: {
         default: 'h-10 px-4 py-2',
