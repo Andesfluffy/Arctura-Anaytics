@@ -1,175 +1,146 @@
 'use client'
+
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X } from 'lucide-react'
+import clsx from 'clsx'
+import { Menu, PhoneCall, Sparkles, X } from 'lucide-react'
+
 import { Container } from './container'
 import { Logo } from './logo'
-import { motion, AnimatePresence } from 'framer-motion'
 import { mainNav } from '@/lib/links'
 
 export function Header() {
-  const [open, setOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8)
-    onScroll()
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
+    const updateScrolled = () => {
+      setScrolled(window.scrollY > 16)
+    }
+
+    updateScrolled()
+    window.addEventListener('scroll', updateScrolled)
+    return () => window.removeEventListener('scroll', updateScrolled)
   }, [])
 
   useEffect(() => {
-    document.documentElement.classList.toggle('overflow-hidden', open)
-  }, [open])
+    document.documentElement.classList.toggle('overflow-hidden', mobileOpen)
+  }, [mobileOpen])
+
+  useEffect(() => {
+    setMobileOpen(false)
+  }, [pathname])
+
+  const isActive = (href: string) => {
+    if (!pathname) return false
+    if (href === '/') return pathname === '/'
+    return pathname === href || pathname.startsWith(`${href}/`)
+  }
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-black/95 backdrop-blur-sm border-b border-white/[0.02]' : 'bg-transparent'
-      }`}
+      className={clsx(
+        'sticky top-0 z-50 w-full border-b border-white/10 transition-[background-color,backdrop-filter,border-color] duration-200',
+        scrolled ? 'bg-[rgba(5,6,10,0.9)] backdrop-blur-xl' : 'bg-[rgba(5,6,10,0.6)] backdrop-blur'
+      )}
     >
-      <Container className="flex h-20 items-center justify-between px-6">
-        <div className="flex items-center gap-12">
-          <Link href="/" className="flex items-center gap-2">
-            <Logo usePng size={32} />
-            <div className="flex items-baseline gap-1">
-              <span className="text-white font-medium">ARCTURA</span>
-              <span className="text-white/80 text-sm">ANALYTICS</span>
-            </div>
-          </Link>
+      <Container className="flex h-20 items-center justify-between gap-8">
+        <Link href="/" className="flex items-center gap-3 text-white" aria-label="Arctura Analytics home">
+          <Logo usePng size={30} />
+          <div className="flex flex-col leading-none">
+            <span className="font-heading text-xs uppercase tracking-[0.55em]">Arctura</span>
+            <span className="text-[0.65rem] uppercase tracking-[0.38em] text-white/60">Analytics</span>
+          </div>
+        </Link>
 
-          <nav className="hidden lg:flex items-center gap-8" aria-label="Primary">
-            <div className="flex items-center gap-8">
-              <Link
-                href="/platform"
-                className="text-[13px] font-medium text-white/80 hover:text-white transition-colors uppercase tracking-wide"
-              >
-                Solutions
-              </Link>
-              <Link
-                href="/services"
-                className="text-[13px] font-medium text-white/80 hover:text-white transition-colors uppercase tracking-wide"
-              >
-                Services
-              </Link>
-              <Link
-                href="/case-studies"
-                className="text-[13px] font-medium text-white/80 hover:text-white transition-colors uppercase tracking-wide"
-              >
-                Case Studies
-              </Link>
-              <Link
-                href="/about"
-                className="text-[13px] font-medium text-white/80 hover:text-white transition-colors uppercase tracking-wide"
-              >
-                About
-              </Link>
-              <Link
-                href="/contact"
-                className="text-[13px] font-medium text-white/80 hover:text-white transition-colors uppercase tracking-wide"
-              >
-                Contact
-              </Link>
-            </div>
-          </nav>
+        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
+          {mainNav.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={clsx(
+                'group relative inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium text-white/70 transition-colors hover:text-white',
+                isActive(item.href) &&
+                  'text-white after:absolute after:inset-x-3 after:-bottom-1 after:h-0.5 after:rounded-full after:bg-gradient-to-r after:from-brand-400 after:to-orange-400'
+              )}
+            >
+              <span
+                className={clsx(
+                  'hidden h-1.5 w-1.5 rounded-full bg-white/30 transition-transform duration-200 group-hover:scale-110 lg:block',
+                  isActive(item.href) && 'bg-gradient-to-r from-brand-400 to-orange-400'
+                )}
+              />
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-4">
+          <div className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[0.7rem] font-medium uppercase tracking-[0.32em] text-white/60 md:flex">
+            <Sparkles className="h-3.5 w-3.5 text-orange-300" aria-hidden="true" />
+            Civic Data Specialists
+          </div>
+          <Link
+            href="/case-studies"
+            className="hidden md:inline-flex items-center text-sm font-medium text-white/70 transition-colors hover:text-white"
+          >
+            View work
+          </Link>
+          <Link
+            href="/contact"
+            className="hidden md:inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-400 via-brand-400 to-orange-500 px-5 py-2 text-sm font-semibold text-[#05060a] shadow-[0_18px_40px_rgba(255,123,61,0.35)] transition-transform hover:-translate-y-0.5"
+          >
+            <PhoneCall className="h-4 w-4" aria-hidden="true" />
+            Contact team
+          </Link>
+          <button
+            type="button"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white transition hover:border-white/40 hover:text-white md:hidden"
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen((value) => !value)}
+          >
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
       </Container>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div 
-            className="md:hidden fixed inset-0 top-20 bg-gradient-to-b from-black/95 to-black/90 backdrop-blur-xl"
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Container className="py-12">
-              <nav className="flex flex-col">
-                <Link href="/platform" className="py-4 text-lg text-white/80 hover:text-white">Solutions</Link>
-                <Link href="/services" className="py-4 text-lg text-white/80 hover:text-white">Services</Link>
-                <Link href="/case-studies" className="py-4 text-lg text-white/80 hover:text-white">Case Studies</Link>
-                <Link href="/about" className="py-4 text-lg text-white/80 hover:text-white">About</Link>
-                <Link href="/contact" className="py-4 text-lg text-white/80 hover:text-white">Contact</Link>
-              </nav>
-            </Container>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
-  )
-
-        <motion.button
-          className="md:hidden relative rounded-lg border border-white/10 bg-white/5 p-2.5 hover:bg-white/10 transition-colors"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          onClick={() => setOpen((v) => !v)}
-          whileTap={{ scale: 0.95 }}
-        >
-          <motion.div
-            animate={open ? { rotate: 45, y: 2 } : { rotate: 0, y: 0 }}
-            transition={{ duration: 0.2 }}
-            className="h-0.5 w-4 bg-white absolute"
-          />
-          <motion.div
-            animate={open ? { opacity: 0 } : { opacity: 1 }}
-            transition={{ duration: 0.2 }}
-            className="h-0.5 w-4 bg-white"
-          />
-          <motion.div
-            animate={open ? { rotate: -45, y: -2 } : { rotate: 0, y: 0 }}
-            transition={{ duration: 0.2 }}
-            className="h-0.5 w-4 bg-white absolute"
-          />
-        </motion.button>
-      </Container>
-
-      <AnimatePresence>
-        {open && (
-          <motion.div 
-            className="md:hidden fixed inset-0 top-20 bg-gradient-to-b from-black/95 to-black/90 backdrop-blur-xl"
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Container className="py-12">
-              <nav className="flex flex-col">
-                {mainNav.map((item, i) => (
-                  <motion.div
-                    key={item.href}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 + 0.1 }}
-                  >
-                    <Link
-                      href={item.href}
-                      className="block py-4 text-lg font-medium text-white/80 hover:text-white transition-colors"
-                      onClick={() => setOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  </motion.div>
-                ))}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: (mainNav.length * 0.1) + 0.2 }}
+      {mobileOpen && (
+        <div className="border-t border-white/10 bg-[rgba(7,8,12,0.96)] backdrop-blur md:hidden">
+          <Container className="flex flex-col gap-6 py-6">
+            <nav className="flex flex-col gap-2" aria-label="Mobile">
+              {mainNav.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={clsx(
+                    'block rounded-lg px-4 py-3 text-base font-medium text-white/80 transition-colors hover:bg-white/5 hover:text-white',
+                    isActive(item.href) && 'bg-white/5 text-white'
+                  )}
                 >
-                  <Link 
-                    href="/contact"
-                    className="mt-8 block rounded-lg bg-white/5 border border-white/10 px-6 py-3 text-center font-medium text-white hover:bg-white/10 transition-all"
-                    onClick={() => setOpen(false)}
-                  >
-                    Let's Talk
-                  </Link>
-                </motion.div>
-              </nav>
-            </Container>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+            <div className="flex flex-col gap-2">
+              <Link
+                href="/case-studies"
+                className="block rounded-lg border border-white/10 px-4 py-3 text-center text-base font-semibold text-white/80 transition hover:border-white/30 hover:text-white"
+              >
+                View work
+              </Link>
+              <Link
+                href="/contact"
+                className="block rounded-lg bg-gradient-to-r from-orange-400 via-brand-400 to-orange-500 px-4 py-3 text-center text-base font-semibold text-[#05060a] transition hover:brightness-110"
+              >
+                Contact team
+              </Link>
+            </div>
+          </Container>
+        </div>
+      )}
     </header>
   )
 }

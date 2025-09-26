@@ -1,8 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Montserrat, Open_Sans } from 'next/font/google'
 import '@/styles/globals.css'
-import { Navbar } from '@/components/Navbar'
-import { TopBar } from '@/components/TopBar'
+import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { Analytics } from '@/components/analytics'
 import { OrganizationJsonLd, defaultMetadata } from '@/lib/seo'
@@ -23,8 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${openSans.variable} ${montserrat.variable} bg-bg text-ink antialiased`}>
         <a href="#content" className="skip-link">Skip to content</a>
         <OrganizationJsonLd />
-        <TopBar />
-        <Navbar />
+        <Header />
         {children}
         <Footer />
         <Analytics />

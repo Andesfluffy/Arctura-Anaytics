@@ -76,14 +76,14 @@ export function CaseStudiesGrid() {
             >
               Featured Work
             </motion.h2>
-            <motion.p 
+            <motion.p
               className="text-[#ffded1] text-lg"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              Explore how we've helped leading organizations transform their data operations and achieve measurable results.
+              Explore how we’ve helped leading organizations transform their data operations and achieve measurable results.
             </motion.p>
           </div>
 
