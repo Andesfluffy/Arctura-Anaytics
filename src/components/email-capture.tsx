@@ -73,7 +73,14 @@ export function EmailCapture() {
             transition={{ duration: 0.5, delay: 0.8 }}
             className="mt-4 text-sm text-[#ffded1]/60"
           >
-            Join 200+ companies already enhancing their data capabilities
+            Join 200+ companies already enhancing their data capabilities—email us at{' '}
+            <a
+              href="mailto:hello@arctura-analytics.com"
+              className="font-medium text-white hover:text-[#ffded1] transition-colors"
+            >
+              hello@arctura-analytics.com
+            </a>{' '}
+            and we’ll respond promptly.
           </motion.p>
         </motion.div>
       </Container>
