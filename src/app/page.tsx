@@ -168,7 +168,7 @@ export default function HomePage() {
                 </span>
               </div>
               <Link
-                href="/careers"
+                href="/about"
                 className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.3em] text-muted transition hover:text-[color:var(--ink)]"
               >
                 Meet the people behind the work

@@ -20,11 +20,6 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/careers" className="hover:text-[color:var(--ink)]">
-                Careers
-              </Link>
-            </li>
-            <li>
               <Link href="/contact" className="hover:text-[color:var(--ink)]">
                 Contact
               </Link>

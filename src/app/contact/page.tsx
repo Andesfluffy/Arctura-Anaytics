@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { useState } from 'react'
 import Link from 'next/link'
@@ -30,7 +30,9 @@ const contactStreams = [
     icon: Handshake,
     email: 'mission@arctura-analytics.com',
     meta: ['Dedicated partner in 48 hours', 'Strategic briefing deck in 10 days'],
-    cta: { label: 'Schedule a briefing', href: 'mailto:mission@arctura-analytics.com' }
+    cta: { label: 'Schedule a briefing', href: 'mailto:mission@arctura-analytics.com' },
+    // optional visual used in other variants; harmless if unused here
+    gradient: 'from-[#FF8A65]/50 via-[#E75A7C]/40 to-[#6D5CE7]/40'
   },
   {
     title: 'Media & speaking',
@@ -39,7 +41,8 @@ const contactStreams = [
     icon: Megaphone,
     email: 'press@arctura-analytics.com',
     meta: ['Keynotes, panels, op-eds', 'Rapid insights & research highlights'],
-    cta: { label: 'Request commentary', href: 'mailto:press@arctura-analytics.com' }
+    cta: { label: 'Request commentary', href: 'mailto:press@arctura-analytics.com' },
+    gradient: 'from-[#FDD835]/35 via-[#FF7043]/40 to-[#AB47BC]/40'
   },
   {
     title: 'Careers & talent network',
@@ -48,7 +51,8 @@ const contactStreams = [
     icon: BriefcaseBusiness,
     email: 'talent@arctura-analytics.com',
     meta: ['Hybrid squads across North America', 'Mission-aligned talent community'],
-    cta: { label: 'Explore open roles', href: '/careers', internal: true }
+    cta: { label: 'Explore open roles', href: '/careers', internal: true },
+    gradient: 'from-[#5EEAD4]/40 via-[#38BDF8]/35 to-[#A855F7]/35'
   }
 ]
 
@@ -87,13 +91,17 @@ const readinessSignals = [
 ]
 
 export default function ContactPage() {
+  const [serverError, setServerError] = useState<string>('')
+
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
-    reset
-  } = useForm<ContactInput>({ resolver: zodResolver(contactSchema) })
-  const [serverError, setServerError] = useState<string>('')
+    reset,
+    formState: { errors, isSubmitting, isSubmitSuccessful }
+  } = useForm<ContactInput>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: { name: '', email: '', company: '', message: '', website: '' }
+  })
 
   async function onSubmit(values: ContactInput) {
     setServerError('')
@@ -128,7 +136,8 @@ export default function ContactPage() {
               Let’s ignite momentum for your next mission.
             </h1>
             <p className="max-w-2xl text-lg text-muted">
-              Whether you are stabilising critical services, weaving data into decisive policy, or building the next platform for millions—our team assembles fast, listens deeply, and co-creates a path that endures.
+              Whether you are stabilising critical services, weaving data into decisive policy, or building the next
+              platform for millions—our team assembles fast, listens deeply, and co-creates a path that endures.
             </p>
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="surface-card rounded-3xl border border-[color:var(--border)] p-6 shadow-soft">
@@ -147,14 +156,13 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
+
           <div className="surface-panel h-full rounded-[32px] border border-[color:var(--border)] bg-[linear-gradient(150deg,rgba(20,10,14,0.9),rgba(8,4,6,0.88))] p-8 shadow-[0_46px_140px_rgba(8,3,6,0.5)]">
             <div className="flex items-center gap-3 text-sm uppercase tracking-[0.32em] text-muted">
               <ArrowUpRight className="h-4 w-4 text-[color:var(--accent-amber)]" aria-hidden />
               Direct partner access
             </div>
-            <p className="mt-5 text-lg font-semibold text-[color:var(--ink)]">
-              hello@arctura-analytics.com
-            </p>
+            <p className="mt-5 text-lg font-semibold text-[color:var(--ink)]">hello@arctura-analytics.com</p>
             <p className="mt-2 text-sm text-muted">
               Prefer a direct channel? Email us and the right team will respond with next steps and a calendar link.
             </p>
@@ -206,8 +214,13 @@ export default function ContactPage() {
                   aria-describedby={errors.name ? 'name-error' : undefined}
                   {...register('name')}
                 />
-                {errors.name && <span id="name-error" className="text-sm text-red-400">{errors.name.message}</span>}
+                {errors.name && (
+                  <span id="name-error" className="text-sm text-red-400">
+                    {errors.name.message}
+                  </span>
+                )}
               </label>
+
               <label className="grid gap-2">
                 <span className="text-sm text-muted-strong">Email</span>
                 <Input
@@ -217,12 +230,18 @@ export default function ContactPage() {
                   aria-describedby={errors.email ? 'email-error' : undefined}
                   {...register('email')}
                 />
-                {errors.email && <span id="email-error" className="text-sm text-red-400">{errors.email.message}</span>}
+                {errors.email && (
+                  <span id="email-error" className="text-sm text-red-400">
+                    {errors.email.message}
+                  </span>
+                )}
               </label>
+
               <label className="grid gap-2 md:col-span-2">
                 <span className="text-sm text-muted-strong">Organization</span>
                 <Input placeholder="City of Aurora" {...register('company')} />
               </label>
+
               <label className="grid gap-2 md:col-span-2">
                 <span className="text-sm text-muted-strong">How can we help?</span>
                 <Textarea
@@ -233,12 +252,17 @@ export default function ContactPage() {
                   {...register('message')}
                 />
                 {errors.message && (
-                  <span id="message-error" className="text-sm text-red-400">{errors.message.message as string}</span>
+                  <span id="message-error" className="text-sm text-red-400">
+                    {errors.message.message as string}
+                  </span>
                 )}
               </label>
+
+              {/* Honeypot */}
               <div className="hidden" aria-hidden>
                 <Input tabIndex={-1} autoComplete="off" placeholder="Your website" {...register('website')} />
               </div>
+
               <div className="md:col-span-2 flex flex-wrap items-center gap-4">
                 <Button variant="gradient" type="submit" disabled={isSubmitting}>
                   {isSubmitting ? 'Sending…' : 'Send message'}
@@ -249,10 +273,16 @@ export default function ContactPage() {
                 </div>
               </div>
             </form>
+
             <p className="mt-6 text-sm text-muted">
-              Prefer a different channel? Email <a className="underline-offset-4 hover:underline" href="mailto:hello@arctura-analytics.com">hello@arctura-analytics.com</a> or call our rapid response line at <span className="whitespace-nowrap">+1 (437) 555-0142</span>.
+              Prefer a different channel? Email{' '}
+              <a className="underline-offset-4 hover:underline" href="mailto:hello@arctura-analytics.com">
+                hello@arctura-analytics.com
+              </a>{' '}
+              or call our rapid response line at <span className="whitespace-nowrap">+1 (437) 555-0142</span>.
             </p>
           </div>
+
           <div className="surface-card h-full rounded-[32px] border border-[color:var(--border)] p-8 shadow-soft">
             <h2 className="text-xl font-semibold text-[color:var(--ink)]">Signals we’re built for</h2>
             <ul className="mt-6 space-y-4 text-sm text-muted">
@@ -265,7 +295,8 @@ export default function ContactPage() {
             </ul>
             <div className="mt-8 rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface-muted)] p-5 text-sm text-muted">
               <p>
-                We routinely partner with CIOs, Chiefs of Staff, Commissioners, and transformation task forces. Introductions from existing partners fast-track your request—just mention their name in the message.
+                We routinely partner with CIOs, Chiefs of Staff, Commissioners, and transformation task forces.
+                Introductions from existing partners fast-track your request—just mention their name in the message.
               </p>
             </div>
           </div>
@@ -291,7 +322,10 @@ export default function ContactPage() {
                 <ul className="mt-4 space-y-2 text-xs uppercase tracking-[0.28em] text-muted">
                   {stream.meta.map((item) => (
                     <li key={item} className="flex items-center gap-2">
-                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-[color:var(--accent-amber)]" aria-hidden />
+                      <span
+                        className="inline-block h-1.5 w-1.5 rounded-full bg-[color:var(--accent-amber)]"
+                        aria-hidden
+                      />
                       {item}
                     </li>
                   ))}
@@ -328,7 +362,8 @@ export default function ContactPage() {
           <div className="surface-panel rounded-[32px] border border-[color:var(--border)] bg-[linear-gradient(150deg,rgba(18,6,8,0.86),rgba(8,4,6,0.92))] p-8 shadow-[0_38px_120px_rgba(8,3,6,0.6)]">
             <h2 className="text-2xl font-semibold text-[color:var(--ink)]">How we move from spark to launch</h2>
             <p className="mt-4 text-sm text-muted">
-              Progress is orchestrated in deliberate stages, tuned to the urgency and stakes of civic missions. Expect rigor, compassion, and momentum at every step.
+              Progress is orchestrated in deliberate stages, tuned to the urgency and stakes of civic missions. Expect
+              rigor, compassion, and momentum at every step.
             </p>
           </div>
           <div className="grid gap-6">
