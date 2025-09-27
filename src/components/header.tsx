@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
-import { Menu, PhoneCall, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 import { Container } from './container'
 import { Logo } from './logo'
@@ -51,7 +51,7 @@ export function Header() {
           : 'bg-transparent'
       )}
     >
-      <Container className="flex h-16 items-center justify-between gap-4 md:h-20">
+      <Container className="grid h-16 grid-cols-[auto_1fr_auto] items-center gap-4 md:h-20">
         <Link
           href="/"
           className="flex items-center gap-3 text-[color:var(--ink)]"
@@ -62,7 +62,7 @@ export function Header() {
 
         {/* Desktop nav */}
         <nav
-          className="hidden items-center gap-1 rounded-full border border-[color:var(--border)] bg-[color:var(--surface-muted)]/80 p-1 text-sm text-muted md:flex"
+          className="hidden items-center justify-center gap-1 justify-self-center rounded-full border border-[color:var(--border)] bg-[color:var(--surface-muted)]/80 p-1 text-sm text-muted md:flex"
           aria-label="Primary"
         >
           {mainNav.map((item) => (
@@ -88,23 +88,15 @@ export function Header() {
         </nav>
 
         {/* CTA + Mobile toggle */}
-        <div className="flex items-center gap-2">
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(120deg,var(--accent-start),var(--accent-mid),var(--accent-end))] px-4 py-2 text-sm font-semibold text-[#1a0505] shadow-[0_18px_48px_rgba(255,100,60,0.32)] transition-transform hover:-translate-y-0.5 hover:shadow-[0_22px_60px_rgba(255,100,60,0.4)]"
-          >
-            <PhoneCall className="h-4 w-4" aria-hidden="true" />
-            Talk to us
-          </Link>
-
+        <div className="flex items-center gap-2 justify-self-end">
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--border)] text-[color:var(--fg)] transition hover:border-[color:var(--border-strong)] hover:text-[color:var(--ink)] md:hidden"
+            className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[color:var(--border)] text-[color:var(--fg)] transition hover:border-[color:var(--border-strong)] hover:text-[color:var(--ink)] md:hidden"
             aria-label={isMobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMobileOpen}
             onClick={() => setIsMobileOpen((v) => !v)}
           >
-            {isMobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {isMobileOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
           </button>
         </div>
       </Container>
@@ -127,14 +119,6 @@ export function Header() {
                 </Link>
               ))}
             </nav>
-            <div className="flex flex-col gap-2">
-              <Link
-                href="/contact"
-                className="block rounded-xl bg-[linear-gradient(120deg,var(--accent-start),var(--accent-mid),var(--accent-end))] px-4 py-3 text-center text-base font-semibold text-[#1a0505] transition hover:brightness-110"
-              >
-                Talk to us
-              </Link>
-            </div>
           </Container>
         </div>
       )}
