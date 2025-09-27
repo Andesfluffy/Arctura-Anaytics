@@ -7,13 +7,13 @@ export function EmailCapture() {
   return (
     <section className="relative py-24 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-[#1a0f1f] via-[#160809] to-[#0a0a0a]" />
-      
+
       {/* Animated gradient backgrounds */}
       <div className="absolute inset-0">
         <div className="absolute top-0 right-0 w-[800px] h-[600px] bg-purple-500/10 blur-[120px]" />
         <div className="absolute bottom-0 left-0 w-[800px] h-[600px] bg-[#ff4d4d]/10 blur-[120px]" />
       </div>
-      
+
       <Container className="relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -34,7 +34,7 @@ export function EmailCapture() {
               data operations?
             </span>
           </motion.h2>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +44,7 @@ export function EmailCapture() {
           >
             Join forward-thinking organizations that are already leveraging our expertise to drive their data strategy.
           </motion.p>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
