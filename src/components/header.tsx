@@ -57,7 +57,7 @@ export function Header() {
           className="flex items-center gap-3 text-[color:var(--ink)]"
           aria-label="Arctura Analytics home"
         >
-          <Logo size={36} withLink={false} showText={true} textClassName="text-lg font-bold tracking-wider" />
+          <Logo size={36} withLink={false} showText />
         </Link>
 
         {/* Desktop nav */}
