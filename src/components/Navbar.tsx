@@ -57,11 +57,7 @@ export function Navbar() {
           }
         >
           <div className="flex items-center justify-between md:hidden">
-            <Logo
-              usePng
-              size={42}
-              textClassName="text-white text-sm font-black uppercase tracking-[0.32em]"
-            />
+            <Logo size={42} />
             <button
               className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/80 transition hover:border-white/30 hover:bg-white/10"
               aria-label={open ? 'Close menu' : 'Open menu'}
@@ -73,11 +69,7 @@ export function Navbar() {
 
           <div className="hidden items-center justify-between md:flex">
             <div className="flex items-center gap-4">
-              <Logo
-                usePng
-                size={46}
-                textClassName="text-white text-xs font-black uppercase tracking-[0.42em] lg:text-sm"
-              />
+              <Logo size={46} />
               <span className="hidden lg:inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.38em] text-white/60">
                 Data platform specialists
               </span>
@@ -134,11 +126,7 @@ export function Navbar() {
             className="fixed inset-y-4 right-4 z-50 flex h-[92vh] max-w-sm flex-col rounded-3xl border border-white/10 bg-[color:rgba(7,9,14,0.96)] p-6 shadow-[0_28px_80px_rgba(2,3,9,0.75)] md:hidden"
           >
             <div className="mb-6 flex items-center justify-between">
-              <Logo
-                usePng
-                size={40}
-                textClassName="text-white text-sm font-black uppercase tracking-[0.34em]"
-              />
+              <Logo size={40} />
               <button
                 aria-label="Close menu"
                 className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/80 transition hover:border-white/40 hover:bg-white/10"
