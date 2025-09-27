@@ -45,36 +45,25 @@ export function EmailCapture() {
             Join forward-thinking organizations that are already leveraging our expertise to drive their data strategy.
           </motion.p>
           
-          <motion.form
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto"
-            onSubmit={(e) => e.preventDefault()}
+            className="max-w-2xl mx-auto"
           >
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:border-[#ff4d4d]/50"
-            />
-            <button
-              type="submit"
-              className="px-8 py-3 rounded-full bg-gradient-to-r from-[#ff4d4d] to-[#ff6b00] text-white font-semibold hover:shadow-lg hover:shadow-[#ff4d4d]/20 transition-all duration-300"
-            >
-              Get Started
-            </button>
-          </motion.form>
-          
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-            className="mt-4 text-sm text-[#ffded1]/60"
-          >
-            Join 200+ companies already enhancing their data capabilities
-          </motion.p>
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl bg-white/5 border border-white/10 px-6 py-5">
+              <p className="text-base sm:text-lg text-[#ffded1] text-center sm:text-left">
+                Join 200+ companies already enhancing their data capabilities—message us and our team will respond promptly.
+              </p>
+              <a
+                href="mailto:hello@arctura-analytics.com"
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#ff4d4d] to-[#ff6b00] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#ff4d4d]/10 transition-transform duration-300 hover:scale-[1.02]"
+              >
+                Email hello@arctura-analytics.com
+              </a>
+            </div>
+          </motion.div>
         </motion.div>
       </Container>
     </section>
