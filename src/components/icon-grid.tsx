@@ -1,15 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { 
-  BarChart3, 
-  Database, 
-  Network, 
-  Shield, 
-  Cpu, 
-  Users,
-  type Icon as LucideIcon
-} from 'lucide-react'
+import { BarChart3, Database, Network, Shield, Cpu, Users, type LucideIcon } from 'lucide-react'
 
 type IconWrapperProps = {
   icon: LucideIcon

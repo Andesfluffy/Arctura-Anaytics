@@ -1,9 +1,11 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
+import { cn } from '@/lib/utils'
 
-export function ParticleField() {
+type ParticleFieldProps = React.ComponentProps<'canvas'>
+
+export function ParticleField({ className, style, ...props }: ParticleFieldProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const particles = useRef<Array<{ x: number; y: number; vx: number; vy: number; size: number }>>([])
   const animationFrameId = useRef<number>()
@@ -85,8 +87,9 @@ export function ParticleField() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 z-0"
-      style={{ opacity: 0.6 }}
+      className={cn('absolute inset-0 z-0', className)}
+      style={{ opacity: 0.6, ...style }}
+      {...props}
     />
   )
 }

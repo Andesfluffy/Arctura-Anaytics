@@ -2,10 +2,16 @@
 
 import { motion } from 'framer-motion'
 import { Container } from './container'
+import { cn } from '@/lib/utils'
 
-export function EmailCapture() {
+interface EmailCaptureProps {
+  className?: string
+  submitLabel?: string
+}
+
+export function EmailCapture({ className, submitLabel }: EmailCaptureProps) {
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className={cn('relative py-24 overflow-hidden', className)}>
       <div className="absolute inset-0 bg-gradient-to-br from-[#1a0f1f] via-[#160809] to-[#0a0a0a]" />
 
       {/* Animated gradient backgrounds */}
@@ -60,7 +66,7 @@ export function EmailCapture() {
                 href="mailto:hello@arctura-analytics.com"
                 className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#ff4d4d] to-[#ff6b00] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#ff4d4d]/10 transition-transform duration-300 hover:scale-[1.02]"
               >
-                Email hello@arctura-analytics.com
+                {submitLabel ?? 'Email hello@arctura-analytics.com'}
               </a>
             </div>
           </motion.div>
