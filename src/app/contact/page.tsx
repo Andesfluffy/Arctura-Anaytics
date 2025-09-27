@@ -1,87 +1,196 @@
 "use client"
+
+import Link from 'next/link'
+import { ArrowUpRight, BriefcaseBusiness, Clock, Handshake, Megaphone, Sparkles } from 'lucide-react'
+
 import { Container } from '@/components/container'
-import { Section, SectionHeader } from '@/components/section'
-import { Input, Textarea } from '@/components/forms/fields'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
-import { contactSchema, type ContactInput } from '@/lib/validation'
-import { Button } from '@/components/ui/button'
-import { useState } from 'react'
+import { Section } from '@/components/section'
+import { ParticleField } from '@/components/particles'
+
+const contactStreams = [
+  {
+    title: 'Mission partnerships',
+    description:
+      'Executive leaders seeking a fortified data platform, digital service redesign, or emergency stabilisation.',
+    icon: Handshake,
+    email: 'mission@arctura-analytics.com',
+    meta: ['Dedicated partner in 48 hours', 'Strategic briefing deck in 10 days'],
+    cta: { label: 'Schedule a briefing', href: 'mailto:mission@arctura-analytics.com' },
+    gradient: 'from-[#FF8A65]/50 via-[#E75A7C]/40 to-[#6D5CE7]/40'
+  },
+  {
+    title: 'Media & speaking',
+    description:
+      'Press, event curators, and policy forums ready to explore resilient civic technology and analytics.',
+    icon: Megaphone,
+    email: 'press@arctura-analytics.com',
+    meta: ['Keynotes, panels, op-eds', 'Rapid insights & research highlights'],
+    cta: { label: 'Request commentary', href: 'mailto:press@arctura-analytics.com' },
+    gradient: 'from-[#FDD835]/35 via-[#FF7043]/40 to-[#AB47BC]/40'
+  },
+  {
+    title: 'Careers & talent network',
+    description:
+      'Designers, engineers, strategists, and delivery leaders who want to champion public impact missions.',
+    icon: BriefcaseBusiness,
+    email: 'talent@arctura-analytics.com',
+    meta: ['Hybrid squads across North America', 'Mission-aligned talent community'],
+    cta: { label: 'Explore open roles', href: '/careers', internal: true },
+    gradient: 'from-[#5EEAD4]/40 via-[#38BDF8]/35 to-[#A855F7]/35'
+  }
+]
 
 export default function ContactPage() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
-    reset
-  } = useForm<ContactInput>({ resolver: zodResolver(contactSchema) })
-  const [serverError, setServerError] = useState<string>('')
-
-  async function onSubmit(values: ContactInput) {
-    setServerError('')
-    const res = await fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(values)
-    })
-    if (res.ok) {
-      reset()
-    } else {
-      const data = await res.json().catch(() => null)
-      setServerError(data?.error || 'Something went wrong. Please try again.')
-    }
-  }
-
   return (
     <main id="content" className="bg-[color:var(--bg)] text-[color:var(--fg)]">
-      <Section>
-        <Container>
-          <SectionHeader title="Contact us" subtitle="We typically respond within one business day." />
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            action="/api/contact"
-            method="post"
-            className="grid gap-4 rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface)] p-6 shadow-soft md:grid-cols-2"
-          >
-            <label className="grid gap-1">
-              <span className="text-sm text-muted-strong">Name</span>
-              <Input placeholder="Ada Lovelace" aria-invalid={!!errors.name} aria-describedby={errors.name ? 'name-error' : undefined} {...register('name')} />
-              {errors.name && <span id="name-error" className="text-sm text-red-400">{errors.name.message}</span>}
-            </label>
-            <label className="grid gap-1">
-              <span className="text-sm text-muted-strong">Email</span>
-              <Input type="email" placeholder="you@company.com" aria-invalid={!!errors.email} aria-describedby={errors.email ? 'email-error' : undefined} {...register('email')} />
-              {errors.email && <span id="email-error" className="text-sm text-red-400">{errors.email.message}</span>}
-            </label>
-            <label className="grid gap-1 md:col-span-2">
-              <span className="text-sm text-muted-strong">Company</span>
-              <Input placeholder="Acme Inc." {...register('company')} />
-            </label>
-            <label className="grid gap-1 md:col-span-2">
-              <span className="text-sm text-muted-strong">How can we help?</span>
-              <Textarea rows={5} placeholder="Tell us about your goals" aria-invalid={!!errors.message} aria-describedby={errors.message ? 'message-error' : undefined} {...register('message')} />
-              {errors.message && (
-                <span id="message-error" className="text-sm text-red-400">{errors.message.message as string}</span>
-              )}
-            </label>
-            {/* Honeypot field: hidden from users */}
-            <div className="hidden" aria-hidden>
-              <Input tabIndex={-1} autoComplete="off" placeholder="Your website" {...register('website')} />
+      <Section bleed tone="light" className="relative overflow-hidden py-24">
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(255,118,78,0.32),transparent_56%),radial-gradient(circle_at_90%_12%,rgba(174,60,56,0.28),transparent_58%),linear-gradient(160deg,rgba(18,6,8,0.96),rgba(5,2,3,0.88))]"
+          aria-hidden
+        />
+        <ParticleField className="absolute inset-0 opacity-25" aria-hidden />
+        <Container className="relative z-[1] grid gap-14 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="space-y-6">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:var(--surface-muted)] px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.38em] text-muted">
+              Start the signal
+            </span>
+            <h1 className="text-balance text-4xl font-black leading-tight text-[color:var(--ink)] sm:text-5xl lg:text-6xl">
+              Let’s ignite momentum for your next mission.
+            </h1>
+            <p className="max-w-2xl text-lg text-muted">
+              Whether you are stabilising critical services, weaving data into decisive policy, or building the next platform for millions—our team assembles fast, listens deeply, and co-creates a path that endures.
+            </p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="surface-card rounded-3xl border border-[color:var(--border)] p-6 shadow-soft">
+                <h2 className="text-sm font-semibold uppercase tracking-[0.32em] text-muted">Average response</h2>
+                <p className="mt-3 text-2xl font-semibold text-[color:var(--ink)]">&lt; 18 hours</p>
+                <p className="mt-2 text-sm text-muted">
+                  Every inquiry is triaged by a partner who has led large-scale civic transformations.
+                </p>
+              </div>
+              <div className="surface-card rounded-3xl border border-[color:var(--border)] p-6 shadow-soft">
+                <h2 className="text-sm font-semibold uppercase tracking-[0.32em] text-muted">Engagement footprint</h2>
+                <p className="mt-3 text-2xl font-semibold text-[color:var(--ink)]">30+ municipalities</p>
+                <p className="mt-2 text-sm text-muted">
+                  From rapid response war rooms to long-horizon modernisation, we cover the spectrum.
+                </p>
+              </div>
             </div>
-            <div className="md:col-span-2">
-              <Button variant="gradient" type="submit" disabled={isSubmitting}>
-                {isSubmitting ? 'Sending…' : 'Send message'}
-              </Button>
-              {isSubmitSuccessful && (
-                <span className="ml-3 text-sm text-muted">Thanks — we’ll be in touch.</span>
-              )}
-              {serverError && <span className="ml-3 text-sm text-red-400">{serverError}</span>}
+          </div>
+          <div className="surface-panel h-full rounded-[32px] border border-[color:var(--border)] bg-[linear-gradient(150deg,rgba(20,10,14,0.9),rgba(8,4,6,0.88))] p-8 shadow-[0_46px_140px_rgba(8,3,6,0.5)]">
+            <div className="flex items-center gap-3 text-sm uppercase tracking-[0.32em] text-muted">
+              <ArrowUpRight className="h-4 w-4 text-[color:var(--accent-amber)]" aria-hidden />
+              Direct partner access
             </div>
-          </form>
-          <p className="mt-6 text-sm text-muted">
-            Prefer email? hello@arctura-analytics.com • We keep your data private and only use it to
-            respond to your inquiry.
-          </p>
+            <p className="mt-5 text-lg font-semibold text-[color:var(--ink)]">
+              hello@arctura-analytics.com
+            </p>
+            <p className="mt-2 text-sm text-muted">
+              Prefer a direct channel? Email us and the right team will respond with next steps and a calendar link.
+            </p>
+            <dl className="mt-6 grid gap-4 text-sm text-muted">
+              <div className="flex items-start gap-3">
+                <Clock className="mt-[2px] h-4 w-4 text-[color:var(--accent-amber)]" aria-hidden />
+                <div>
+                  <dt className="font-semibold text-[color:var(--ink)]">Response window</dt>
+                  <dd className="mt-1">Monday–Friday, 8:00–20:00 ET</dd>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Sparkles className="mt-[2px] h-4 w-4 text-[color:var(--accent-amber)]" aria-hidden />
+                <div>
+                  <dt className="font-semibold text-[color:var(--ink)]">Special handling</dt>
+                  <dd className="mt-1">Critical incidents receive an executive response within 2 hours.</dd>
+                </div>
+              </div>
+            </dl>
+            <Link
+              href="/careers"
+              className="mt-8 inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] px-5 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-muted transition hover:text-[color:var(--ink)]"
+            >
+              Join the mission
+              <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+            </Link>
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="relative overflow-hidden py-24">
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_18%,rgba(255,129,92,0.25),transparent_55%),radial-gradient(circle_at_88%_20%,rgba(93,188,255,0.18),transparent_58%),linear-gradient(160deg,rgba(14,5,9,0.92),rgba(5,2,4,0.88))]"
+          aria-hidden
+        />
+        <Container className="relative z-[1] flex flex-col gap-12">
+          <div className="max-w-3xl space-y-5">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:var(--surface-muted)] px-5 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.38em] text-muted">
+              Channel constellation
+            </span>
+            <h2 className="text-balance text-4xl font-semibold leading-tight text-[color:var(--ink)] sm:text-5xl">
+              Choose the portal that amplifies your velocity.
+            </h2>
+            <p className="text-lg text-muted">
+              Each stream pairs you with a crew already fluent in your mission. Pick the route that feels most electric—our response will match your pace.
+            </p>
+          </div>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {contactStreams.map((stream, index) => (
+              <div
+                key={stream.title}
+                className="group relative overflow-hidden rounded-[34px] border border-[color:var(--border)] bg-[color:var(--surface)] p-7 shadow-[0_36px_120px_rgba(8,3,6,0.45)] transition duration-500 hover:-translate-y-1"
+              >
+                <div
+                  className={`pointer-events-none absolute inset-[-60%] z-0 bg-gradient-to-br ${stream.gradient} opacity-0 blur-3xl transition duration-700 group-hover:opacity-80`}
+                  aria-hidden
+                />
+                <div className="relative z-[1] flex h-full flex-col">
+                  <div className="flex items-center justify-between text-xs uppercase tracking-[0.4em] text-muted">
+                    <span>Stream {index + 1}</span>
+                    <span className="flex items-center gap-1 text-[color:var(--accent-amber)]">
+                      Live link
+                      <ArrowUpRight className="h-3 w-3" aria-hidden />
+                    </span>
+                  </div>
+                  <div className="mt-6 flex items-center gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface-muted)] shadow-inner">
+                      <stream.icon className="h-6 w-6 text-[color:var(--accent-amber)]" aria-hidden />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-[color:var(--ink)]">{stream.title}</h3>
+                      <p className="mt-2 text-sm text-muted">{stream.description}</p>
+                    </div>
+                  </div>
+                  <div className="mt-6 rounded-2xl border border-dashed border-[color:var(--border)] bg-[color:var(--surface-muted)] p-4 text-sm text-muted">
+                    <p className="font-semibold text-[color:var(--ink)]">{stream.email}</p>
+                    <ul className="mt-3 space-y-2 text-[0.7rem] uppercase tracking-[0.28em]">
+                      {stream.meta.map((item) => (
+                        <li key={item} className="flex items-center gap-2 text-muted">
+                          <span className="inline-block h-1.5 w-1.5 rounded-full bg-[color:var(--accent-amber)]" aria-hidden />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  {stream.cta.internal ? (
+                    <Link
+                      href={stream.cta.href}
+                      className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-transparent bg-[color:var(--ink)] px-5 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-[color:var(--bg)] transition hover:bg-[color:var(--accent-amber)] hover:text-[color:var(--ink)]"
+                    >
+                      {stream.cta.label}
+                      <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+                    </Link>
+                  ) : (
+                    <a
+                      href={stream.cta.href}
+                      className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-transparent bg-[color:var(--ink)] px-5 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-[color:var(--bg)] transition hover:bg-[color:var(--accent-amber)] hover:text-[color:var(--ink)]"
+                    >
+                      {stream.cta.label}
+                      <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
         </Container>
       </Section>
     </main>
