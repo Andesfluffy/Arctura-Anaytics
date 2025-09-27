@@ -11,17 +11,17 @@ const heroMetrics = [
   {
     value: '60 days',
     label: 'Mandate to launch',
-    copy: 'Policy, procurement, and platform tracks run in one lane so momentum never stalls.',
+    copy: 'Policy, procurement, and platform tracks run in one lane so progress never stalls.',
   },
   {
     value: '3 continents',
     label: 'Delivery footprint',
-    copy: 'On-site squads across Africa, Europe, and North America keep ministries, citizens, and partners aligned.',
+    copy: 'On-site squads across Africa, Europe, and North America keep ministries, citizens, and partners in lockstep.',
   },
   {
     value: '0 lock-in',
     label: 'Sovereign control',
-    copy: 'Open standards, transparent code, and graceful handovers mean every client owns their future roadmap.',
+    copy: 'Open standards, transparent code, and graceful handovers mean every client steers their own roadmap.',
   },
 ]
 
@@ -133,8 +133,8 @@ export default function AboutPage() {
               citizens, and markets alike.
             </h1>
             <p className="max-w-2xl text-balance text-base text-muted sm:text-lg">
-              Our squads fuse policy, engineering, and service design so every mandate—whether
-              national ID, digital permitting, or investor onboarding—lands fast and feels human.
+              Our squads align policy, engineering, and service design so every mandate—whether national ID,
+              digital permitting, or investor onboarding—moves from briefing to measurable progress.
             </p>
           </motion.div>
           <div className="grid gap-4 sm:grid-cols-3">
@@ -319,8 +319,8 @@ export default function AboutPage() {
               Ready to move policy, people, and partners together?
             </h3>
             <p className="mt-4 text-sm text-muted sm:text-base">
-              Tell us where confidence is fragile. We will script the path from pilot to national
-              proof with you.
+              Tell us where outcomes are stuck. We script the path from pilot to national proof
+              with you.
             </p>
             <Button
               asChild

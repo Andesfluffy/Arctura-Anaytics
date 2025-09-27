@@ -18,21 +18,21 @@ const heroStats = [
 
 const commitments = [
   {
-    title: 'Molten clarity',
+    title: 'Unified intelligence',
     description:
-      'We fuse fragmented data into a singular, decision-ready source so leadership can move with conviction.',
+      'Fragmented registries, casework, and operations data fuse into a single, reliable signal for leadership.',
     icon: Flame
   },
   {
-    title: 'Elemental trust',
+    title: 'Proof-first governance',
     description:
-      'Governance, security, and ethics are embedded from the first workshop to the last dashboard.',
+      'Oversight, security, and ethics rituals are embedded from the first workshop so every release withstands scrutiny.',
     icon: Mountain
   },
   {
-    title: 'Enduring momentum',
+    title: 'Momentum that endures',
     description:
-      'Coaching, rituals, and modern delivery keep every initiative glowing long after launch.',
+      'Coaching, change communications, and modern delivery keep programmes resilient long after launch.',
     icon: Sparkles
   }
 ]
@@ -62,18 +62,18 @@ export default function HomePage() {
               Arctura Analytics
             </span>
             <h1 className="text-balance text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
-              Ignite conviction with data platforms forged for critical missions.
+              Sovereign data platforms that let public leaders move with certainty.
             </h1>
             <p className="max-w-2xl text-lg text-muted">
-              We transform fragmented civic systems into living, intelligent infrastructures—quietly powerful,
-              fiercely secure, and ready for the next mandate.
+              We unify fragmented civic systems into resilient, intelligence-ready infrastructure—human-centred,
+              secure, and primed for the next mandate.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 rounded-full bg-[linear-gradient(120deg,var(--accent-start),var(--accent-mid),var(--accent-end))] px-6 py-3 text-sm font-semibold uppercase tracking-[0.32em] text-[#1a0505] shadow-[0_22px_64px_rgba(255,100,60,0.4)] transition hover:-translate-y-0.5 hover:shadow-[0_26px_74px_rgba(255,100,60,0.46)]"
               >
-                Start a project
+                Plan a briefing
                 <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
               </Link>
               <Link
@@ -111,10 +111,10 @@ export default function HomePage() {
         </div>
         <Container className="space-y-12">
           <div className="max-w-2xl space-y-5">
-            <h2 className="text-3xl font-black sm:text-4xl">Strategy shaped in the crucible.</h2>
+            <h2 className="text-3xl font-black sm:text-4xl">Strategy forged for national mandates.</h2>
             <p className="text-base text-muted sm:text-lg">
               Every programme is engineered to withstand scrutiny, scale gracefully, and elevate the people it
-              serves. We keep the story simple so the impact can be profound.
+              serves. We keep the brief focused so the outcomes stay measurable.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
@@ -150,21 +150,20 @@ export default function HomePage() {
                 Begin the ascent
               </span>
               <h2 className="text-3xl font-black text-[color:var(--ink)] sm:text-4xl">
-                Let’s channel your next mandate into momentum.
+                Let’s turn your next mandate into measurable progress.
               </h2>
               <p className="text-base text-muted sm:text-lg">
-                Share the challenges in front of you. We respond with a tailored path, clear governance, and the
-                team who will stand with you from spark to sustained impact.
+                Share the outcomes you need. We respond with a tailored squad, transparent governance, and proof-driven delivery from spark to steady state.
               </p>
               <div className="flex flex-wrap gap-3 text-sm text-muted">
                 <span className="rounded-full border border-[color:var(--border)] px-4 py-2 uppercase tracking-[0.32em]">
-                  Discovery in 10 days
+                  Briefing in 10 days
                 </span>
                 <span className="rounded-full border border-[color:var(--border)] px-4 py-2 uppercase tracking-[0.32em]">
                   Policy-ready roadmaps
                 </span>
                 <span className="rounded-full border border-[color:var(--border)] px-4 py-2 uppercase tracking-[0.32em]">
-                  On-site + remote squads
+                  Hybrid on-site + remote squads
                 </span>
               </div>
               <Link
@@ -177,15 +176,15 @@ export default function HomePage() {
             </div>
 
             <div className="surface-panel space-y-6 rounded-[28px] border border-[color:var(--border)] p-8 shadow-[0_36px_110px_rgba(8,3,6,0.55)] lg:border-l lg:pl-12">
-              <h3 className="text-2xl font-semibold text-[color:var(--ink)]">Plan a consultation.</h3>
+              <h3 className="text-2xl font-semibold text-[color:var(--ink)]">Plan your briefing.</h3>
               <p className="text-sm text-muted sm:text-base">
-                Outline your objectives and timeframes—we will align the specialists and spark the engagement.
+                Outline your objectives and timelines—we will align the specialists and choreograph the engagement.
               </p>
               <div className="grid gap-3 text-[0.68rem] uppercase tracking-[0.32em] text-muted sm:text-xs">
                 <span className="flex items-center gap-2">↗︎ Executive alignment in week one</span>
                 <span className="flex items-center gap-2">↗︎ Delivery blueprint within 30 days</span>
               </div>
-              <EmailCapture className="pt-1" submitLabel="Ignite the conversation" />
+              <EmailCapture className="pt-1" submitLabel="Request your briefing" />
             </div>
           </div>
         </Container>

@@ -10,7 +10,7 @@ const contactStreams = [
   {
     title: 'Mission partnerships',
     description:
-      'Executive leaders seeking a fortified data platform, digital service redesign, or emergency stabilisation.',
+      'Executive leaders preparing to fortify data platforms, redesign services, or stabilise critical infrastructure.',
     icon: Handshake,
     email: 'mission@arctura-analytics.com',
     meta: ['Dedicated partner in 48 hours', 'Strategic briefing deck in 10 days'],
@@ -21,7 +21,7 @@ const contactStreams = [
   {
     title: 'Media & speaking',
     description:
-      'Press, event curators, and policy forums ready to explore resilient civic technology and analytics.',
+      'Press, event curators, and policy forums exploring resilient civic technology and analytics.',
     icon: Megaphone,
     email: 'press@arctura-analytics.com',
     meta: ['Keynotes, panels, op-eds', 'Rapid insights & research highlights'],
@@ -35,7 +35,7 @@ const contactStreams = [
     icon: Sparkles,
     email: 'talent@arctura-analytics.com',
     meta: ['Invite-only talent constellation', 'Co-create sprints & fellowships'],
-    cta: { label: 'Spark a talent conversation', href: 'mailto:talent@arctura-analytics.com' },
+    cta: { label: 'Explore talent collaborations', href: 'mailto:talent@arctura-analytics.com' },
     gradient: 'from-[#5EEAD4]/40 via-[#38BDF8]/35 to-[#A855F7]/35'
   }
 ]
@@ -52,14 +52,13 @@ export default function ContactPage() {
         <Container className="relative z-[1] grid gap-14 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-6">
             <span className="inline-flex w-fit items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:var(--surface-muted)] px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.38em] text-muted">
-              Start the signal
+              Plan your briefing
             </span>
             <h1 className="text-balance text-4xl font-black leading-tight text-[color:var(--ink)] sm:text-5xl lg:text-6xl">
-              Let’s ignite momentum for your next mission.
+              Let’s plan the briefing that unlocks your next mandate.
             </h1>
             <p className="max-w-2xl text-lg text-muted">
-              Whether you are stabilising critical services, weaving data into decisive policy, or building the next
-              platform for millions—our team assembles fast, listens deeply, and co-creates a path that endures.
+              Whether you are stabilising critical services, weaving data into decisive policy, or building the next platform for millions, our team assembles fast, listens deeply, and co-creates a path built to endure.
             </p>
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="surface-card rounded-3xl border border-[color:var(--border)] p-6 shadow-soft">
@@ -86,7 +85,7 @@ export default function ContactPage() {
             </div>
             <p className="mt-5 text-lg font-semibold text-[color:var(--ink)]">hello@arctura-analytics.com</p>
             <p className="mt-2 text-sm text-muted">
-              Prefer a direct channel? Email us and the right team will respond with next steps and a calendar link.
+              Prefer a direct channel? Email us and the right team will respond with next steps and a briefing agenda.
             </p>
             <dl className="mt-6 grid gap-4 text-sm text-muted">
               <div className="flex items-start gap-3">
@@ -108,7 +107,7 @@ export default function ContactPage() {
               href="mailto:talent@arctura-analytics.com"
               className="mt-8 inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] px-5 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-muted transition hover:text-[color:var(--ink)]"
             >
-              Connect with our talent team
+              Join the talent collective
               <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
             </a>
           </div>
@@ -122,8 +121,8 @@ export default function ContactPage() {
         />
         <Container className="relative z-[1] space-y-10">
           <SectionHeader
-            title="Choose the momentum lane that thrills you"
-            subtitle="Each stream plugs you directly into a specialised crew—no generic forms, just fast, human guidance."
+            title="Choose the stream that matches your mission"
+            subtitle="Each pathway connects you directly to a specialist crew—no generic forms, just informed guidance from day one."
           />
           <div className="grid gap-6 lg:grid-cols-3">
             {contactStreams.map((stream) => (
