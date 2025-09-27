@@ -51,7 +51,7 @@ export function Header() {
           : 'bg-transparent'
       )}
     >
-      <Container className="grid h-16 grid-cols-[auto_1fr_auto] items-center gap-4 md:h-20">
+      <Container className="flex h-16 items-center gap-4 md:h-20">
         <Link
           href="/"
           className="flex items-center gap-3 text-[color:var(--ink)]"
@@ -62,7 +62,7 @@ export function Header() {
 
         {/* Desktop nav */}
         <nav
-          className="hidden items-center justify-center gap-1 justify-self-center rounded-full border border-[color:var(--border)] bg-[color:var(--surface-muted)]/80 p-1 text-sm text-muted md:flex"
+          className="hidden flex-1 items-center justify-end gap-1 rounded-full border border-[color:var(--border)] bg-[color:var(--surface-muted)]/80 p-1 text-sm text-muted md:flex"
           aria-label="Primary"
         >
           {mainNav.map((item) => (
@@ -88,7 +88,7 @@ export function Header() {
         </nav>
 
         {/* CTA + Mobile toggle */}
-        <div className="flex items-center gap-2 justify-self-end">
+        <div className="flex items-center gap-2">
           <button
             type="button"
             className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[color:var(--border)] text-[color:var(--fg)] transition hover:border-[color:var(--border-strong)] hover:text-[color:var(--ink)] md:hidden"
