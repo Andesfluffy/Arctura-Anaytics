@@ -88,7 +88,7 @@ export function Header() {
         </nav>
 
         {/* CTA + Mobile toggle */}
-        <div className="flex items-center gap-2">
+        <div className="ml-auto flex items-center gap-2">
           <button
             type="button"
             className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[color:var(--border)] text-[color:var(--fg)] transition hover:border-[color:var(--border-strong)] hover:text-[color:var(--ink)] md:hidden"
